@@ -6,13 +6,15 @@ import {
   FaTiktok,
 } from "react-icons/fa";
 
+import { BsTwitterX } from "react-icons/bs";
+
 const Footer = () => {
   return (
     <footer className="border-t border-dashed border-stone-800 bg-black">
       <div className="mx-4">
         <div className="max-w-6xl mx-auto py-10 md:py-20 lg:py-30 px-4 sm:px-6 border-x border-dashed border-stone-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <h2 className="text-2xl font-bold text-white">Fizora.</h2>
+            <h2 className="text-2xl font-bold text-white font-mono">Fizora.</h2>
             <div className="flex gap-6">
               <a
                 href="https://www.instagram.com/fizoraaa/"
@@ -28,7 +30,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition"
               >
-                <FaTwitter size={22} />
+                <BsTwitterX size={22} />
               </a>
               <a
                 href="https://github.com/Fizora/my-profile"
