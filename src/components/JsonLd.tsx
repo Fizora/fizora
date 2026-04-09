@@ -3,9 +3,9 @@ export default function JsonLd() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: "Fizora",
-    url: "https://fizora.com",
-    logo: "https://fizora.com/logo.png",
-    image: "https://fizora.com/og-image.jpg",
+    url: "https://fizora.vercel.app",
+    logo: "https://fizora.vercel.app/Fizorra.png",
+    image: "https://fizora.vercel.app/og-image.jpg",
     description:
       "Jasa pembuatan landing page dan website profesional untuk UMKM, kuliner, coffee shop, dan bisnis lokal. Desain modern, cepat, dan terbukti tingkatkan konversi.",
     address: {
