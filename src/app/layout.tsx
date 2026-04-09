@@ -88,6 +88,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
+      data-scroll-behavior="smooth"
       lang="id"
       className={cn(
         "h-full antialiased",

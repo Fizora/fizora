@@ -191,6 +191,7 @@ export default function ProjectsPage() {
                       src={project.img}
                       alt={project.title}
                       fill
+                      priority={idx === 0}
                       className="object-cover group-hover:scale-105 transition duration-500"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
@@ -233,6 +234,7 @@ export default function ProjectsPage() {
         </div>
       </div>
 
+      <Contact />
       {/* Skathes 2: Quotes penutup yang memotivasi dan mengajak bertindak */}
       <Skathes>
         <div className="text-center space-y-2">
@@ -245,8 +247,14 @@ export default function ProjectsPage() {
           </p>
         </div>
       </Skathes>
-
-      <Contact />
+      {/* <div className="flex items-center justify-center bg-purple-600">
+        <Image
+          src={"/Fizorra.png"}
+          width={600}
+          height={600}
+          alt={"Fizorra"}
+        ></Image>
+      </div> */}
       <Footer />
     </main>
   );

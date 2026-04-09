@@ -20,7 +20,7 @@ const Footer = () => {
                 href="https://www.instagram.com/fizoraaa/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition"
+                className="text-gray-400 hover:text-purple-500 transition"
               >
                 <FaInstagram size={22} />
               </a>
@@ -28,7 +28,7 @@ const Footer = () => {
                 href="https://x.com/beast2838"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition"
+                className="text-gray-400 hover:text-purple-500 transition"
               >
                 <BsTwitterX size={22} />
               </a>
@@ -36,7 +36,7 @@ const Footer = () => {
                 href="https://github.com/Fizora/my-profile"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition"
+                className="text-gray-400 hover:text-purple-500 transition"
               >
                 <FaGithub size={22} />
               </a>
@@ -44,7 +44,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/in/moch-choirul-faiz-9ba4282a2/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition"
+                className="text-gray-400 hover:text-purple-500 transition"
               >
                 <FaLinkedin size={22} />
               </a>
@@ -52,7 +52,7 @@ const Footer = () => {
                 href="https://www.tiktok.com/@fizoraaa"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition"
+                className="text-gray-400 hover:text-purple-500 transition"
               >
                 <FaTiktok size={22} />
               </a>
