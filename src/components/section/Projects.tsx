@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 import { LuArrowUpRight } from "react-icons/lu";
 
 interface Project {
@@ -103,13 +104,14 @@ const Projects = () => {
           <div className="flex md:flex-row flex-col justify-center items-center gap-2 text-center mt-12">
             <Link
               href="#contact"
-              className="inline-block border bg-purple-500 border-purple-500 text-white  px-6 py-2 rounded-md transition"
+              className="border bg-purple-500 border-purple-500 text-white font-bold  px-6 py-2 rounded-md transition flex items-center gap-2"
             >
               Pesan Proyek Serupa
+              <FaWhatsapp size={22} />
             </Link>
             <Link
               href="#contact"
-              className="flex items-center border border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-black px-6 py-2 rounded-md transition"
+              className="flex items-center border border-purple-500 text-purple-400 hover:bg-purple-500 font-bold hover:text-black px-6 py-2 rounded-md transition"
             >
               Lihat Semua Proyek
               <LuArrowUpRight className="ml-2" />

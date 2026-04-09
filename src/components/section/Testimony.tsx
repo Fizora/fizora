@@ -14,24 +14,24 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     name: "Ahmad R.",
-    role: "CEO Startup Edukasi",
-    text: "Website kami jadi lebih cepat dan konversi naik 40% setelah menggunakan Fizora. Sangat profesional!",
+    role: "Owner Cafe",
+    text: "Website saya jadi terlihat lebih profesional dan mulai dapat customer dari Google.",
     rating: 5,
-    img: "/avatar1.jpg",
+    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces",
   },
   {
     name: "Siti N.",
-    role: "Owner Brand Fashion",
-    text: "Desainnya modern dan sesuai identitas brand. Pelayanan ramah dan cepat.",
+    role: "Owner Fashion",
+    text: "Landing page-nya cepat dan desainnya menarik, customer jadi lebih percaya.",
     rating: 5,
-    img: "/avatar2.jpg",
+    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces",
   },
   {
     name: "Budi S.",
     role: "Digital Marketer",
-    text: "Pilihan tepat untuk landing page produk. Dukungan teknis responsif.",
+    text: "Conversion meningkat setelah pakai landing page ini. Recommended!",
     rating: 4,
-    img: "/avatar3.jpg",
+    img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=faces",
   },
 ];
 
@@ -83,6 +83,7 @@ const Testimony = () => {
                       fill
                       className="object-cover"
                       sizes="40px"
+                      unoptimized // karena dari external URL, hindari optimasi Next.js yang mungkin gagal
                     />
                   </div>
                   <div>

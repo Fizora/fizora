@@ -60,15 +60,15 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
                 viewport={{ once: false }}
-                className="border border-dashed border-stone-800 p-10 text-center hover:bg-purple-500 transition group bg-black/40 backdrop-blur-sm"
+                className="border border-dashed border-stone-800 p-10 text-center hover:bg-purple-700 transition group bg-black/40 backdrop-blur-sm"
               >
-                <div className="text-4xl group-hover:text-black text-purple-400 mb-4 group-hover:scale-110 transition">
+                <div className="text-4xl group-hover:text-white text-purple-400 mb-4 group-hover:scale-110 transition">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-white group-hover:text-black font-mono">
+                <h3 className="text-xl font-semibold text-white  font-mono">
                   {service.title}
                 </h3>
-                <p className="text-gray-400 group-hover:text-black mt-2">
+                <p className="text-gray-400 group-hover:text-white mt-2">
                   {service.desc}
                 </p>
               </motion.div>

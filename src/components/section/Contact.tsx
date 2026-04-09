@@ -55,7 +55,7 @@ const Contact = () => {
                   placeholder="Nama Lengkap"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full bg-gray-900 border border-gray-700 rounded-md p-3 text-white focus:outline-none focus:border-purple-500"
+                  className="w-full bg-gray-950/60 border border-dashed border-stone-800 p-3 text-white focus:outline-none focus:border-purple-500"
                   required
                 />
                 <input
@@ -63,7 +63,7 @@ const Contact = () => {
                   placeholder="Email"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full bg-gray-900 border border-gray-700 rounded-md p-3 text-white"
+                  className="w-full bg-gray-950/60 border border-dashed border-stone-800 p-3 text-white focus:outline-none focus:border-purple-500"
                   required
                 />
                 <textarea
@@ -73,7 +73,7 @@ const Contact = () => {
                   onChange={(e) =>
                     setForm({ ...form, message: e.target.value })
                   }
-                  className="w-full bg-gray-900 border border-gray-700 rounded-md p-3 text-white"
+                  className="w-full bg-gray-950/60 border border-dashed border-stone-800 p-3 text-white focus:outline-none focus:border-purple-500"
                 ></textarea>
                 <button
                   type="submit"
@@ -94,21 +94,23 @@ const Contact = () => {
                 <FaWhatsapp className="text-green-400 text-2xl" />
                 <div>
                   <p className="text-white font-medium">WhatsApp</p>
-                  <p className="text-gray-400">+62 812-3456-7890</p>
+                  <p className="text-gray-400">+62 852-3508-6814</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <FaEnvelope className="text-purple-400 text-2xl" />
                 <div>
                   <p className="text-white font-medium">Email</p>
-                  <p className="text-gray-400">hello@fizora.com</p>
+                  <p className="text-gray-400">faizmoch63@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <FaMapMarkerAlt className="text-red-400 text-2xl" />
                 <div>
                   <p className="text-white font-medium">Lokasi</p>
-                  <p className="text-gray-400">Jakarta, Indonesia (Remote)</p>
+                  <p className="text-gray-400">
+                    Jawa Timur, Indonesia (Remote)
+                  </p>
                 </div>
               </div>
               <div className="bg-gray-900/50 p-4 rounded-lg border border-stone-800">
