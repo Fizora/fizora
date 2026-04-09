@@ -12,7 +12,7 @@ const fontMono = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://fizora.com"), // Ganti dengan domain asli Anda
+  metadataBase: new URL("https://fizora.vercel.app"), // Ganti dengan domain asli Anda
   title: {
     default:
       "Fizora - Jasa Pembuatan Website Profesional untuk UMKM & Coffee Shop",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "Fizora",
     "web developer Indonesia",
   ],
-  authors: [{ name: "Fizora", url: "https://fizora.com" }],
+  authors: [{ name: "Fizora", url: "https://fizora.vercel.app" }],
   creator: "Fizora",
   publisher: "Fizora",
   formatDetection: {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Fizora - Jasa Website untuk UMKM & Coffee Shop",
     description:
       "Tingkatkan penjualan bisnis Anda dengan website modern. Konsultasi gratis tanpa ribet.",
-    url: "https://fizora.com",
+    url: "https://fizora.vercel.app",
     siteName: "Fizora",
     images: [
       {
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://fizora.com",
+    canonical: "https://fizora.vercel.app",
   },
   category: "technology",
 };

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: [],
     },
-    sitemap: "https://fizora.com/sitemap.xml",
+    sitemap: "https://fizora.vercel.app/sitemap.xml",
   };
 }
