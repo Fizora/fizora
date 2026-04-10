@@ -14,7 +14,7 @@ interface Plan {
 const plans: Plan[] = [
   {
     name: "Basic",
-    price: "400rb",
+    price: "400.000",
     features: [
       "1 Landing Page",
       "Mobile Friendly",
