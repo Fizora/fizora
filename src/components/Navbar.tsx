@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { LuMenu, LuX } from "react-icons/lu";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
@@ -22,6 +22,21 @@ const Navbar = () => {
     useState<boolean>(false);
   const [isTestimonyDropdownOpen, setIsTestimonyDropdownOpen] =
     useState<boolean>(false);
+  const navRef = useRef<HTMLHeaderElement>(null);
+
+  // Handle click outside to close dropdowns
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setIsProjectsDropdownOpen(false);
+        setIsTestimonyDropdownOpen(false);
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   // Navigasi biasa (tanpa Contact) – tidak ditampilkan di halaman /projects
   const mainNavItems: NavItem[] = [
@@ -96,8 +111,10 @@ const Navbar = () => {
             {isOpen ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}
           </button>
           <div
-            className={`absolute top-full left-0 mt-2 bg-black border border-dashed border-stone-800 rounded-md shadow-lg z-10 transition-all duration-300 overflow-hidden ${
-              isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+            className={`absolute top-full left-0 mt-2 bg-black border border-dashed border-stone-800 rounded-md shadow-lg z-10 transition-all duration-300 overflow-hidden origin-top ${
+              isOpen
+                ? "max-h-40 opacity-100 scale-y-100"
+                : "max-h-0 opacity-0 scale-y-95"
             }`}
           >
             <div className="flex flex-col p-2">
@@ -181,7 +198,10 @@ const Navbar = () => {
   };
 
   return (
-    <header className="w-full border-b border-dashed border-stone-800 fixed top-0 left-0 right-0 bg-black z-50">
+    <header
+      ref={navRef}
+      className="w-full border-b border-dashed border-stone-800 fixed top-0 left-0 right-0 bg-black z-50"
+    >
       <TargetCursor
         spinDuration={2}
         hideDefaultCursor
