@@ -263,7 +263,7 @@ export default function TestimonyPage() {
                 >
                   {/* Header Testimoni */}
                   <div className="flex items-start gap-3 mb-4">
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0">
                       <Image
                         src={testimony.img}
                         alt={testimony.name}

@@ -10,6 +10,7 @@ import Projects from "@/components/section/Projects";
 import Testimony from "@/components/section/Testimony";
 import Skathes from "@/components/Skathes";
 import TargetCursor from "@/components/TargetCursor";
+import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 import Image from "next/image";
 
 export default function Home() {
@@ -71,7 +72,7 @@ export default function Home() {
 
             <a
               href="#contact"
-              className="cursor-target cursor-pointerinline-block mt-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-1.5 rounded-md text-sm font-semibold transition"
+              className="cursor-target cursor-pointer inline-block mt-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-1.5 rounded-md text-sm font-semibold transition"
             >
               Ya, Saya Mau Konsultasi →
             </a>
@@ -91,6 +92,7 @@ export default function Home() {
             </div>
           </div>
         </section> */}
+        <FloatingWhatsAppButton />
       </main>
     </>
   );

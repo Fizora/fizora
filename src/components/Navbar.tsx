@@ -22,7 +22,7 @@ const Navbar = () => {
     useState<boolean>(false);
   const [isTestimonyDropdownOpen, setIsTestimonyDropdownOpen] =
     useState<boolean>(false);
-  const navRef = useRef<HTMLHeaderElement>(null);
+  const navRef = useRef<HTMLElement>(null);
 
   // Handle click outside to close dropdowns
   useEffect(() => {
@@ -105,7 +105,7 @@ const Navbar = () => {
         <div key={idx} className="relative">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="cursor-target flex items-center gap-1 text-sm font-medium text-gray-300 hover:text-gray-400 transition duration-200"
+            className="cursor-target p-2 flex items-center gap-1 text-sm font-medium text-gray-300 hover:text-gray-400 transition duration-200"
           >
             {item.name}
             {isOpen ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}
@@ -113,7 +113,7 @@ const Navbar = () => {
           <div
             className={`absolute top-full left-0 mt-2 bg-black border border-dashed border-stone-800 rounded-md shadow-lg z-10 transition-all duration-300 overflow-hidden origin-top ${
               isOpen
-                ? "max-h-40 opacity-100 scale-y-100"
+                ? "max-h-96 opacity-100 scale-y-100"
                 : "max-h-0 opacity-0 scale-y-95"
             }`}
           >
@@ -267,7 +267,7 @@ const Navbar = () => {
           {/* Mobile menu – konten sudah disesuaikan dengan mobileMenuItems */}
           <div
             className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-              isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+              isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
             }`}
           >
             <nav className="flex flex-col gap-4 py-6 border-t border-dashed border-stone-800">

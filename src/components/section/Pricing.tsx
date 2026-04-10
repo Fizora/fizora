@@ -220,7 +220,7 @@ const Pricing = () => {
                       <h4 className="text-2xl font-bold text-white font-mono">
                         {plan.name}
                       </h4>
-                      <p className="text-gray-400 text-sm mt-2 min-h-[2.5rem]">
+                      <p className="text-gray-400 text-sm mt-2 min-h-10">
                         {plan.description}
                       </p>
 
@@ -271,7 +271,7 @@ const Pricing = () => {
                             key={i}
                             className="flex items-center gap-2 text-gray-300 text-sm"
                           >
-                            <FaCheck className="text-green-400 text-xs flex-shrink-0" />
+                            <FaCheck className="text-green-400 text-xs shrink-0" />
                             <span>{feat}</span>
                           </li>
                         ))}

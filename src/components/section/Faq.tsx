@@ -98,7 +98,7 @@ const Faq = () => {
                   <motion.div
                     animate={{ rotate: expandedIndex === idx ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="flex-shrink-0 ml-4 text-purple-400"
+                    className="shrink-0 ml-4 text-purple-400"
                   >
                     <FaChevronDown size={20} />
                   </motion.div>
