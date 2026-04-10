@@ -97,7 +97,7 @@ export default function RootLayout({
         fontMono.variable,
       )}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-screen flex flex-col">
         <JsonLd />
         <ClientLayout>{children}</ClientLayout>
       </body>
