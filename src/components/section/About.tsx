@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { FaCode, FaPalette, FaRocket } from "react-icons/fa";
 import { JSX } from "react/jsx-dev-runtime";
-import Skathes from "../Skathes";
 import TargetCursor from "../TargetCursor";
 
 interface Service {
@@ -33,7 +32,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="border-b border-dashed border-stone-800 bg-black/50"
+      className="border-y border-dashed border-stone-800 bg-black/50"
     >
       <TargetCursor
         spinDuration={2}
@@ -42,24 +41,34 @@ const About = () => {
         hoverDuration={0.2}
       />
       <div className="mx-4">
-        <div className="max-w-6xl mx-auto py-10 md:py-20 border-x border-dashed border-stone-800">
+        <div className="max-w-6xl mx-auto py-10 md:py-20 border border-dashed border-stone-800">
+          {/* top content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: false }}
-            className="text-center max-w-2xl mx-auto"
+            className="text-center mx-auto border-y border-dashed border-stone-800 py-20"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white font-mono">
               Tentang <span className="text-purple-400">Fizora</span>
             </h2>
-            <p className="text-gray-300 mt-4">
-              Saya adalah web developer profesional dengan pengalaman 5+ tahun
+            <p className="text-gray-300 mt-4 mx-auto max-w-2xl text-center">
+              Saya adalah web developer profesional dengan pengalaman 3+ tahun
               membantu brand meningkatkan penjualan melalui website berkualitas.
             </p>
           </motion.div>
 
-          <div className="bg-black bg-[repeating-linear-gradient(45deg,_#2a2a2a_0,_#2a2a2a_1px,_transparent_0,_transparent_50%)] bg-[size:5px_5px] relative w-full py-4 px-5 grid md:grid-cols-3 gap-4 mt-16 border-y border-dashed border-stone-800">
+          {/* bottom content - menggunakan style inline untuk background pattern */}
+          <div
+            className="relative w-full py-4 px-5 grid md:grid-cols-3 gap-4 mt-16 border-y border-dashed border-stone-800"
+            style={{
+              backgroundColor: "black",
+              backgroundImage:
+                "repeating-linear-gradient(45deg, #2a2a2a 0, #2a2a2a 1px, transparent 0, transparent 50%)",
+              backgroundSize: "5px 5px",
+            }}
+          >
             {services.map((service, idx) => (
               <motion.div
                 key={idx}
@@ -67,12 +76,12 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
                 viewport={{ once: false }}
-                className="border border-dashed border-stone-800 p-10 text-center hover:bg-purple-700 transition group bg-black/40 backdrop-blur-sm"
+                className="cursor-target border border-dashed border-stone-800 p-10 text-center hover:bg-purple-700 transition group bg-black/40 backdrop-blur-sm"
               >
                 <div className="text-4xl group-hover:text-white text-purple-400 mb-4 group-hover:scale-110 transition">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-white  font-mono">
+                <h3 className="text-xl font-semibold text-white font-mono">
                   {service.title}
                 </h3>
                 <p className="text-gray-400 group-hover:text-white mt-2">

@@ -77,7 +77,7 @@ const Projects = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: idx * 0.1 }}
                 viewport={{ once: false }}
-                className="group relative overflow-hidden rounded-xl bg-gray-900"
+                className="cursor-target group relative overflow-hidden rounded-xl bg-gray-900"
                 onMouseEnter={() => setHovered(idx)}
                 onMouseLeave={() => setHovered(null)}
               >
@@ -118,7 +118,7 @@ const Projects = () => {
             </Link>
             <Link
               href="#contact"
-              className="cursor-target flex items-center border border-purple-500 text-purple-400 hover:bg-purple-500 font-bold hover:text-black px-6 py-2 rounded-md transition"
+              className="cursor-target flex items-center border border-white bg-white text-black font-bold  px-6 py-2 rounded-md transition"
             >
               Lihat Semua Proyek
               <LuArrowUpRight className="ml-2" />

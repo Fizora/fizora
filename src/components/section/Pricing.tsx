@@ -29,6 +29,7 @@ const categories: Category[] = [
         hostingMonthly: 12900,
         features: [
           "1 Landing Page",
+          "Online 1 tahun",
           "Mobile Friendly",
           "CTA WhatsApp",
           "Template Design",
@@ -46,6 +47,7 @@ const categories: Category[] = [
         hostingMonthly: 24900,
         features: [
           "1 Landing Page Custom",
+          "Online 1 tahun",
           "SEO Basic",
           "AI Copywriting",
           "Fast Loading (Next.js)",
@@ -65,6 +67,7 @@ const categories: Category[] = [
         hostingMonthly: 38900,
         features: [
           "Landing Page High Conversion",
+          "Online 1 tahun",
           "Advanced Copywriting",
           "Struktur Funnel Lengkap",
           "Speed Optimization",
@@ -89,6 +92,7 @@ const categories: Category[] = [
         hostingMonthly: 116900,
         features: [
           "5-10 Halaman Website",
+          "Online 1 tahun",
           "Custom Design Sepenuhnya",
           "Advanced SEO",
           "Blog/Content Management",
@@ -109,6 +113,7 @@ const categories: Category[] = [
         hostingMonthly: 116900,
         features: [
           "10-20 Halaman Website",
+          "Online 1 tahun",
           "Full Custom Development",
           "Advanced SEO + Schema",
           "Blog + CMS System",
@@ -128,6 +133,7 @@ const categories: Category[] = [
         hostingMonthly: 116900,
         features: [
           "20+ Halaman Website",
+          "Online 1 tahun",
           "Complete Custom Solution",
           "Enterprise SEO",
           "Advanced CMS System",
@@ -171,7 +177,7 @@ const Pricing = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-center"
+            className=" text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white font-mono">
               Paket Website yang{" "}
@@ -205,7 +211,7 @@ const Pricing = () => {
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ delay: idx * 0.1 }}
-                      className={`relative p-6 rounded-lg border-2 transition duration-300 hover:scale-105 flex flex-col ${
+                      className={` relative p-6 rounded-lg border-2 transition duration-300 hover:scale-105 flex flex-col ${
                         plan.recommended
                           ? "border-purple-500 bg-gray-900 shadow-xl shadow-purple-500/20"
                           : "border-stone-800 bg-gray-900/40"

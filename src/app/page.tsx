@@ -1,4 +1,5 @@
 "use client";
+import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import About from "@/components/section/About";
@@ -10,7 +11,6 @@ import Projects from "@/components/section/Projects";
 import Testimony from "@/components/section/Testimony";
 import Skathes from "@/components/Skathes";
 import TargetCursor from "@/components/TargetCursor";
-import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 import Image from "next/image";
 
 export default function Home() {
@@ -25,6 +25,9 @@ export default function Home() {
         />
         <Navbar />
         <Hero />
+        <Skathes>
+          <div className="space-y-2"></div>
+        </Skathes>
         <About />
 
         {/* Skathes 1: Social Proof + Urgensi */}
@@ -39,7 +42,6 @@ export default function Home() {
             </p>
           </div>
         </Skathes>
-
         <Projects />
         <Pricing />
 

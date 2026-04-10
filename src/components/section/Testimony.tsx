@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { FaStar } from "react-icons/fa";
 import Image from "next/image";
+import TargetCursor from "../TargetCursor";
 
 interface Testimonial {
   name: string;
@@ -38,6 +39,12 @@ const testimonials: Testimonial[] = [
 const Testimony = () => {
   return (
     <section id="testimony" className="border-y border-dashed border-stone-800">
+      <TargetCursor
+        spinDuration={2}
+        hideDefaultCursor
+        parallaxOn
+        hoverDuration={0.2}
+      />
       <div className="mx-4">
         <div className="max-w-6xl mx-auto py-10 md:py-20 px-4 sm:px-6 border-x border-dashed border-stone-800">
           <motion.div
@@ -62,7 +69,7 @@ const Testimony = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: idx * 0.1 }}
                 viewport={{ once: false }}
-                className="bg-gray-900/30 p-6 rounded-xl border border-stone-800 hover:border-purple-500 transition"
+                className="cursor-target bg-gray-900/30 p-6 rounded-xl border border-stone-800 hover:border-purple-500 transition"
               >
                 <div className="flex gap-1 text-yellow-400 mb-3">
                   {[...Array(5)].map((_, i) => (

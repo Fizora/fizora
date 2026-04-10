@@ -13,7 +13,7 @@ const FloatingWhatsAppButton = () => {
         href={`https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="cursor-target whatsapp-button fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full transition transform hover:scale-110 flex items-center justify-center z-40"
+        className="cursor-target whatsapp-button fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full transition transform hover:scale-110 flex items-center justify-center z-40"
         aria-label="Chat via WhatsApp"
       >
         <FaWhatsapp size={28} />

@@ -31,6 +31,17 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: false }}
           >
+            {/* Tagline Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="inline-flex items-center gap-2 bg-purple-900/50 backdrop-blur-sm border border-purple-500/30 rounded-full px-4 py-1.5 mb-6 mx-auto md:mx-0 md:inline-flex"
+            >
+              <span className="text-purple-400 text-sm font-medium">
+                ✨ Professional Web Developer
+              </span>
+            </motion.div>
             <h1 className="text-4xl md:text-6xl font-black text-white mt-6 leading-tight font-mono">
               <span className="text-purple-500">
                 Bangun Websitemu Sekarang{" "}
@@ -53,7 +64,7 @@ const Hero = () => {
               </a>
               <Link
                 href="/projects"
-                className="cursor-target bg-white text-black border border-white px-6 py-3 rounded-md font-semibold transition"
+                className="cursor-target bg-white text-black border border-white px-6 py-3 rounded-md font-bold transition"
               >
                 Lihat Portfolio
               </Link>
