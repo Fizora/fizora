@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { FaCode, FaPalette, FaRocket } from "react-icons/fa";
 import { JSX } from "react/jsx-dev-runtime";
 import Skathes from "../Skathes";
+import TargetCursor from "../TargetCursor";
 
 interface Service {
   icon: JSX.Element;
@@ -34,6 +35,12 @@ const About = () => {
       id="about"
       className="border-b border-dashed border-stone-800 bg-black/50"
     >
+      <TargetCursor
+        spinDuration={2}
+        hideDefaultCursor
+        parallaxOn
+        hoverDuration={0.2}
+      />
       <div className="mx-4">
         <div className="max-w-6xl mx-auto py-10 md:py-20 border-x border-dashed border-stone-800">
           <motion.div
@@ -78,7 +85,7 @@ const About = () => {
           <div className="text-center mt-12">
             <a
               href="#contact"
-              className="inline-block bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-md font-semibold transition transform hover:-translate-y-1"
+              className="cursor-target inline-block bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-md font-semibold transition transform hover:-translate-y-1"
             >
               Konsultasi Gratis →
             </a>

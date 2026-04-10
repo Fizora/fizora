@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { FaCheck, FaTimes } from "react-icons/fa";
 import { useState, useEffect } from "react";
+import TargetCursor from "../TargetCursor";
 
 interface Plan {
   name: string;
@@ -110,6 +111,12 @@ const Pricing = () => {
   return (
     <>
       <section id="pricing" className="border-y border-dashed border-stone-800">
+        <TargetCursor
+          spinDuration={2}
+          hideDefaultCursor
+          parallaxOn
+          hoverDuration={0.2}
+        />
         <div className="mx-4">
           <div className="max-w-6xl mx-auto py-10 md:py-20 px-4 sm:px-6 border-x border-dashed border-stone-800">
             {/* HEADER */}
@@ -169,7 +176,7 @@ const Pricing = () => {
 
                   <button
                     onClick={() => handlePlanClick(plan)}
-                    className="mt-8 inline-block w-full py-2 rounded-md font-semibold transition bg-purple-600 hover:bg-purple-700 text-white"
+                    className="cursor-target cursor-pointer mt-8 inline-block w-full py-2 rounded-md font-semibold transition bg-purple-600 hover:bg-purple-700 text-white"
                   >
                     {plan.cta}
                   </button>
@@ -369,13 +376,13 @@ const Pricing = () => {
             <div className="sticky bottom-0 bg-black border-t border-dashed border-stone-800 px-6 py-4 flex flex-col sm:flex-row gap-3">
               <button
                 onClick={handleCloseModal}
-                className="flex-1 bg-gray-800 hover:bg-gray-700 text-white py-2 rounded-md transition border border-dashed border-stone-600"
+                className="cursor-target cursor-pointer flex-1 bg-gray-800 hover:bg-gray-700 text-white py-2 rounded-md transition border border-dashed border-stone-600"
               >
                 Tutup
               </button>
               <button
                 onClick={handleProceed}
-                className="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-md transition font-bold font-mono"
+                className="cursor-target cursor-pointer flex-1 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-md transition font-bold font-mono"
               >
                 Lanjut ke Konsultasi →
               </button>

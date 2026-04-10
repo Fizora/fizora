@@ -1,3 +1,4 @@
+"use client";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import About from "@/components/section/About";
@@ -7,11 +8,18 @@ import Pricing from "@/components/section/Pricing";
 import Projects from "@/components/section/Projects";
 import Testimony from "@/components/section/Testimony";
 import Skathes from "@/components/Skathes";
+import TargetCursor from "@/components/TargetCursor";
 
 export default function Home() {
   return (
     <>
       <main className="font-sans bg-black">
+        <TargetCursor
+          spinDuration={2}
+          hideDefaultCursor
+          parallaxOn
+          hoverDuration={0.2}
+        />
         <Navbar />
         <Hero />
         <About />
@@ -59,7 +67,7 @@ export default function Home() {
             </p>
             <a
               href="#contact"
-              className="inline-block mt-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-1.5 rounded-md text-sm font-semibold transition"
+              className="cursor-target cursor-pointerinline-block mt-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-1.5 rounded-md text-sm font-semibold transition"
             >
               Ya, Saya Mau Konsultasi →
             </a>

@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useState, FormEvent } from "react";
 import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import TargetCursor from "../TargetCursor";
 
 interface FormData {
   name: string;
@@ -27,6 +28,12 @@ const Contact = () => {
 
   return (
     <section id="contact" className="border-b border-dashed border-stone-800">
+      <TargetCursor
+        spinDuration={2}
+        hideDefaultCursor
+        parallaxOn
+        hoverDuration={0.2}
+      />
       <div className="mx-4">
         <div className="max-w-6xl mx-auto py-10 md:py-20 px-4 sm:px-6 border-x border-dashed border-stone-800">
           <motion.div
@@ -55,7 +62,7 @@ const Contact = () => {
                   placeholder="Nama Lengkap"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full bg-gray-950/60 border border-dashed border-stone-800 p-3 text-white focus:outline-none focus:border-purple-500"
+                  className="cursor-target w-full bg-gray-950/60 border border-dashed border-stone-800 p-3 text-white focus:outline-none focus:border-purple-500"
                   required
                 />
                 <input
@@ -63,7 +70,7 @@ const Contact = () => {
                   placeholder="Email"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full bg-gray-950/60 border border-dashed border-stone-800 p-3 text-white focus:outline-none focus:border-purple-500"
+                  className="cursor-target w-full bg-gray-950/60 border border-dashed border-stone-800 p-3 text-white focus:outline-none focus:border-purple-500"
                   required
                 />
                 <textarea
@@ -73,11 +80,11 @@ const Contact = () => {
                   onChange={(e) =>
                     setForm({ ...form, message: e.target.value })
                   }
-                  className="w-full bg-gray-950/60 border border-dashed border-stone-800 p-3 text-white focus:outline-none focus:border-purple-500"
+                  className="cursor-target w-full bg-gray-950/60 border border-dashed border-stone-800 p-3 text-white focus:outline-none focus:border-purple-500"
                 ></textarea>
                 <button
                   type="submit"
-                  className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-md transition transform hover:-translate-y-1"
+                  className="cursor-target cursor-pointer w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-md transition transform hover:-translate-y-1"
                 >
                   Kirim via WhatsApp →
                 </button>

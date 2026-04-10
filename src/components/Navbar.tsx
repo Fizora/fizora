@@ -4,6 +4,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { LuMenu, LuX } from "react-icons/lu";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import TargetCursor from "./TargetCursor";
 
 interface NavItem {
   name: string;
@@ -40,13 +41,14 @@ const Navbar = () => {
     {
       name: "Hubungi Kami",
       url: "#contact",
-      style: "text-gray-300 hover:text-gray-400 transition duration-200",
+      style:
+        "cursor-target text-gray-300 hover:text-gray-400 transition duration-200",
     },
     {
       name: "Semua Proyek Saya ✨",
       url: "/projects",
       style:
-        "bg-purple-600 rounded-md px-4 py-2 text-white hover:bg-purple-700 transition duration-300 ease-in-out transform active:-translate-y-1 font-black font-mono",
+        "cursor-target bg-purple-600 rounded-md px-4 py-2 text-white hover:bg-purple-700 transition duration-300 ease-in-out transform active:-translate-y-1 font-black font-mono",
     },
   ];
 
@@ -63,7 +65,7 @@ const Navbar = () => {
         <div key={idx} className="relative">
           <button
             onClick={() => setIsProjectsDropdownOpen(!isProjectsDropdownOpen)}
-            className="flex items-center gap-1 text-sm font-medium text-gray-300 hover:text-gray-400 transition duration-200"
+            className="cursor-target flex items-center gap-1 text-sm font-medium text-gray-300 hover:text-gray-400 transition duration-200"
           >
             {item.name}
             {isProjectsDropdownOpen ? (
@@ -85,7 +87,7 @@ const Navbar = () => {
                   key={subIdx}
                   href={subItem.url}
                   onClick={() => setIsProjectsDropdownOpen(false)}
-                  className="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-900 whitespace-nowrap"
+                  className="cursor-target px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-900 whitespace-nowrap"
                 >
                   {subItem.name}
                 </Link>
@@ -99,7 +101,7 @@ const Navbar = () => {
       <Link
         key={idx}
         href={item.url!}
-        className="text-sm font-medium text-gray-300 hover:text-gray-400 transition duration-200"
+        className="cursor-target text-sm font-medium text-gray-300 hover:text-gray-400 transition duration-200"
       >
         {item.name}
       </Link>
@@ -114,7 +116,7 @@ const Navbar = () => {
         <div key={idx} className="w-full">
           <button
             onClick={() => setSubOpen(!subOpen)}
-            className="flex items-center justify-between w-full text-base font-medium text-gray-300 hover:text-gray-400 transition duration-200 py-2"
+            className="cursor-target flex items-center justify-between w-full text-base font-medium text-gray-300 hover:text-gray-400 transition duration-200 py-2"
           >
             {item.name}
             {subOpen ? <FaChevronUp size={14} /> : <FaChevronDown size={14} />}
@@ -132,7 +134,7 @@ const Navbar = () => {
                   setIsOpen(false);
                   setSubOpen(false);
                 }}
-                className="block py-2 text-sm text-gray-400 hover:text-white"
+                className="cursor-target block py-2 text-sm text-gray-400 hover:text-white"
               >
                 {subItem.name}
               </Link>
@@ -149,8 +151,9 @@ const Navbar = () => {
         target={item.url?.startsWith("http") ? "_blank" : undefined}
         rel={item.url?.startsWith("http") ? "noopener noreferrer" : undefined}
         className={
-          item.style ||
-          "text-base font-medium text-gray-300 hover:text-gray-400 transition duration-200 w-full py-2"
+          item.style
+            ? item.style
+            : "cursor-target text-base font-medium text-gray-300 hover:text-gray-400 transition duration-200 w-full py-2"
         }
       >
         {item.name}
@@ -160,6 +163,12 @@ const Navbar = () => {
 
   return (
     <header className="w-full border-b border-dashed border-stone-800 fixed top-0 left-0 right-0 bg-black z-50">
+      <TargetCursor
+        spinDuration={2}
+        hideDefaultCursor
+        parallaxOn
+        hoverDuration={0.2}
+      />
       <div className="mx-4">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 border-x border-dashed border-stone-800">
           <div className="flex items-center justify-between py-4">
@@ -167,7 +176,7 @@ const Navbar = () => {
             <div className="flex items-center gap-6">
               <Link
                 href="/"
-                className="text-2xl font-black text-white font-mono"
+                className="cursor-target text-2xl font-black text-white font-mono"
               >
                 Fizora.
               </Link>
@@ -192,7 +201,7 @@ const Navbar = () => {
                       ? "noopener noreferrer"
                       : undefined
                   }
-                  className={item.style || "text-sm font-medium"}
+                  className={item.style || "cursor-target text-sm font-medium"}
                 >
                   {item.name}
                 </a>
@@ -202,7 +211,7 @@ const Navbar = () => {
             {/* Mobile hamburger button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-gray-500 rounded-md p-2"
+              className="cursor-target md:hidden text-white focus:outline-none focus:ring-2 focus:ring-gray-500 rounded-md p-2"
               aria-label="Toggle menu"
             >
               {isOpen ? <LuX size={24} /> : <LuMenu size={24} />}

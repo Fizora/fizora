@@ -138,7 +138,7 @@ export default function ProjectsPage() {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-4 py-2 border-x border-dashed border-stone-800 text-sm font-medium transition duration-200 h-full ${
+                  className={`cursor-target cursor-pointer px-4 py-2 border-x border-dashed border-stone-800 text-sm font-medium transition duration-200 h-full ${
                     selectedCategory === cat
                       ? "bg-purple-600 text-white"
                       : "text-gray-300 hover:text-white hover:bg-gray-900"
@@ -149,7 +149,7 @@ export default function ProjectsPage() {
               ))}
             </div>
 
-            <div className="relative w-full md:w-80">
+            <div className="cursor-target relative w-full md:w-80">
               <LuSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
@@ -184,7 +184,7 @@ export default function ProjectsPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.05 }}
-                  className="group bg-gray-900/30 border border-dashed border-stone-800 overflow-hidden hover:border-purple-500 transition"
+                  className="cursor-target bg-gray-900/30 border border-dashed border-stone-800 overflow-hidden hover:border-purple-500 transition"
                 >
                   <div className="relative h-52 w-full">
                     <Image
@@ -226,7 +226,7 @@ export default function ProjectsPage() {
           <div className="text-center mt-16">
             <Link
               href="/#contact"
-              className="inline-block bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-md font-semibold transition transform hover:-translate-y-1"
+              className="cursor-target cursor-pointer inline-block bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-md font-semibold transition transform hover:-translate-y-1"
             >
               Konsultasi Proyek Serupa →
             </Link>

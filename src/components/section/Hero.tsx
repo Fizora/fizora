@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Beams from "../Beams";
 import FloatingLines from "../FloatingLines";
 import Link from "next/link";
+import TargetCursor from "../TargetCursor";
 
 const Hero = () => {
   return (
@@ -10,6 +11,12 @@ const Hero = () => {
       id="home"
       className="relative bg-black border-b border-dashed border-stone-800 overflow-hidden"
     >
+      <TargetCursor
+        spinDuration={2}
+        hideDefaultCursor
+        parallaxOn
+        hoverDuration={0.2}
+      />
       {/* Background (opsional, bisa diaktifkan kembali) */}
       {/* <div className="absolute bg-black/40 inset-0 z-0">
         <FloatingLines ... />
@@ -40,13 +47,13 @@ const Hero = () => {
             <div className="flex flex-wrap gap-4 mt-8 justify-start md:justify-center">
               <a
                 href="#contact"
-                className="bg-purple-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-purple-700 transition transform hover:-translate-y-1"
+                className="cursor-target bg-purple-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-purple-700 transition transform hover:-translate-y-1"
               >
                 Konsultasi Gratis →
               </a>
               <Link
                 href="/projects"
-                className="bg-white text-black border border-white px-6 py-3 rounded-md font-semibold transition"
+                className="cursor-target bg-white text-black border border-white px-6 py-3 rounded-md font-semibold transition"
               >
                 Lihat Portfolio
               </Link>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { LuArrowUpRight } from "react-icons/lu";
+import TargetCursor from "../TargetCursor";
 
 interface Project {
   title: string;
@@ -45,6 +46,12 @@ const Projects = () => {
 
   return (
     <section id="projects" className="border-y border-dashed border-stone-800">
+      <TargetCursor
+        spinDuration={2}
+        hideDefaultCursor
+        parallaxOn
+        hoverDuration={0.2}
+      />
       <div className="mx-4">
         <div className="max-w-6xl py-10 md:py-20 mx-auto px-4 sm:px-6 border-x border-dashed border-stone-800">
           <motion.div
@@ -92,9 +99,9 @@ const Projects = () => {
                   </h3>
                   <a
                     href={project.link}
-                    className="mt-3 text-sm text-white underline opacity-0 group-hover:opacity-100 transition"
+                    className=" mt-3 text-sm text-white underline opacity-0 group-hover:opacity-100 transition"
                   >
-                    Lihat Detail →
+                    Lihat Website →
                   </a>
                 </div>
               </motion.div>
@@ -104,14 +111,14 @@ const Projects = () => {
           <div className="flex md:flex-row flex-col justify-center items-center gap-2 text-center mt-12">
             <Link
               href="#contact"
-              className="border bg-purple-500 border-purple-500 text-white font-bold  px-6 py-2 rounded-md transition flex items-center gap-2"
+              className="cursor-target border bg-purple-500 border-purple-500 text-white font-bold  px-6 py-2 rounded-md transition flex items-center gap-2"
             >
               Pesan Proyek Serupa
               <FaWhatsapp size={22} />
             </Link>
             <Link
               href="#contact"
-              className="flex items-center border border-purple-500 text-purple-400 hover:bg-purple-500 font-bold hover:text-black px-6 py-2 rounded-md transition"
+              className="cursor-target flex items-center border border-purple-500 text-purple-400 hover:bg-purple-500 font-bold hover:text-black px-6 py-2 rounded-md transition"
             >
               Lihat Semua Proyek
               <LuArrowUpRight className="ml-2" />
