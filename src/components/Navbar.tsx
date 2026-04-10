@@ -20,6 +20,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isProjectsDropdownOpen, setIsProjectsDropdownOpen] =
     useState<boolean>(false);
+  const [isTestimonyDropdownOpen, setIsTestimonyDropdownOpen] =
+    useState<boolean>(false);
 
   // Navigasi biasa (tanpa Contact) – tidak ditampilkan di halaman /projects
   const mainNavItems: NavItem[] = [
@@ -35,7 +37,14 @@ const Navbar = () => {
         { name: "Semua Proyek", url: "/projects" },
       ],
     },
-    { name: "Testimoni", url: "#testimony" },
+    {
+      name: "Testimoni",
+      isDropdown: true,
+      dropdownItems: [
+        { name: "Testimoni Unggulan", url: "#testimony" },
+        { name: "Semua Testimoni", url: "/testimony" },
+      ],
+    },
     { name: "FAQ", url: "#faq" },
   ];
 
@@ -55,33 +64,40 @@ const Navbar = () => {
     },
   ];
 
-  // Gabungan untuk mobile menu: jika di /projects, hanya tombol kanan; jika tidak, semua item
+  // Gabungan untuk mobile menu: jika di /projects atau /testimony, hanya tombol kanan; jika tidak, semua item
   const mobileMenuItems: NavItem[] =
-    pathname === "/projects"
+    pathname === "/projects" || pathname === "/testimony"
       ? [...rightButtons]
       : [...mainNavItems, ...rightButtons];
 
   // Fungsi untuk render item navigasi (desktop) – hanya ditampilkan jika bukan di /projects
   const renderDesktopNavItem = (item: NavItem, idx: number) => {
     if (item.isDropdown) {
+      const isOpen =
+        item.name === "Proyek"
+          ? isProjectsDropdownOpen
+          : item.name === "Testimoni"
+            ? isTestimonyDropdownOpen
+            : false;
+      const setIsOpen =
+        item.name === "Proyek"
+          ? setIsProjectsDropdownOpen
+          : item.name === "Testimoni"
+            ? setIsTestimonyDropdownOpen
+            : () => {};
+
       return (
         <div key={idx} className="relative">
           <button
-            onClick={() => setIsProjectsDropdownOpen(!isProjectsDropdownOpen)}
+            onClick={() => setIsOpen(!isOpen)}
             className="cursor-target flex items-center gap-1 text-sm font-medium text-gray-300 hover:text-gray-400 transition duration-200"
           >
             {item.name}
-            {isProjectsDropdownOpen ? (
-              <FaChevronUp size={12} />
-            ) : (
-              <FaChevronDown size={12} />
-            )}
+            {isOpen ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}
           </button>
           <div
             className={`absolute top-full left-0 mt-2 bg-black border border-dashed border-stone-800 rounded-md shadow-lg z-10 transition-all duration-300 overflow-hidden ${
-              isProjectsDropdownOpen
-                ? "max-h-40 opacity-100"
-                : "max-h-0 opacity-0"
+              isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
             }`}
           >
             <div className="flex flex-col p-2">
@@ -89,7 +105,7 @@ const Navbar = () => {
                 <Link
                   key={subIdx}
                   href={subItem.url}
-                  onClick={() => setIsProjectsDropdownOpen(false)}
+                  onClick={() => setIsOpen(false)}
                   className="cursor-target rounded px-6 py-2 text-sm text-gray-300 hover:text-white hover:bg-purple-600 whitespace-nowrap"
                 >
                   {subItem.name}
@@ -190,13 +206,13 @@ const Navbar = () => {
                 /> */}
                 Fizora.
               </Link>
-              {pathname !== "/projects" && (
+              {pathname !== "/projects" && pathname !== "/testimony" ? (
                 <nav className="hidden md:flex items-center gap-4">
                   {mainNavItems.map((item, idx) =>
                     renderDesktopNavItem(item, idx),
                   )}
                 </nav>
-              )}
+              ) : null}
             </div>
 
             {/* Dua tombol di kanan (desktop) – selalu tampil */}

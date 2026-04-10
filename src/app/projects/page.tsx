@@ -103,6 +103,8 @@ export default function ProjectsPage() {
 
   return (
     <main className="bg-black text-white min-h-screen pt-19 font-sans">
+      {/* top content */}
+      <div id="beranda"></div>
       <Navbar />
 
       {/* Skathes 1: Quotes pembuka yang membangun kepercayaan */}
@@ -233,6 +235,27 @@ export default function ProjectsPage() {
           </div>
         </div>
       </div>
+
+      {/* Floating Button to Top */}
+      <Link
+        href="#beranda"
+        className="cursor-target fixed bottom-6 right-6 bg-purple-600 hover:bg-purple-700 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110 flex items-center justify-center z-40"
+        aria-label="Kembali ke atas"
+      >
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M5 10l7-7m0 0l7 7m-7-7v18"
+          />
+        </svg>
+      </Link>
 
       <Contact />
       {/* Skathes 2: Quotes penutup yang memotivasi dan mengajak bertindak */}

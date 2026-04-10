@@ -79,7 +79,7 @@ export default function Home() {
         </Skathes>
         <Footer />
         {/* brand */}
-        <section className="border-t border-dashed border-stone-800 bg-[#9333ea]">
+        {/* <section className="border-t border-dashed border-stone-800 bg-[#9333ea]">
           <div className="mx-4">
             <div className="max-w-6xl mx-auto border-x border-dashed border-white flex items-center justify-center">
               <Image
@@ -90,7 +90,7 @@ export default function Home() {
               />
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
     </>
   );

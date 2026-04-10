@@ -1,373 +1,310 @@
 "use client";
 import { motion } from "framer-motion";
-import { FaCheck, FaTimes } from "react-icons/fa";
-import { useState } from "react";
+import { FaCheck } from "react-icons/fa";
 import TargetCursor from "../TargetCursor";
 
 interface Plan {
   name: string;
-  price: string;
+  description: string;
+  servicePrice: number;
+  hostingMonthly: number;
   features: string[];
   recommended: boolean;
   cta: string;
 }
 
-const plans: Plan[] = [
+interface Category {
+  name: string;
+  plans: Plan[];
+}
+
+const categories: Category[] = [
   {
-    name: "Basic",
-    price: "400.000",
-    features: [
-      "1 Landing Page",
-      "Mobile Friendly",
-      "CTA WhatsApp",
-      "Template Design",
-      "1x Revisi",
-      "Delivery 2-3 Hari",
-      "Gratis Setup Hosting",
+    name: "Paket UMKM",
+    plans: [
+      {
+        name: "Basic",
+        description: "Untuk just started & toko online sederhana",
+        servicePrice: 400000,
+        hostingMonthly: 12900,
+        features: [
+          "1 Landing Page",
+          "Mobile Friendly",
+          "CTA WhatsApp",
+          "Template Design",
+          "1x Revisi",
+          "Delivery 2-3 Hari",
+          "Basic SEO",
+        ],
+        recommended: false,
+        cta: "Mulai Sekarang",
+      },
+      {
+        name: "Standard",
+        description: "Untuk UMKM yang ingin online dengan design bagus",
+        servicePrice: 1200000,
+        hostingMonthly: 24900,
+        features: [
+          "1 Landing Page Custom",
+          "SEO Basic",
+          "AI Copywriting",
+          "Fast Loading (Next.js)",
+          "3x Revisi",
+          "Delivery 3-5 Hari",
+          "Form Contact",
+          "WhatsApp Integration",
+          "Mobile First Design",
+        ],
+        recommended: true,
+        cta: "Pilih Paket Ini",
+      },
+      {
+        name: "Premium",
+        description: "Untuk UMKM yang serius dengan conversion tinggi",
+        servicePrice: 2400000,
+        hostingMonthly: 38900,
+        features: [
+          "Landing Page High Conversion",
+          "Advanced Copywriting",
+          "Struktur Funnel Lengkap",
+          "Speed Optimization",
+          "5x Revisi",
+          "Prioritas Pengerjaan",
+          "Analytics Integration",
+          "Email Automation Setup",
+          "Custom Features",
+        ],
+        recommended: false,
+        cta: "Maksimalkan Bisnis",
+      },
     ],
-    recommended: false,
-    cta: "Mulai Sekarang",
   },
   {
-    name: "Standard",
-    price: "1.500.000",
-    features: [
-      "1 Landing Page Custom",
-      "SEO Basic",
-      "AI Copywriting",
-      "Fast Loading (Next.js)",
-      "3x Revisi",
-      "Delivery 3-5 Hari",
-      "Gratis Setup Hosting",
+    name: "Paket Bisnis",
+    plans: [
+      {
+        name: "Professional",
+        description: "Website full untuk bisnis profesional",
+        servicePrice: 4000000,
+        hostingMonthly: 116900,
+        features: [
+          "5-10 Halaman Website",
+          "Custom Design Sepenuhnya",
+          "Advanced SEO",
+          "Blog/Content Management",
+          "10x Revisi",
+          "Priority Support 3 bulan",
+          "E-commerce Basics",
+          "Team Collaboration",
+          "Performance Monitoring",
+        ],
+        recommended: false,
+        cta: "Lebih Powerful",
+      },
+      {
+        name: "Enterprise",
+        description:
+          "Website kompleks dengan fitur advanced untuk bisnis besar",
+        servicePrice: 8000000,
+        hostingMonthly: 116900,
+        features: [
+          "10-20 Halaman Website",
+          "Full Custom Development",
+          "Advanced SEO + Schema",
+          "Blog + CMS System",
+          "20x Revisi",
+          "Priority Support 6 bulan",
+          "Full E-commerce",
+          "User Management System",
+          "Advanced Analytics",
+        ],
+        recommended: true,
+        cta: "Pilih Sekarang",
+      },
+      {
+        name: "Ultimate",
+        description: "Solusi website terlengkap dengan full support",
+        servicePrice: 12000000,
+        hostingMonthly: 116900,
+        features: [
+          "20+ Halaman Website",
+          "Complete Custom Solution",
+          "Enterprise SEO",
+          "Advanced CMS System",
+          "Unlimited Revisions",
+          "Dedicated Support 12 bulan",
+          "Full E-commerce + Payment",
+          "API Integrations",
+          "Real-time Maintenance",
+        ],
+        recommended: false,
+        cta: "Solusi Terbaik",
+      },
     ],
-    recommended: true,
-    cta: "Pilih Paket Ini",
-  },
-  {
-    name: "Premium",
-    price: "3.000.000",
-    features: [
-      "Landing Page High Conversion",
-      "Advanced Copywriting",
-      "Struktur Funnel (CTA, Hero, dll)",
-      "Speed Optimization",
-      "5x Revisi",
-      "Prioritas Pengerjaan",
-      "Gratis Setup Hosting",
-    ],
-    recommended: false,
-    cta: "Maksimalkan Bisnis",
   },
 ];
 
+const formatCurrency = (value: number) => {
+  return new Intl.NumberFormat("id-ID").format(value);
+};
+
 const Pricing = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
+  const calculateTotals = (plan: Plan) => {
+    const hostingAnnual = plan.hostingMonthly * 12;
+    const total = plan.servicePrice + hostingAnnual;
+    const servicePercentage = ((plan.servicePrice / total) * 100).toFixed(1);
 
-  const handlePlanClick = (plan: Plan) => {
-    setSelectedPlan(plan);
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-    setSelectedPlan(null);
-  };
-
-  const handleProceed = () => {
-    setShowModal(false);
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    return { hostingAnnual, total, servicePercentage };
   };
 
   return (
-    <>
-      <section id="pricing" className="border-y border-dashed border-stone-800">
-        <TargetCursor
-          spinDuration={2}
-          hideDefaultCursor
-          parallaxOn
-          hoverDuration={0.2}
-        />
-        <div className="mx-4">
-          <div className="max-w-6xl mx-auto py-10 md:py-20 px-4 sm:px-6 border-x border-dashed border-stone-800">
-            {/* HEADER */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="text-center"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-white font-mono">
-                Paket Website yang{" "}
-                <span className="text-purple-400">Menghasilkan Customer</span>
-              </h2>
-              <p className="text-gray-300 mt-2 font-mono">
-                Bukan sekadar website, tapi alat untuk membantu bisnis Anda
-                berkembang.
-              </p>
-            </motion.div>
-
-            {/* PRICING CARD */}
-            <div className="grid md:grid-cols-3 gap-8 mt-16">
-              {plans.map((plan, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.1 }}
-                  className={`relative p-6 text-center rounded-xl border transition duration-300 hover:scale-105 ${
-                    plan.recommended
-                      ? "border-purple-500 bg-gray-900"
-                      : "border-stone-800 bg-gray-900/40"
-                  }`}
-                >
-                  {plan.recommended && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-                      Paling Laris
-                    </span>
-                  )}
-
-                  <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
-
-                  <p className="text-3xl font-bold text-purple-400 mt-4">
-                    Rp{plan.price}
-                  </p>
-                  <p className="text-sm text-gray-400">(Sekali bayar)</p>
-
-                  <ul className="mt-6 space-y-3 text-left">
-                    {plan.features.map((feat, i) => (
-                      <li
-                        key={i}
-                        className="flex items-center gap-2 text-gray-300"
-                      >
-                        <FaCheck className="text-green-400 text-sm" />
-                        {feat}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <button
-                    onClick={() => handlePlanClick(plan)}
-                    className="cursor-target cursor-pointer mt-8 inline-block w-full py-2 rounded-md font-semibold transition bg-purple-600 hover:bg-purple-700 text-white"
-                  >
-                    {plan.cta}
-                  </button>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* INFO TAMBAHAN */}
-            <div className="mt-12 text-center text-gray-400 text-sm space-y-2">
-              <p>
-                Website langsung online & siap digunakan oleh customer Anda.
-              </p>
-              <p>
-                Hosting mulai dari Rp50rb/bulan (opsional, kami bantu setup).
-              </p>
-              <p className="text-gray-500">
-                Gratis konsultasi sebelum order • Bisa lihat demo sebelum bayar
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* MODAL POPUP dengan dark scrollbar */}
-      {showModal && selectedPlan && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm transition-all">
+    <section id="pricing" className="border-y border-dashed border-stone-800">
+      <TargetCursor
+        spinDuration={2}
+        hideDefaultCursor
+        parallaxOn
+        hoverDuration={0.2}
+      />
+      <div className="mx-4">
+        <div className="max-w-6xl mx-auto py-10 md:py-20 px-4 sm:px-6 border-x border-dashed border-stone-800">
+          {/* HEADER */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            className="bg-black border-2 border-dashed border-stone-800 rounded-xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-center"
           >
-            {/* Header Modal - sticky */}
-            <div className="sticky top-0 bg-black border-b border-dashed border-stone-800 px-6 py-4 flex justify-between items-center z-10 flex-shrink-0">
-              <h3 className="text-2xl md:text-3xl font-bold text-white font-mono">
-                {selectedPlan.name} —{" "}
-                <span className="text-purple-400">Rp {selectedPlan.price}</span>
-              </h3>
-              <button
-                onClick={handleCloseModal}
-                className="text-gray-400 hover:text-white transition p-1 flex-shrink-0"
-              >
-                <FaTimes size={24} />
-              </button>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white font-mono">
+              Paket Website yang{" "}
+              <span className="text-purple-400">Menghasilkan Customer</span>
+            </h2>
+            <p className="text-gray-300 mt-2 font-mono">
+              Harga sudah include jasa + hosting Hostinger. Transparan, tidak
+              ada biaya tersembunyi.
+            </p>
+          </motion.div>
 
-            {/* Body Modal - scrollable */}
-            <div className="overflow-y-auto dark-scrollbar flex-1">
-              <div className="px-6 py-6 space-y-6 text-gray-300">
-                {/* Mekanisme Jasa Sekali Bayar */}
-                <div className="border border-dashed border-stone-800 rounded-lg p-4 bg-gray-900/30">
-                  <h4 className="text-lg font-bold text-purple-400 flex items-center gap-2">
-                    💰 Jasa Pembuatan Website (Sekali Bayar)
-                  </h4>
-                  <div className="mt-3 space-y-2 text-sm leading-relaxed">
-                    <p>
-                      Harga{" "}
-                      <strong className="text-white">
-                        Rp {selectedPlan.price}
-                      </strong>{" "}
-                      adalah biaya
-                      <strong className="text-white"> satu kali</strong> untuk:
-                    </p>
-                    <ul className="list-disc list-inside space-y-1 ml-2">
-                      <li>
-                        Pembuatan website sesuai paket pilihan
-                        (Basic/Standard/Premium)
-                      </li>
-                      <li>Desain modern & responsif (mobile friendly)</li>
-                      <li>Integrasi fitur (CTA, WhatsApp, form kontak, dll)</li>
-                      <li>
-                        Setup hosting gratis (jika menggunakan rekomendasi kami)
-                      </li>
-                      <li>
-                        1x revisi untuk paket Basic, 3x untuk Standard, 5x untuk
-                        Premium
-                      </li>
-                      <li>
-                        Garansi pengerjaan sesuai deadline (2-5 hari kerja)
-                      </li>
-                    </ul>
-                    <p className="mt-2 text-gray-400">
-                      ✅{" "}
-                      <span className="font-semibold">
-                        Tidak ada biaya tersembunyi
-                      </span>
-                      . Setelah lunas, website 100% menjadi milik Anda.
-                    </p>
-                  </div>
-                </div>
+          {/* PRICING CARDS - UMKM & BISNIS */}
+          {categories.map((category, catIdx) => (
+            <div key={catIdx} className="mt-20">
+              {/* Category Header */}
+              <div className="text-center mb-10">
+                <h3 className="text-2xl md:text-3xl font-bold text-white inline-block px-6 py-2 bg-purple-600 rounded-md font-mono">
+                  {category.name}
+                </h3>
+              </div>
 
-                {/* Biaya Hosting Bulanan */}
-                <div className="border border-dashed border-stone-800 rounded-lg p-4 bg-gray-900/30">
-                  <h4 className="text-lg font-bold text-yellow-400 flex items-center gap-2">
-                    🌐 Biaya Hosting (Bulanan / Tahunan)
-                  </h4>
-                  <div className="mt-3 space-y-2 text-sm leading-relaxed">
-                    <p>
-                      Agar website bisa{" "}
-                      <strong className="text-white">online 24 jam</strong> dan
-                      diakses pelanggan, diperlukan
-                      <strong className="text-white"> layanan hosting</strong>.
-                      Biaya hosting{" "}
-                      <span className="font-bold">tidak termasuk</span> dalam
-                      paket jasa.
-                    </p>
-                    <ul className="list-disc list-inside space-y-1 ml-2">
-                      <li>
-                        Hosting mulai dari{" "}
-                        <strong className="text-white">Rp50.000/bulan</strong>{" "}
-                        (atau Rp500.000/tahun)
-                      </li>
-                      <li>
-                        Kami bantu{" "}
-                        <strong className="text-white">
-                          setup & konfigurasi
-                        </strong>{" "}
-                        hosting secara gratis
-                      </li>
-                      <li>
-                        Anda bisa pilih penyedia hosting sendiri, atau
-                        menggunakan rekomendasi kami (Niagahoster, Domainesia,
-                        dll)
-                      </li>
-                      <li>
-                        Pembayaran hosting langsung ke penyedia hosting (bukan
-                        ke kami)
-                      </li>
-                    </ul>
-                    <p className="mt-2 text-gray-400">
-                      ⚠️ <span className="font-semibold">Penting:</span> Jika
-                      hosting tidak diperpanjang, website akan mati (tidak bisa
-                      diakses). Kami tidak bertanggung jawab atas kelalaian
-                      perpanjangan hosting.
-                    </p>
-                  </div>
-                </div>
+              {/* Category Cards */}
+              <div className="grid md:grid-cols-3 gap-8">
+                {category.plans.map((plan, idx) => {
+                  const { hostingAnnual, total, servicePercentage } =
+                    calculateTotals(plan);
 
-                {/* Opsional: Maintenance & Domain */}
-                <div className="border border-dashed border-stone-800 rounded-lg p-4 bg-gray-900/30">
-                  <h4 className="text-lg font-bold text-blue-400 flex items-center gap-2">
-                    🔧 Layanan Tambahan (Opsional)
-                  </h4>
-                  <div className="mt-3 space-y-2 text-sm">
-                    <p>
-                      Anda juga bisa menambahkan layanan berikut (biaya
-                      terpisah):
-                    </p>
-                    <ul className="list-disc list-inside space-y-1 ml-2">
-                      <li>
-                        <strong className="text-white">Domain .com/.id</strong>{" "}
-                        : Rp150.000 - Rp200.000/tahun
-                      </li>
-                      <li>
-                        <strong className="text-white">
-                          Maintenance bulanan
-                        </strong>{" "}
-                        : Rp100.000/bulan (backup, update konten, monitoring
-                        keamanan)
-                      </li>
-                      <li>
-                        <strong className="text-white">
-                          Pembuatan konten tambahan
-                        </strong>{" "}
-                        : Rp50.000/halaman
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                  return (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: idx * 0.1 }}
+                      className={`relative p-6 rounded-lg border-2 transition duration-300 hover:scale-105 flex flex-col ${
+                        plan.recommended
+                          ? "border-purple-500 bg-gray-900 shadow-xl shadow-purple-500/20"
+                          : "border-stone-800 bg-gray-900/40"
+                      }`}
+                    >
+                      {plan.recommended && (
+                        <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                          TERPOPULER
+                        </span>
+                      )}
 
-                {/* Skema Pembayaran */}
-                <div className="border border-dashed border-stone-800 rounded-lg p-4 bg-gray-900/30">
-                  <h4 className="text-lg font-bold text-green-400 flex items-center gap-2">
-                    💳 Proses Order & Pembayaran
-                  </h4>
-                  <div className="mt-3 text-sm space-y-1">
-                    <p>1. Konsultasi gratis via WhatsApp / form kontak</p>
-                    <p>
-                      2. Kami kirimkan proposal + demo desain (jika diperlukan)
-                    </p>
-                    <p>3. DP 50% untuk memulai pengerjaan</p>
-                    <p>4. Website selesai, Anda review & revisi (jika ada)</p>
-                    <p>5. Pelunasan 50% sebelum website online</p>
-                    <p>6. Kami bantu setup hosting & domain, website live!</p>
-                    <p className="text-gray-400 mt-2">
-                      ✅ Garansi uang kembali 100% jika website tidak sesuai
-                      kesepakatan.
-                    </p>
-                  </div>
-                </div>
+                      <h4 className="text-2xl font-bold text-white font-mono">
+                        {plan.name}
+                      </h4>
+                      <p className="text-gray-400 text-sm mt-2 min-h-[2.5rem]">
+                        {plan.description}
+                      </p>
 
-                {/* Call to action dalam modal */}
-                <div className="text-center pt-2">
-                  <p className="text-gray-400 text-xs italic">
-                    Dengan memahami mekanisme ini, Anda tidak akan mendapatkan
-                    tagihan tak terduga.
-                  </p>
-                </div>
+                      {/* PRICING BREAKDOWN */}
+                      <div className="mt-6 space-y-3 pb-6 border-b border-dashed border-stone-700">
+                        {/* Service Price */}
+                        <div className="text-center">
+                          <p className="text-4xl font-bold text-purple-400">
+                            Rp{formatCurrency(plan.servicePrice)}
+                          </p>
+                          <p className="text-xs text-gray-400 mt-1">
+                            Harga Jasa (Sekali Bayar)
+                          </p>
+                        </div>
+
+                        {/* Hosting Details */}
+                        <div className="bg-black/50 rounded p-3 text-sm">
+                          <p className="text-gray-300">
+                            <span className="font-semibold text-white">
+                              Hosting:
+                            </span>{" "}
+                            Rp{formatCurrency(plan.hostingMonthly)}/bulan
+                          </p>
+                          <p className="text-gray-400 text-xs mt-1">
+                            = Rp{formatCurrency(hostingAnnual)}/tahun
+                          </p>
+                        </div>
+
+                        {/* Total Breakdown */}
+                        <div className="bg-purple-900/20 rounded p-3 text-sm">
+                          <p className="text-gray-300 flex justify-between">
+                            <span>Total/Tahun:</span>
+                            <span className="font-bold text-white">
+                              Rp{formatCurrency(total)}
+                            </span>
+                          </p>
+                          <p className="text-gray-400 text-xs mt-1">
+                            Jasa: {servicePercentage}% • Hosting:{" "}
+                            {(100 - parseFloat(servicePercentage)).toFixed(1)}%
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* FEATURES */}
+                      <ul className="mt-6 space-y-2 mb-6 flex-1">
+                        {plan.features.map((feat, i) => (
+                          <li
+                            key={i}
+                            className="flex items-center gap-2 text-gray-300 text-sm"
+                          >
+                            <FaCheck className="text-green-400 text-xs flex-shrink-0" />
+                            <span>{feat}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* CTA BUTTON */}
+                      <a
+                        href="#contact"
+                        className="cursor-target block w-full py-2.5 rounded-md font-semibold transition text-white uppercase text-sm tracking-wide bg-purple-600 hover:bg-purple-700 text-center"
+                      >
+                        {plan.cta}
+                      </a>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
+          ))}
 
-            {/* Footer Modal - sticky */}
-            <div className="sticky bottom-0 bg-black border-t border-dashed border-stone-800 px-6 py-4 flex flex-col sm:flex-row gap-3 flex-shrink-0">
-              <button
-                onClick={handleCloseModal}
-                className="cursor-target cursor-pointer flex-1 bg-gray-800 hover:bg-gray-700 text-white py-2 rounded-md transition border border-dashed border-stone-600"
-              >
-                Tutup
-              </button>
-              <button
-                onClick={handleProceed}
-                className="cursor-target cursor-pointer flex-1 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-md transition font-bold font-mono"
-              >
-                Lanjut ke Konsultasi →
-              </button>
-            </div>
-          </motion.div>
+          {/* INFO TAMBAHAN */}
+          <div className="mt-16 text-center text-gray-400 text-sm space-y-2">
+            <p>
+              ✅ Harga jasa sudah termasuk setup hosting gratis via Hostinger
+            </p>
+            <p>✅ Biaya hosting berlanjut per bulan (langsung ke Hostinger)</p>
+            <p className="text-gray-500">
+              ✅ Domain .com gratis tahun pertama • Konsultasi gratis sebelum
+              order
+            </p>
+          </div>
         </div>
-      )}
-    </>
+      </div>
+    </section>
   );
 };
 
