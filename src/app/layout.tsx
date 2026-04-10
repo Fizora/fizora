@@ -3,6 +3,7 @@ import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import JsonLd from "@/components/JsonLd";
+import ClientLayout from "./ClientLayout";
 
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-sans" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" });
@@ -88,7 +89,6 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      data-scroll-behavior="smooth"
       lang="id"
       className={cn(
         "h-full antialiased",
@@ -99,7 +99,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <JsonLd />
-        {children}
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
