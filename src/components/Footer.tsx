@@ -43,14 +43,14 @@ const Footer = () => {
         <div className="max-w-6xl mx-auto py-10 md:py-20 lg:py-30 px-4 sm:px-6 border-x border-dashed border-stone-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <h2 className="text-2xl font-bold text-white font-mono">Fizora.</h2>
-            <div className="flex gap-6">
+            <div className="flex gap-3">
               {socialLinks.map((link, index) => (
                 <a
                   key={index}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cursor-target cursor-pointer text-gray-400 hover:text-purple-500 transition"
+                  className="p-2 cursor-target cursor-pointer text-gray-400 hover:text-white transition"
                   aria-label={link.label}
                 >
                   {link.icon}

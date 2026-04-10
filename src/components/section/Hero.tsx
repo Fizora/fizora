@@ -37,7 +37,7 @@ const Hero = () => {
               </span>
               ,
               <br />
-              Pesanan Naik 3x Lipat!
+              Naikkan Exposure 3x Lipat!
             </h1>
             <p className="text-gray-300 md:text-lg mt-6 max-w-2xl mx-auto md:mx-auto">
               Jasa pembuatan landing page & website profesional untuk kuliner,

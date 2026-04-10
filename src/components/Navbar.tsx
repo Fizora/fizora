@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { LuMenu, LuX } from "react-icons/lu";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import TargetCursor from "./TargetCursor";
+import Image from "next/image";
 
 interface NavItem {
   name: string;
@@ -25,6 +26,7 @@ const Navbar = () => {
     { name: "Beranda", url: "#home" },
     { name: "Tentang", url: "#about" },
     { name: "Harga", url: "#pricing" },
+
     {
       name: "Proyek",
       isDropdown: true,
@@ -34,6 +36,7 @@ const Navbar = () => {
       ],
     },
     { name: "Testimoni", url: "#testimony" },
+    { name: "FAQ", url: "#faq" },
   ];
 
   // Tombol kanan (tetap ditampilkan di semua halaman)
@@ -42,7 +45,7 @@ const Navbar = () => {
       name: "Hubungi Kami",
       url: "#contact",
       style:
-        "cursor-target text-gray-300 hover:text-gray-400 transition duration-200",
+        "p-2 cursor-target text-gray-300 hover:text-gray-400 transition duration-200",
     },
     {
       name: "Semua Proyek Saya ✨",
@@ -81,13 +84,13 @@ const Navbar = () => {
                 : "max-h-0 opacity-0"
             }`}
           >
-            <div className="flex flex-col py-2">
+            <div className="flex flex-col p-2">
               {item.dropdownItems?.map((subItem, subIdx) => (
                 <Link
                   key={subIdx}
                   href={subItem.url}
                   onClick={() => setIsProjectsDropdownOpen(false)}
-                  className="cursor-target px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-900 whitespace-nowrap"
+                  className="cursor-target rounded px-6 py-2 text-sm text-gray-300 hover:text-white hover:bg-purple-600 whitespace-nowrap"
                 >
                   {subItem.name}
                 </Link>
@@ -101,7 +104,7 @@ const Navbar = () => {
       <Link
         key={idx}
         href={item.url!}
-        className="cursor-target text-sm font-medium text-gray-300 hover:text-gray-400 transition duration-200"
+        className="p-2 cursor-target text-sm font-medium text-gray-300 hover:text-gray-400 transition duration-200"
       >
         {item.name}
       </Link>
@@ -178,6 +181,13 @@ const Navbar = () => {
                 href="/"
                 className="cursor-target text-2xl font-black text-white font-mono"
               >
+                {/* <Image
+                  src="/fizora.svg"
+                  alt="Fizora Logo"
+                  width={60}
+                  height={60}
+                  className="rounded-md"
+                /> */}
                 Fizora.
               </Link>
               {pathname !== "/projects" && (

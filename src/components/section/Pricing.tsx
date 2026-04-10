@@ -45,7 +45,7 @@ const plans: Plan[] = [
   },
   {
     name: "Premium",
-    price: "2.500.000",
+    price: "3.000.000",
     features: [
       "Landing Page High Conversion",
       "Advanced Copywriting",

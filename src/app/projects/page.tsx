@@ -54,8 +54,8 @@ const allProjects = [
   },
   {
     id: 6,
-    title: "Coffee Break Roastery",
-    category: "Kuliner",
+    title: "Musa Kopi",
+    category: "Demo",
     description: "Website toko kopi dengan blog dan event.",
     img: "/example3.webp",
     link: "#",

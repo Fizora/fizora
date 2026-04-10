@@ -3,12 +3,14 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import About from "@/components/section/About";
 import Contact from "@/components/section/Contact";
+import Faq from "@/components/section/Faq";
 import Hero from "@/components/section/Hero";
 import Pricing from "@/components/section/Pricing";
 import Projects from "@/components/section/Projects";
 import Testimony from "@/components/section/Testimony";
 import Skathes from "@/components/Skathes";
 import TargetCursor from "@/components/TargetCursor";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -53,6 +55,7 @@ export default function Home() {
         </Skathes>
 
         <Testimony />
+        <Faq />
         <Contact />
 
         {/* Skathes 3: CTA terakhir + garansi */}
@@ -65,6 +68,7 @@ export default function Home() {
               Konsultasi 30 menit GRATIS.{" "}
               <span className="font-bold">Tanpa ribet, tanpa kewajiban.</span>
             </p>
+
             <a
               href="#contact"
               className="cursor-target cursor-pointerinline-block mt-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-1.5 rounded-md text-sm font-semibold transition"
@@ -73,8 +77,20 @@ export default function Home() {
             </a>
           </div>
         </Skathes>
-
         <Footer />
+        {/* brand */}
+        <section className="border-t border-dashed border-stone-800 bg-[#9333ea]">
+          <div className="mx-4">
+            <div className="max-w-6xl mx-auto border-x border-dashed border-white flex items-center justify-center">
+              <Image
+                src="/fizora.svg"
+                alt="Fizora Logo"
+                width={600}
+                height={200}
+              />
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );
