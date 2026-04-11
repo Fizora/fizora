@@ -121,12 +121,19 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
   html {
     @apply font-sans;
-    /* overflow: hidden; Lenis akan handle scrolling */
+    /* Lenis requires normal scroll behavior */
+    width: 100%;
+    height: auto;
+  }
+  body {
+    @apply bg-background text-foreground;
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    /* Allow vertical scroll for Lenis */
+    overflow-y: auto;
   }
 }
 

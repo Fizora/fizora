@@ -1,37 +1,49 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 
+let lenisInstance: Lenis | null = null;
+let rafId: number | null = null;
+
 export const useLenis = () => {
   useEffect(() => {
-    // Initialize Lenis
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      wheelMultiplier: 1,
-    } as any);
+    // Prevent multiple Lenis instances
+    if (lenisInstance) {
+      return;
+    }
 
-    // Store RAF ID for cleanup
-    let rafId: number;
+    try {
+      // Initialize Lenis with better configuration
+      lenisInstance = new Lenis({
+        duration: 1.2,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        syncTouch: true,
+      } as any);
 
-    // Animation loop
-    const raf = (time: number) => {
-      lenis.raf(time);
+      // Animation loop
+      const raf = (time: number) => {
+        if (lenisInstance) {
+          lenisInstance.raf(time);
+          rafId = requestAnimationFrame(raf);
+        }
+      };
+
       rafId = requestAnimationFrame(raf);
-    };
 
-    rafId = requestAnimationFrame(raf);
-
-    // Handle scroll without animation
-    const handleWheel = (e: WheelEvent) => {
-      lenis.scrollTo(window.scrollY + e.deltaY, { duration: 0.8 });
-    };
-
-    return () => {
-      if (rafId) {
-        cancelAnimationFrame(rafId);
-      }
-      lenis.destroy();
-    };
+      return () => {
+        if (rafId) {
+          cancelAnimationFrame(rafId);
+          rafId = null;
+        }
+        if (lenisInstance) {
+          lenisInstance.destroy();
+          lenisInstance = null;
+        }
+      };
+    } catch (error) {
+      console.error("Failed to initialize Lenis:", error);
+      lenisInstance = null;
+    }
   }, []);
 };
