@@ -16,10 +16,10 @@ interface Project {
 
 const projectsData: Project[] = [
   {
-    title: "E-commerce Fashion",
-    category: "Web App",
-    img: "/example.webp",
-    link: "#",
+    title: "Musa Kopi",
+    category: "Web Landing Page",
+    img: "/musa-kopi.png",
+    link: "https://musa-kopi.vercel.app",
   },
   {
     title: "Portfolio Agency",
@@ -99,6 +99,7 @@ const Projects = () => {
                   </h3>
                   <a
                     href={project.link}
+                    target="_blank"
                     className=" mt-3 text-sm text-white underline opacity-0 group-hover:opacity-100 transition"
                   >
                     Lihat Website →

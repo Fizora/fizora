@@ -1,6 +1,29 @@
 "use client";
 import { motion } from "framer-motion";
-import { FaCheck } from "react-icons/fa";
+import {
+  FaCheck,
+  FaClock,
+  FaMobileAlt,
+  FaWhatsapp,
+  FaPalette,
+  FaPencilAlt,
+  FaTruck,
+  FaSearch,
+  FaLightbulb,
+  FaBolt,
+  FaEnvelope,
+  FaChartBar,
+  FaEnvelopeOpenText,
+  FaStar,
+  FaBook,
+  FaHeadset,
+  FaChartLine,
+  FaDatabase,
+  FaUsers,
+  FaLink,
+  FaWrench,
+  FaShoppingCart,
+} from "react-icons/fa";
 import TargetCursor from "../TargetCursor";
 
 interface Plan {
@@ -152,6 +175,78 @@ const categories: Category[] = [
 
 const formatCurrency = (value: number) => {
   return new Intl.NumberFormat("id-ID").format(value);
+};
+
+// Map feature text to appropriate icon
+const getFeatureIcon = (feature: string) => {
+  const lowerFeature = feature.toLowerCase();
+
+  if (lowerFeature.includes("tahun") || lowerFeature.includes("online")) {
+    return <FaClock className="text-blue-400" />;
+  }
+  if (lowerFeature.includes("mobile")) {
+    return <FaMobileAlt className="text-cyan-400" />;
+  }
+  if (lowerFeature.includes("whatsapp")) {
+    return <FaWhatsapp className="text-green-400" />;
+  }
+  if (lowerFeature.includes("design") || lowerFeature.includes("template")) {
+    return <FaPalette className="text-pink-400" />;
+  }
+  if (lowerFeature.includes("revisi") || lowerFeature.includes("pengerjaan")) {
+    return <FaPencilAlt className="text-yellow-400" />;
+  }
+  if (lowerFeature.includes("delivery")) {
+    return <FaTruck className="text-orange-400" />;
+  }
+  if (lowerFeature.includes("seo")) {
+    return <FaSearch className="text-purple-400" />;
+  }
+  if (lowerFeature.includes("copywriting")) {
+    return <FaLightbulb className="text-amber-400" />;
+  }
+  if (lowerFeature.includes("loading") || lowerFeature.includes("speed")) {
+    return <FaBolt className="text-yellow-300" />;
+  }
+  if (lowerFeature.includes("form") || lowerFeature.includes("contact")) {
+    return <FaEnvelope className="text-red-400" />;
+  }
+  if (lowerFeature.includes("integration")) {
+    return <FaLink className="text-blue-400" />;
+  }
+  if (lowerFeature.includes("analytics")) {
+    return <FaChartBar className="text-green-400" />;
+  }
+  if (lowerFeature.includes("email") || lowerFeature.includes("automation")) {
+    return <FaEnvelopeOpenText className="text-indigo-400" />;
+  }
+  if (lowerFeature.includes("custom")) {
+    return <FaStar className="text-yellow-400" />;
+  }
+  if (lowerFeature.includes("blog") || lowerFeature.includes("cms")) {
+    return <FaBook className="text-blue-400" />;
+  }
+  if (lowerFeature.includes("support")) {
+    return <FaHeadset className="text-cyan-400" />;
+  }
+  if (lowerFeature.includes("monitoring")) {
+    return <FaChartLine className="text-green-400" />;
+  }
+  if (lowerFeature.includes("management") || lowerFeature.includes("user")) {
+    return <FaUsers className="text-purple-400" />;
+  }
+  if (lowerFeature.includes("e-commerce") || lowerFeature.includes("cart")) {
+    return <FaShoppingCart className="text-pink-400" />;
+  }
+  if (lowerFeature.includes("maintenance") || lowerFeature.includes("api")) {
+    return <FaWrench className="text-gray-400" />;
+  }
+  if (lowerFeature.includes("database")) {
+    return <FaDatabase className="text-cyan-400" />;
+  }
+
+  // Default to check mark
+  return <FaCheck className="text-green-400" />;
 };
 
 const Pricing = () => {
