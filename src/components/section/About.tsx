@@ -48,12 +48,12 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: false }}
-            className="text-center mx-auto border-y border-dashed border-stone-800 py-20"
+            className="md:text-center mx-auto border-y border-dashed border-stone-800 py-20 p-4"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white font-mono">
               Tentang <span className="text-purple-400">Fizora</span>
             </h2>
-            <p className="text-gray-300 mt-4 mx-auto max-w-2xl text-center">
+            <p className="text-gray-300 mt-4 mx-auto max-w-2xl">
               Saya adalah web developer profesional dengan pengalaman 3+ tahun
               membantu brand meningkatkan penjualan melalui website berkualitas.
             </p>

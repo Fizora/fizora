@@ -100,7 +100,7 @@ const Projects = () => {
                   <a
                     href={project.link}
                     target="_blank"
-                    className=" mt-3 text-sm text-white underline opacity-0 group-hover:opacity-100 transition"
+                    className=" mt-3 text-sm bg-purple-500 text-white md:opacity-0 group-hover:opacity-100 transition md:w-max md:bg-purple-500  px-4 py-2 rounded-md "
                   >
                     Lihat Website →
                   </a>
