@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -12,45 +12,55 @@ const fontMono = Bricolage_Grotesque({
   variable: "--font-bricolage",
 });
 
+// Viewport dipisah di Next.js versi terbaru untuk optimasi
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5, // Mendukung aksesibilitas (zoom)
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://fizora.vercel.app"), // Ganti dengan domain asli Anda
+  metadataBase: new URL("https://fizora.vercel.app"),
   title: {
-    default:
-      "Fizora - Jasa Pembuatan Website Profesional untuk UMKM & Coffee Shop",
+    default: "Fizora - Jasa Pembuatan Website Profesional UMKM & Coffee Shop",
     template: "%s | Fizora",
   },
   description:
-    "Fizora menyediakan jasa pembuatan landing page dan website profesional untuk kuliner, coffee shop, dan bisnis lokal. Desain modern, cepat, dan terbukti tingkatkan konversi. Konsultasi gratis!",
+    "Fizora melayani jasa pembuatan landing page & website profesional untuk UMKM, coffee shop, dan bisnis lokal di Indonesia. Desain modern, SEO-friendly, dan cepat.",
   keywords: [
     "jasa pembuatan website",
     "landing page coffee shop",
     "website UMKM",
     "website kuliner murah",
-    "jasa website profesional",
-    "pembuatan website bisnis lokal",
-    "Fizora",
     "web developer Indonesia",
+    "jasa seo website",
   ],
   authors: [{ name: "Fizora", url: "https://fizora.vercel.app" }],
   creator: "Fizora",
   publisher: "Fizora",
+  // Tag untuk verifikasi search console (masukkan kode Anda nanti)
+  verification: {
+    google: "google-site-verification-code",
+    yandex: "yandex-verification-code",
+  },
   formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
+    email: true,
+    address: true,
+    telephone: true,
   },
   openGraph: {
-    title: "Fizora - Jasa Website untuk UMKM & Coffee Shop",
+    title: "Fizora - Jasa Website Profesional UMKM & Coffee Shop",
     description:
-      "Tingkatkan penjualan bisnis Anda dengan website modern. Konsultasi gratis tanpa ribet.",
+      "Ubah pengunjung menjadi pelanggan dengan website modern dari Fizora.",
     url: "https://fizora.vercel.app",
-    siteName: "Fizora",
+    siteName: "Fizora Jasa Website",
     images: [
       {
-        url: "/og-image.jpg", // Buat gambar OG 1200x630px
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Fizora - Jasa Pembuatan Website Profesional",
+        alt: "Preview Layanan Fizora",
       },
     ],
     locale: "id_ID",
@@ -58,12 +68,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fizora - Website UMKM & Coffee Shop",
+    title: "Fizora - Ahli Website Bisnis Lokal",
     description:
-      "Jasa pembuatan landing page dan website profesional untuk bisnis lokal. Desain modern, konversi tinggi.",
+      "Jasa pembuatan website profesional untuk UMKM. Murah, cepat, dan berkualitas.",
     images: ["/og-image.jpg"],
     creator: "@fizoraaa",
-    site: "@fizoraaa",
   },
   robots: {
     index: true,
@@ -77,9 +86,12 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://fizora.vercel.app",
+    canonical: "/",
   },
-  category: "technology",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -91,15 +103,28 @@ export default function RootLayout({
     <html
       lang="id"
       className={cn(
-        "h-full antialiased",
+        "h-full antialiased scroll-smooth", // Tambahan scroll-smooth untuk user experience
         geistSans.variable,
         geistMono.variable,
         fontMono.variable,
       )}
     >
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col overflow-x-hidden">
+        {/* Schema Markup untuk SEO hasil pencarian */}
         <JsonLd />
-        <ClientLayout>{children}</ClientLayout>
+
+        {/* Gunakan ClientLayout atau wrap langsung dengan tag semantik */}
+        <ClientLayout>
+          <header>
+            {/* Navbar Anda biasanya ada di sini di dalam ClientLayout */}
+          </header>
+
+          <main id="main-content" className="">
+            {children}
+          </main>
+
+          <footer>{/* Footer Anda */}</footer>
+        </ClientLayout>
       </body>
     </html>
   );

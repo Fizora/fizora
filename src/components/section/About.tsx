@@ -40,6 +40,7 @@ const About = () => {
         parallaxOn
         hoverDuration={0.2}
       />
+
       <div className="mx-4">
         <div className="max-w-6xl mx-auto py-10 md:py-20 border border-dashed border-stone-800">
           {/* top content */}

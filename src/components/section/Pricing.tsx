@@ -393,15 +393,20 @@ const Pricing = () => {
           ))}
 
           {/* INFO TAMBAHAN */}
-          <div className="mt-16 text-center text-gray-400 text-sm space-y-2">
-            <p>
-              ✅ Harga jasa sudah termasuk setup hosting gratis via Hostinger
-            </p>
-            <p>✅ Biaya hosting berlanjut per bulan (langsung ke Hostinger)</p>
-            <p className="text-gray-500">
-              ✅ Domain .com gratis tahun pertama • Konsultasi gratis sebelum
-              order
-            </p>
+          <div className="mt-16 md:text-center text-gray-400 text-sm space-y-2">
+            <ul>
+              <li>
+                <p>
+                  ✅ Harga jasa sudah termasuk setup hosting gratis via
+                  Hostinger
+                </p>
+              </li>
+              <li>
+                <p>
+                  ✅ Biaya hosting berlanjut per bulan (langsung ke Hostinger)
+                </p>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

@@ -86,6 +86,8 @@ const Projects = () => {
                     src={project.img}
                     alt={project.title}
                     fill
+                    blurDataURL="blurData"
+                    placeholder="blur"
                     className="object-cover group-hover:scale-105 transition duration-500"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
