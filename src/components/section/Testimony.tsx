@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { FaStar } from "react-icons/fa";
 import Image from "next/image";
-import TargetCursor from "../TargetCursor";
 
 interface Testimonial {
   name: string;
@@ -39,12 +38,6 @@ const testimonials: Testimonial[] = [
 const Testimony = () => {
   return (
     <section id="testimony" className="border-y border-dashed border-stone-800">
-      <TargetCursor
-        spinDuration={2}
-        hideDefaultCursor
-        parallaxOn
-        hoverDuration={0.2}
-      />
       <div className="mx-4">
         <div className="max-w-6xl mx-auto py-10 md:py-20 px-4 sm:px-6 border-x border-dashed border-stone-800">
           <motion.div

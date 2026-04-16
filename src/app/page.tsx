@@ -10,19 +10,12 @@ import Pricing from "@/components/section/Pricing";
 import Projects from "@/components/section/Projects";
 import Testimony from "@/components/section/Testimony";
 import Skathes from "@/components/Skathes";
-import TargetCursor from "@/components/TargetCursor";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <>
       <main className="font-sans bg-black">
-        <TargetCursor
-          spinDuration={2}
-          hideDefaultCursor
-          parallaxOn
-          hoverDuration={0.2}
-        />
         <Navbar />
         <Hero />
         <Skathes>

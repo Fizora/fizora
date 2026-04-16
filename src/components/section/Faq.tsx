@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
-import TargetCursor from "../TargetCursor";
 
 interface FAQItem {
   question: string;
@@ -54,12 +53,6 @@ const Faq = () => {
       id="faq"
       className="border-b border-dashed border-stone-800 bg-black/50"
     >
-      <TargetCursor
-        spinDuration={2}
-        hideDefaultCursor
-        parallaxOn
-        hoverDuration={0.2}
-      />
       <div className="mx-4">
         <div className="max-w-6xl mx-auto py-10 md:py-20 border-x border-dashed border-stone-800">
           <motion.div

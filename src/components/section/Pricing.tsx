@@ -24,7 +24,6 @@ import {
   FaWrench,
   FaShoppingCart,
 } from "react-icons/fa";
-import TargetCursor from "../TargetCursor";
 
 interface Plan {
   name: string;
@@ -260,12 +259,6 @@ const Pricing = () => {
 
   return (
     <section id="pricing" className="border-y border-dashed border-stone-800">
-      <TargetCursor
-        spinDuration={2}
-        hideDefaultCursor
-        parallaxOn
-        hoverDuration={0.2}
-      />
       <div className="mx-4">
         <div className="max-w-6xl mx-auto py-10 md:py-20 px-4 sm:px-6 border-x border-dashed border-stone-800">
           {/* HEADER */}

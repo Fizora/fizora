@@ -1,6 +1,5 @@
 import { FaInstagram, FaGithub, FaLinkedin, FaTiktok } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
-import TargetCursor from "./TargetCursor";
 
 const Footer = () => {
   const socialLinks = [
@@ -33,12 +32,6 @@ const Footer = () => {
 
   return (
     <footer className="border-t border-dashed border-stone-800 bg-black">
-      <TargetCursor
-        spinDuration={2}
-        hideDefaultCursor
-        parallaxOn
-        hoverDuration={0.2}
-      />
       <div className="mx-4">
         <div className="max-w-6xl mx-auto py-10 md:py-20 lg:py-30 px-4 sm:px-6 border-x border-dashed border-stone-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">

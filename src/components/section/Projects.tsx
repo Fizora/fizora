@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { LuArrowUpRight } from "react-icons/lu";
-import TargetCursor from "../TargetCursor";
 
 interface Project {
   title: string;
@@ -17,13 +16,13 @@ interface Project {
 const projectsData: Project[] = [
   {
     title: "Musa Kopi",
-    category: "Web Landing Page",
+    category: "Cafe",
     img: "/musa-kopi.png",
     link: "https://musa-kopi.vercel.app",
   },
   {
-    title: "Portfolio Agency",
-    category: "Design",
+    title: "Aurelian Watches",
+    category: "Luxury Brand",
     img: "/example2.webp",
     link: "#",
   },
@@ -46,12 +45,6 @@ const Projects = () => {
 
   return (
     <section id="projects" className="border-y border-dashed border-stone-800">
-      <TargetCursor
-        spinDuration={2}
-        hideDefaultCursor
-        parallaxOn
-        hoverDuration={0.2}
-      />
       <div className="mx-4">
         <div className="max-w-6xl py-10 md:py-20 mx-auto px-4 sm:px-6 border-x border-dashed border-stone-800">
           <motion.div

@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { useState, FormEvent } from "react";
 import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import TargetCursor from "../TargetCursor";
 
 interface FormData {
   name: string;
@@ -28,12 +27,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="border-b border-dashed border-stone-800">
-      <TargetCursor
-        spinDuration={2}
-        hideDefaultCursor
-        parallaxOn
-        hoverDuration={0.2}
-      />
       <div className="mx-4">
         <div className="max-w-6xl mx-auto py-10 md:py-20 px-4 sm:px-6 border-x border-dashed border-stone-800">
           <motion.div

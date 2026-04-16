@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import Beams from "../Beams";
 import FloatingLines from "../FloatingLines";
 import Link from "next/link";
-import TargetCursor from "../TargetCursor";
 
 const Hero = () => {
   return (
@@ -11,15 +10,9 @@ const Hero = () => {
       id="home"
       className="relative bg-black border-b border-dashed border-stone-800 overflow-hidden"
     >
-      <TargetCursor
-        spinDuration={2}
-        hideDefaultCursor
-        parallaxOn
-        hoverDuration={0.2}
-      />
       {/* Background (opsional, bisa diaktifkan kembali) */}
       {/* <div className="absolute bg-black/40 inset-0 z-0">
-        <FloatingLines ... />
+        <FloatingLines />
       </div> */}
 
       {/* Konten Hero */}

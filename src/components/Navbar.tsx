@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { LuMenu, LuX } from "react-icons/lu";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import TargetCursor from "./TargetCursor";
 import Image from "next/image";
 
 interface NavItem {
@@ -202,12 +201,6 @@ const Navbar = () => {
       ref={navRef}
       className="w-full border-b border-dashed border-stone-800 fixed top-0 left-0 right-0 bg-black z-50"
     >
-      <TargetCursor
-        spinDuration={2}
-        hideDefaultCursor
-        parallaxOn
-        hoverDuration={0.2}
-      />
       <div className="mx-4">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 border-x border-dashed border-stone-800">
           <div className="flex items-center justify-between py-4">
