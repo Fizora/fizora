@@ -103,7 +103,7 @@ export default function RootLayout({
     <html
       lang="id"
       className={cn(
-        "h-full antialiased scroll-smooth", // Tambahan scroll-smooth untuk user experience
+        "h-full antialiased scroll-smooth bg-black", // Tambahan scroll-smooth untuk user experience
         geistSans.variable,
         geistMono.variable,
         fontMono.variable,
@@ -119,7 +119,7 @@ export default function RootLayout({
             {/* Navbar Anda biasanya ada di sini di dalam ClientLayout */}
           </header>
 
-          <main id="main-content" className="">
+          <main id="main-content" className="bg-black">
             {children}
           </main>
 

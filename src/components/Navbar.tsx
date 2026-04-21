@@ -144,7 +144,7 @@ const Navbar = () => {
   };
 
   // Fungsi untuk render item mobile (dengan submenu untuk dropdown)
-  const renderMobileNavItem = (item: NavItem, idx: number) => {
+  const renderMobileNavItem: any = (item: NavItem, idx: number) => {
     if (item.isDropdown) {
       const [subOpen, setSubOpen] = useState(false);
       return (

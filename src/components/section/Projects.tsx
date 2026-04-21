@@ -21,10 +21,10 @@ const projectsData: Project[] = [
     link: "https://musa-kopi.vercel.app",
   },
   {
-    title: "Aurelian Watches",
+    title: "Aurelian Fashion",
     category: "Luxury Brand",
     img: "/example2.webp",
-    link: "#",
+    link: "https://aurelian-fashion.vercel.app",
   },
   {
     title: "Open Source AI",
