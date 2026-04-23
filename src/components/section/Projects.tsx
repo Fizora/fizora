@@ -23,7 +23,7 @@ const projectsData: Project[] = [
   {
     title: "Aurelian Fashion",
     category: "Luxury Brand",
-    img: "/example2.webp",
+    img: "/aurelian.png",
     link: "https://aurelian-fashion.vercel.app",
   },
   {
