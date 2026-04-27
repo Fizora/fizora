@@ -1,33 +1,40 @@
 "use client";
 import { motion } from "framer-motion";
 import { FaCode, FaPalette, FaRocket } from "react-icons/fa";
-import { JSX } from "react/jsx-dev-runtime";
+import type { ReactNode } from "react";
 
 interface Service {
-  icon: JSX.Element;
+  icon: ReactNode;
   title: string;
   desc: string;
 }
 
-const About = () => {
-  const services: Service[] = [
-    {
-      icon: <FaCode />,
-      title: "Clean Code",
-      desc: "Struktur kode rapi, mudah dikelola, dan SEO friendly.",
-    },
-    {
-      icon: <FaPalette />,
-      title: "Desain Modern",
-      desc: "UI/UX menarik dengan animasi halus & responsif.",
-    },
-    {
-      icon: <FaRocket />,
-      title: "Optimasi Kecepatan",
-      desc: "Load time cepat, skor Lighthouse 90+.",
-    },
-  ];
+const SERVICES: Service[] = [
+  {
+    icon: <FaCode />,
+    title: "Clean Code",
+    desc: "Struktur kode rapi, mudah dikelola, dan SEO friendly.",
+  },
+  {
+    icon: <FaPalette />,
+    title: "Desain Modern",
+    desc: "UI/UX menarik dengan animasi halus & responsif.",
+  },
+  {
+    icon: <FaRocket />,
+    title: "Optimasi Kecepatan",
+    desc: "Load time cepat, skor Lighthouse 90+.",
+  },
+];
 
+const PATTERN_STYLE = {
+  backgroundColor: "black",
+  backgroundImage:
+    "repeating-linear-gradient(45deg, #2a2a2a 0, #2a2a2a 1px, transparent 0, transparent 50%)",
+  backgroundSize: "5px 5px",
+} as const;
+
+const About = () => {
   return (
     <section
       id="about"
@@ -55,14 +62,9 @@ const About = () => {
           {/* bottom content - menggunakan style inline untuk background pattern */}
           <div
             className="relative w-full py-4 px-5 grid md:grid-cols-3 gap-4 mt-16 border-y border-dashed border-stone-800"
-            style={{
-              backgroundColor: "black",
-              backgroundImage:
-                "repeating-linear-gradient(45deg, #2a2a2a 0, #2a2a2a 1px, transparent 0, transparent 50%)",
-              backgroundSize: "5px 5px",
-            }}
+            style={PATTERN_STYLE}
           >
-            {services.map((service, idx) => (
+            {SERVICES.map((service, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}

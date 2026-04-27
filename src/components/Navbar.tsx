@@ -16,19 +16,14 @@ interface NavItem {
 
 const Navbar = () => {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [isProjectsDropdownOpen, setIsProjectsDropdownOpen] =
-    useState<boolean>(false);
-  const [isTestimonyDropdownOpen, setIsTestimonyDropdownOpen] =
-    useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const navRef = useRef<HTMLElement>(null);
 
-  // Handle click outside to close dropdowns
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        setIsProjectsDropdownOpen(false);
-        setIsTestimonyDropdownOpen(false);
+        setOpenDropdown(null);
         setIsOpen(false);
       }
     };
@@ -87,24 +82,15 @@ const Navbar = () => {
   // Fungsi untuk render item navigasi (desktop) – hanya ditampilkan jika bukan di /projects
   const renderDesktopNavItem = (item: NavItem, idx: number) => {
     if (item.isDropdown) {
-      const isOpen =
-        item.name === "Proyek"
-          ? isProjectsDropdownOpen
-          : item.name === "Testimoni"
-            ? isTestimonyDropdownOpen
-            : false;
-      const setIsOpen =
-        item.name === "Proyek"
-          ? setIsProjectsDropdownOpen
-          : item.name === "Testimoni"
-            ? setIsTestimonyDropdownOpen
-            : () => {};
+      const isOpen = openDropdown === item.name;
 
       return (
         <div key={idx} className="relative">
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setOpenDropdown(isOpen ? null : item.name)}
             className="cursor-target p-2 flex items-center gap-1 text-sm font-medium text-gray-300 hover:text-gray-400 transition duration-200"
+            aria-expanded={isOpen}
+            aria-label={`${item.name} menu`}
           >
             {item.name}
             {isOpen ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}
@@ -121,7 +107,7 @@ const Navbar = () => {
                 <Link
                   key={subIdx}
                   href={subItem.url}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => setOpenDropdown(null)}
                   className="cursor-target rounded px-6 py-2 text-sm text-gray-300 hover:text-white hover:bg-purple-600 whitespace-nowrap"
                 >
                   {subItem.name}
@@ -144,14 +130,16 @@ const Navbar = () => {
   };
 
   // Fungsi untuk render item mobile (dengan submenu untuk dropdown)
-  const renderMobileNavItem: any = (item: NavItem, idx: number) => {
+  const renderMobileNavItem = (item: NavItem, idx: number) => {
     if (item.isDropdown) {
-      const [subOpen, setSubOpen] = useState(false);
+      const dropdownKey = `mobile-${item.name}`;
+      const subOpen = openDropdown === dropdownKey;
       return (
         <div key={idx} className="w-full">
           <button
-            onClick={() => setSubOpen(!subOpen)}
+            onClick={() => setOpenDropdown(subOpen ? null : dropdownKey)}
             className="cursor-target flex items-center justify-between w-full text-base font-medium text-gray-300 hover:text-gray-400 transition duration-200 py-2"
+            aria-expanded={subOpen}
           >
             {item.name}
             {subOpen ? <FaChevronUp size={14} /> : <FaChevronDown size={14} />}
@@ -167,7 +155,7 @@ const Navbar = () => {
                 href={subItem.url}
                 onClick={() => {
                   setIsOpen(false);
-                  setSubOpen(false);
+                  setOpenDropdown(null);
                 }}
                 className="cursor-target block py-2 text-sm text-gray-400 hover:text-white"
               >
@@ -179,9 +167,9 @@ const Navbar = () => {
       );
     }
     return (
-      <a
+      <Link
         key={idx}
-        href={item.url}
+        href={item.url || "/"}
         onClick={() => setIsOpen(false)}
         target={item.url?.startsWith("http") ? "_blank" : undefined}
         rel={item.url?.startsWith("http") ? "noopener noreferrer" : undefined}
@@ -192,7 +180,7 @@ const Navbar = () => {
         }
       >
         {item.name}
-      </a>
+      </Link>
     );
   };
 

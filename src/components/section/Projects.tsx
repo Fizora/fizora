@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { LuArrowUpRight } from "react-icons/lu";
 
@@ -41,8 +40,6 @@ const projectsData: Project[] = [
 ];
 
 const Projects = () => {
-  const [hovered, setHovered] = useState<number | null>(null);
-
   return (
     <section id="projects" className="border-y border-dashed border-stone-800">
       <div className="mx-4">
@@ -62,7 +59,7 @@ const Projects = () => {
             </p>
           </motion.div>
 
-          <div className=" rounded-md grid md:grid-cols-2 lg:grid-cols-2 gap-8 mt-12">
+          <div className="rounded-md grid md:grid-cols-2 lg:grid-cols-2 gap-8 mt-12">
             {projectsData.map((project, idx) => (
               <motion.div
                 key={idx}
@@ -71,23 +68,20 @@ const Projects = () => {
                 transition={{ delay: idx * 0.1 }}
                 viewport={{ once: false }}
                 className="cursor-target group relative overflow-hidden rounded-xl bg-gray-900"
-                onMouseEnter={() => setHovered(idx)}
-                onMouseLeave={() => setHovered(null)}
               >
                 <div className="relative h-64 w-full">
                   <Image
                     src={project.img}
-                    alt={project.title}
+                    alt={`${project.title} - ${project.category} portfolio project`}
                     fill
                     blurDataURL="blurData"
                     placeholder="blur"
                     className="object-cover group-hover:scale-105 transition duration-500"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                    priority={idx < 2}
                   />
                 </div>
-                <div
-                  className={`absolute inset-0 bg-linear-to-t from-black via-black/70 to-transparent flex flex-col justify-end p-6 transition-opacity duration-300 ${hovered === idx ? "opacity-100" : "opacity-90"}`}
-                >
+                <div className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-transparent flex flex-col justify-end p-6 transition-opacity duration-300 group-hover:opacity-100 opacity-90">
                   <p className="text-purple-300 text-sm">{project.category}</p>
                   <h3 className="text-xl font-black text-white font-mono">
                     {project.title}
@@ -95,7 +89,9 @@ const Projects = () => {
                   <a
                     href={project.link}
                     target="_blank"
-                    className=" mt-3 text-sm bg-purple-500 text-white md:opacity-0 group-hover:opacity-100 transition md:w-max md:bg-purple-500  px-4 py-2 rounded-md "
+                    rel="noopener noreferrer"
+                    className="mt-3 text-sm bg-purple-500 text-white md:opacity-0 group-hover:opacity-100 transition md:w-max md:bg-purple-500 px-4 py-2 rounded-md"
+                    aria-label={`Lihat website ${project.title}`}
                   >
                     Lihat Website →
                   </a>
