@@ -16,13 +16,13 @@ const projectsData: Project[] = [
   {
     title: "Musa Kopi",
     category: "Cafe",
-    img: "/musa-kopi.png",
+    img: "/musa-kopi.webp",
     link: "https://musa-kopi.vercel.app",
   },
   {
     title: "Aurelian Fashion",
     category: "Luxury Brand",
-    img: "/aurelian.png",
+    img: "/aurelian.webp",
     link: "https://aurelian-fashion.vercel.app",
   },
   {

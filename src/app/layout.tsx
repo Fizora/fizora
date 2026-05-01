@@ -103,7 +103,7 @@ export default function RootLayout({
     <html
       lang="id"
       className={cn(
-        "h-full antialiased scroll-smooth bg-black", // Tambahan scroll-smooth untuk user experience
+        "h-full antialiased bg-black", // Tambahan scroll-smooth untuk user experience
         geistSans.variable,
         geistMono.variable,
         fontMono.variable,
