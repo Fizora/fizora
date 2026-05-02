@@ -1,4 +1,6 @@
 "use client";
+import { Suspense, lazy } from "react";
+import dynamic from "next/dynamic";
 import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
@@ -10,7 +12,15 @@ import Pricing from "@/components/section/Pricing";
 import Projects from "@/components/section/Projects";
 import Testimony from "@/components/section/Testimony";
 import Skathes from "@/components/Skathes";
-import Image from "next/image";
+
+// Lazy load components with animation effects
+const Projects_Section = dynamic(
+  () => import("@/components/section/Projects"),
+  {
+    loading: () => <div className="h-96 bg-black" />,
+    ssr: true,
+  },
+);
 
 export default function Home() {
   return (

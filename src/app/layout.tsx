@@ -92,6 +92,11 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Fizora",
+  },
 };
 
 export default function RootLayout({
@@ -103,12 +108,30 @@ export default function RootLayout({
     <html
       lang="id"
       className={cn(
-        "h-full antialiased bg-black", // Tambahan scroll-smooth untuk user experience
+        "h-full antialiased bg-black scroll-smooth",
         geistSans.variable,
         geistMono.variable,
         fontMono.variable,
       )}
     >
+      <head>
+        {/* Preconnect untuk Google Fonts */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        {/* DNS Prefetch untuk external resources */}
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        {/* Preload critical fonts */}
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/geist-sans.woff2"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="min-h-screen flex flex-col overflow-x-hidden">
         {/* Schema Markup untuk SEO hasil pencarian */}
         <JsonLd />

@@ -123,22 +123,35 @@
   }
   html {
     @apply font-sans;
-    /* Lenis requires normal scroll behavior */
     width: 100%;
     height: auto;
+    /* Smooth scroll for better UX */
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground;
     width: 100%;
     height: auto;
     overflow-x: hidden;
-    /* Allow vertical scroll for Lenis */
     overflow-y: auto;
   }
 }
 
-/* Custom Scrollbar - Disabled untuk Lenis smooth scroll */
-/* Lenis library handles scrolling, custom scrollbar styling dapat conflict */
+/* Reduce Motion Support for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
 
 /* Hide default scrollbar */
 html {

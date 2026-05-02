@@ -12,16 +12,17 @@ export const useLenis = () => {
     }
 
     try {
-      // Initialize Lenis with better configuration
+      // Initialize Lenis with optimized configuration for performance
       lenisInstance = new Lenis({
-        duration: 1.2,
+        duration: 0.8, // Reduced from 1.2 for better performance
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
-        wheelMultiplier: 1,
+        wheelMultiplier: 0.8, // Reduced for better control
         syncTouch: true,
+        smoothTouch: false, // Disable smooth touch to reduce overhead
       } as any);
 
-      // Animation loop
+      // Animation loop with lower priority
       const raf = (time: number) => {
         if (lenisInstance) {
           lenisInstance.raf(time);
