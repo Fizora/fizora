@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center">Hi, I'm Fizora 👋</h1>
+<h3 align="center">Full Stack | MERN Stack Enthusiast | Building Digital Experiences</h3>
 
-## Getting Started
+---
 
-First, run the development server:
+### 💡 About Me
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 🔭 I’m currently study on **SMK PGRI 05 JEMBER**
+- 🌱 I’m learning **React.js**, **Tailwind CSS**, and **Nextjs**
+- 🎯 My goal is to become a **Top 1% Programmer**
+- 💬 Ask me about **JavaScript, React, Nextjs, Supabase**
+- 🚀 Building under the alias: **Fizora**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🧰 Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=html,css,js,ts,php,laravel,react,nextjs,nodejs,supabase,mysql,tailwind,git,github,npm,bun,vscode" />
+</p>
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+### 📫 Contact Me
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 📧 Email: moch.choirulfaiz2008@gmail.com
+- 💼 LinkedIn: [linkedin.com/in/yourname](none)
+- 🌐 Website: https://fizoraa.vercel.app
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+### ⚡ Fun Fact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> "Succes need, Focus, Consistent and Dicipline, Stay Hard🔥"  
+> – Fizora 🧠💻
