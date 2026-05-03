@@ -24,7 +24,7 @@
 ### 📫 Contact Me
 
 - 📧 Email: faizmoch63@gmail.com
-- 💼 LinkedIn: [linkedin.com/in/yourname](none)
+- 💼 LinkedIn: [linkedin.com/in/[yourname](https://www.linkedin.com/in/moch-choirul-faiz-9ba4282a2/)]
 - 🌐 Website: https://fizoraa.vercel.app
 
 ---
