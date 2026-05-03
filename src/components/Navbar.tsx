@@ -85,9 +85,13 @@ const Navbar = () => {
       const isOpen = openDropdown === item.name;
 
       return (
-        <div key={idx} className="relative">
+        <div
+          key={idx}
+          className="relative"
+          onMouseEnter={() => setOpenDropdown(item.name)}
+          onMouseLeave={() => setOpenDropdown(null)}
+        >
           <button
-            onClick={() => setOpenDropdown(isOpen ? null : item.name)}
             className="cursor-target p-2 flex items-center gap-1 text-sm font-medium text-gray-300 hover:text-gray-400 transition duration-200"
             aria-expanded={isOpen}
             aria-label={`${item.name} menu`}

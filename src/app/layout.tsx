@@ -1,15 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import JsonLd from "@/components/JsonLd";
 import ClientLayout from "./ClientLayout";
 
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-sans" });
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" });
 const fontMono = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-bricolage",
+  variable: "--font-mono",
 });
 
 // Viewport dipisah di Next.js versi terbaru untuk optimasi
@@ -107,10 +106,10 @@ export default function RootLayout({
   return (
     <html
       lang="id"
+      data-scroll="smooth"
       className={cn(
-        "h-full antialiased bg-black scroll-smooth",
+        "h-full antialiased bg-black",
         geistSans.variable,
-        geistMono.variable,
         fontMono.variable,
       )}
     >

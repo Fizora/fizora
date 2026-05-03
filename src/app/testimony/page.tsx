@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { LuSearch, LuX, LuStar } from "react-icons/lu";
 import Navbar from "@/components/Navbar";
 import Skathes from "@/components/Skathes";
+import Warn from "@/components/Warn";
 import Footer from "@/components/Footer";
 import Contact from "@/components/section/Contact";
 
@@ -173,6 +174,16 @@ export default function TestimonyPage() {
           </p>
         </div>
       </Skathes>
+
+      {/* Disclaimer */}
+      <Warn>
+        <p className="text-sm md:text-base font-medium font-mono text-white">
+          📌 <span className="font-bold">Penting:</span> Testimoni yang
+          ditampilkan saat ini merupakan contoh demo. Seiring dengan setiap
+          proyek klien nyata yang kami tangani, testimoni autentik akan terus
+          diperbarui di halaman ini. Kepercayaan Anda adalah prioritas kami.
+        </p>
+      </Warn>
 
       <div className="mx-4 border-y border-dashed border-stone-800">
         <div className="max-w-6xl mx-auto border-x border-dashed border-stone-800 py-10 md:py-16">
