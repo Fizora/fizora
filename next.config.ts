@@ -39,17 +39,6 @@ const nextConfig: NextConfig = {
           key: "Cache-Control",
           value: "public, max-age=31536000, immutable",
         },
-        // Brotli compression for better performance
-        {
-          key: "Content-Encoding",
-          value: "gzip, br",
-        },
-      ],
-    },
-    // Disable smooth scroll on mobile via headers
-    {
-      source: "/:path*",
-      headers: [
         {
           key: "X-Content-Type-Options",
           value: "nosniff",
