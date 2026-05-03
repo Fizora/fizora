@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
     maxInactiveAge: 60 * 1000,
     pagesBufferLength: 5,
   },
-  swcMinify: true,
+  // swcMinify: true,
   experimental: {
     optimizePackageImports: [
       "@radix-ui/react-*",
