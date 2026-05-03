@@ -123,13 +123,6 @@ export default function RootLayout({
         />
         {/* DNS Prefetch untuk external resources */}
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
-        {/* Preload critical fonts */}
-        <link
-          rel="preload"
-          as="font"
-          href="/fonts/geist-sans.woff2"
-          crossOrigin="anonymous"
-        />
       </head>
       <body className="min-h-screen flex flex-col overflow-x-hidden">
         {/* Schema Markup untuk SEO hasil pencarian */}
