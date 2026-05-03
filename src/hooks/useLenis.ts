@@ -12,14 +12,18 @@ export const useLenis = () => {
     }
 
     try {
+      // Detect mobile for optimized settings
+      const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
       // Initialize Lenis with optimized configuration for performance
       lenisInstance = new Lenis({
-        duration: 0.8, // Reduced from 1.2 for better performance
+        duration: isMobile ? 0.6 : 0.8, // Shorter for mobile
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smoothWheel: true,
-        wheelMultiplier: 0.8, // Reduced for better control
-        syncTouch: true,
-        smoothTouch: false, // Disable smooth touch to reduce overhead
+        smoothWheel: !isMobile, // Disable on mobile to save resources
+        wheelMultiplier: isMobile ? 0.6 : 0.8, // Lower on mobile
+        syncTouch: !isMobile, // Only sync on desktop
+        smoothTouch: false, // Always disable smooth touch
+        lerp: isMobile ? 0.1 : 0.1, // Interpolation factor
       } as any);
 
       // Animation loop with lower priority

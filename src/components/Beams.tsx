@@ -89,16 +89,27 @@ function extendMaterial<T extends THREE.Material = THREE.Material>(
   return mat;
 }
 
-const CanvasWrapper: FC<{ children: ReactNode }> = ({ children }) => (
-  <Canvas
-    dpr={[1, 1.5]}
-    frameloop="demand"
-    className="w-full h-full relative"
-    performance={{ min: 0.5, max: 0.8 }}
-  >
-    {children}
-  </Canvas>
-);
+const CanvasWrapper: FC<{ children: ReactNode }> = ({ children }) => {
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
+  return (
+    <Canvas
+      dpr={isMobile ? [1, 1.2] : [1, 1.5]}
+      frameloop="demand"
+      className="w-full h-full relative"
+      performance={{
+        min: isMobile ? 0.3 : 0.5,
+        max: isMobile ? 0.6 : 0.8,
+      }}
+      gl={{
+        antialias: !isMobile,
+        powerPreference: "low-power",
+      }}
+    >
+      {children}
+    </Canvas>
+  );
+};
 
 const hexToNormalizedRGB = (hex: string): [number, number, number] => {
   const clean = hex.replace("#", "");
