@@ -8,6 +8,7 @@ import {
   useMemo,
   FC,
   ReactNode,
+  useState,
 } from "react";
 
 import * as THREE from "three";
@@ -92,7 +93,19 @@ function extendMaterial<T extends THREE.Material = THREE.Material>(
 }
 
 const CanvasWrapper: FC<{ children: ReactNode }> = ({ children }) => {
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Only run on client
+    setIsMobile(window.innerWidth < 768);
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <Canvas
