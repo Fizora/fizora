@@ -38,9 +38,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Fizora", url: "https://fizora.vercel.app" }],
   creator: "Fizora",
   publisher: "Fizora",
-  // Tag untuk verifikasi search console (masukkan kode Anda nanti)
+  // Tag untuk verifikasi search console
   verification: {
-    google: "google-site-verification-code",
+    google: "iU_eodes0Tp4_tf-fKjWmMnGi82zUEVC8qH6J8Fhn-Q",
     yandex: "yandex-verification-code",
   },
   formatDetection: {
