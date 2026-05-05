@@ -1,5 +1,5 @@
 export default function JsonLd() {
-  const jsonLd = {
+  const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: "Fizora",
@@ -32,10 +32,67 @@ export default function JsonLd() {
     areaServed: "Indonesia",
   };
 
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Fizora",
+    url: "https://fizora.vercel.app",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate:
+          "https://fizora.vercel.app/projects?search={search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Beranda",
+        item: "https://fizora.vercel.app",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Proyek",
+        item: "https://fizora.vercel.app/projects",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "CV",
+        item: "https://fizora.vercel.app/my-cv",
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: "Testimoni",
+        item: "https://fizora.vercel.app/testimony",
+      },
+    ],
+  };
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+    </>
   );
 }

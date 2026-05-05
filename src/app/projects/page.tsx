@@ -14,67 +14,75 @@ import Contact from "@/components/section/Contact";
 const allProjects = [
   {
     id: 1,
-    title: "Kopi Nusantara",
-    category: "Kuliner",
-    description: "Landing page coffee shop dengan sistem pre-order online.",
+    title: "Orion Forge",
+    category: "Space",
+    description:
+      "Platform co-working space dengan sistem booking ruangan dan member management online.",
     img: "/example.webp",
-    link: "#",
+    link: "https://orion-forge.vercel.app",
   },
   {
     id: 2,
-    title: "Sate Pak Man",
-    category: "Kuliner",
-    description: "Website menu digital + lokasi outlet.",
+    title: "Nebula News",
+    category: "News",
+    description:
+      "Website menu digital dengan sistem delivery tracking dan pre-order kuliner nusantara.",
     img: "/example.webp",
-    link: "#",
+    link: "https://lavesta-buritos.vercel.app",
   },
   {
     id: 3,
-    title: "Wedding Organizer Azzahra",
-    category: "Event",
-    description: "Portfolio WO dengan galeri dan form inquiry.",
+    title: "Stellar Bank Industries",
+    category: "Bank",
+    description:
+      "Portal layanan perbankan digital dengan dashboard transaksi dan informasi produk investasi.",
     img: "/example2.webp",
-    link: "#",
+    link: "https://stellar-bank.vercel.app",
   },
   {
     id: 4,
-    title: "Laundry Kiloan Cepat",
-    category: "Service",
-    description: "Landing page promosi dengan harga dan order WhatsApp.",
+    title: "GCBI",
+    category: "Bank",
+    description:
+      "Website layanan perbankan, company profile sebagai media informasi.",
     img: "/example2.webp",
     link: "#",
   },
   {
     id: 5,
-    title: "Fashion Muslimah Qaira",
-    category: "Fashion",
-    description: "E-commerce sederhana dengan katalog produk.",
+    title: "Central Asian Cars",
+    category: "Otomotif",
+    description:
+      "Platform Sportscar, event, dan showroom otomotif, di seluruh Asia.",
     img: "/example3.webp",
     link: "#",
   },
   {
     id: 6,
-    title: "Musa Kopi",
-    category: "Demo",
-    description: "Website toko kopi dengan blog dan event.",
+    title: "Neza Cafe",
+    category: "Cafe",
+    description:
+      "Website kafe dengan menu interaktif, blog tips kopi, event calendar, dan sistem reservasi.",
     img: "/example3.webp",
     link: "#",
   },
   {
     id: 7,
-    title: "Gym & Fitness BodyFit",
-    category: "Olahraga",
-    description: "Landing page membership dengan form pendaftaran.",
+    title: "Cosmos Gym",
+    category: "Sports",
+    description:
+      "Platform membership gym dengan class schedule, trainer profile, dan progress tracking untuk member.",
     img: "/example4.webp",
-    link: "#",
+    link: "https://cosmos-gym.vercel.app",
   },
   {
     id: 8,
-    title: "Studio Foto Lensa",
+    title: "Prodigy Photography",
     category: "Creative",
-    description: "Portfolio fotografer dengan grid galeri.",
+    description:
+      "Portfolio fotografi profesional dengan galeri lightbox, booking system, dan pricing showcase.",
     img: "/example4.webp",
-    link: "#",
+    link: "https://prodigy-photography.vercel.app",
   },
 ];
 

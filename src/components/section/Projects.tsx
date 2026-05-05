@@ -14,28 +14,28 @@ interface Project {
 
 const projectsData: Project[] = [
   {
-    title: "Musa Kopi",
+    title: "Neza Cafe",
     category: "Cafe",
     img: "/musa-kopi.webp",
     link: "https://musa-kopi.vercel.app",
   },
   {
     title: "Aurelian Fashion",
-    category: "Luxury Brand",
+    category: "Fashion",
     img: "/aurelian.webp",
     link: "https://aurelian-fashion.vercel.app",
   },
   {
-    title: "Open Source AI",
-    category: "Admin",
+    title: "Orion Forge ",
+    category: "Space",
     img: "/example3.webp",
-    link: "#",
+    link: "https://orion-forge.vercel.app",
   },
   {
-    title: "Landing Product",
-    category: "Marketing",
+    title: "Stellar Bank",
+    category: "Banking",
     img: "/example4.webp",
-    link: "#",
+    link: "https://stellar-bank.vercel.app",
   },
 ];
 
