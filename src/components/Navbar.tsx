@@ -46,14 +46,14 @@ const Navbar = () => {
         { name: "Semua Proyek", url: "/projects" },
       ],
     },
-    {
-      name: "Testimoni",
-      isDropdown: true,
-      dropdownItems: [
-        { name: "Testimoni Unggulan", url: "#testimony" },
-        { name: "Semua Testimoni", url: "/testimony" },
-      ],
-    },
+    // {
+    //   name: "Testimoni",
+    //   isDropdown: true,
+    //   dropdownItems: [
+    //     { name: "Testimoni Unggulan", url: "#testimony" },
+    //     { name: "Semua Testimoni", url: "/testimony" },
+    //   ],
+    // },
     { name: "FAQ", url: "#faq" },
   ];
 

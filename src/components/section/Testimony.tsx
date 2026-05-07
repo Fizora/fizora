@@ -76,7 +76,7 @@ const Testimony = () => {
                 </div>
                 <p className="text-gray-300 italic">"{t.text}"</p>
                 <div className="flex items-center gap-3 mt-4">
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                  <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0">
                     <Image
                       src={t.img}
                       alt={`${t.name}, ${t.role}`}

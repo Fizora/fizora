@@ -49,7 +49,7 @@ export default function Home() {
         <Pricing />
 
         {/* Skathes 2: Ajakan lihat testimonial */}
-        <Skathes>
+        {/* <Skathes>
           <div className="space-y-2">
             <p className="text-white text-lg font-bold">
               💬 Jangan percaya kata kami, percaya pada klien kami
@@ -60,7 +60,7 @@ export default function Home() {
           </div>
         </Skathes>
 
-        <Testimony />
+        <Testimony /> */}
         <Faq />
         <Contact />
 
