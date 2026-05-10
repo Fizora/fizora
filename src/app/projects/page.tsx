@@ -15,6 +15,7 @@ const allProjects = [
     id: 1,
     title: "Orion Forge",
     category: "Space",
+    status: "Coming Soon",
     description:
       "Platform co-working space dengan sistem booking ruangan dan member management online.",
     img: "/example.webp",
@@ -24,6 +25,7 @@ const allProjects = [
     id: 2,
     title: "Nebula News",
     category: "News",
+    status: "On Going",
     description:
       "Website menu digital dengan sistem delivery tracking dan pre-order kuliner nusantara.",
     img: "/example.webp",
@@ -33,6 +35,7 @@ const allProjects = [
     id: 3,
     title: "Stellar Bank Industries",
     category: "Bank",
+    status: "Coming Soon",
     description:
       "Portal layanan perbankan digital dengan dashboard transaksi dan informasi produk investasi.",
     img: "/example2.webp",
@@ -42,6 +45,7 @@ const allProjects = [
     id: 4,
     title: "GCBI",
     category: "Bank",
+    status: "Coming Soon",
     description:
       "Website layanan perbankan, company profile sebagai media informasi.",
     img: "/example2.webp",
@@ -51,6 +55,7 @@ const allProjects = [
     id: 5,
     title: "Central Asian Cars",
     category: "Otomotif",
+    status: "Coming Soon",
     description:
       "Platform Sportscar, event, dan showroom otomotif, di seluruh Asia.",
     img: "/example3.webp",
@@ -60,6 +65,7 @@ const allProjects = [
     id: 6,
     title: "Neza Cafe",
     category: "Cafe",
+    status: "Coming Soon",
     description:
       "Website kafe dengan menu interaktif, blog tips kopi, event calendar, dan sistem reservasi.",
     img: "/example3.webp",
@@ -69,6 +75,7 @@ const allProjects = [
     id: 7,
     title: "Cosmos Gym",
     category: "Sports",
+    status: "Coming Soon",
     description:
       "Platform membership gym dengan class schedule, trainer profile, dan progress tracking untuk member.",
     img: "/example4.webp",
@@ -78,14 +85,39 @@ const allProjects = [
     id: 8,
     title: "Prodigy Photography",
     category: "Creative",
+    status: "Coming Soon",
     description:
       "Portfolio fotografi profesional dengan galeri lightbox, booking system, dan pricing showcase.",
     img: "/example4.webp",
     link: "https://prodigy-photography.vercel.app",
   },
+  {
+    id: 9,
+    title: "Aurelian Fashion",
+    category: "Fashion",
+    status: "On Going",
+    description:
+      "Portfolio fotografi profesional dengan galeri lightbox, booking system, dan pricing showcase.",
+    img: "/example4.webp",
+    link: "https://aurelian-fashion.vercel.app",
+  },
 ];
 
 const categories = ["Semua", ...new Set(allProjects.map((p) => p.category))];
+
+// Helper untuk mendapatkan style badge berdasarkan status
+const getStatusBadgeStyle = (status: string) => {
+  switch (status.toLowerCase()) {
+    case "live":
+      return "bg-green-600 text-white";
+    case "on going":
+      return "bg-yellow-500 text-black";
+    case "coming soon":
+      return "bg-blue-600 text-white";
+    default:
+      return "bg-gray-600 text-white";
+  }
+};
 
 export default function ProjectsPage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -110,11 +142,9 @@ export default function ProjectsPage() {
 
   return (
     <main className="bg-black text-white min-h-screen pt-19 font-sans">
-      {/* top content */}
       <div id="beranda"></div>
       <Navbar />
 
-      {/* Skathes 1: Quotes pembuka yang membangun kepercayaan */}
       <Skathes>
         <div className="text-center space-y-2">
           <p className="text-white text-lg md:text-xl font-bold tracking-wide italic">
@@ -147,7 +177,7 @@ export default function ProjectsPage() {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`cursor-target cursor-pointer px-4 py-2 border-x border-dashed border-stone-800 text-sm font-medium transition duration-200 h-full ${
+                  className={`cursor-target cursor-pointer px-3 py-2 border-x border-dashed border-stone-800 text-sm font-medium transition duration-200 h-full ${
                     selectedCategory === cat
                       ? "bg-purple-600 text-white"
                       : "text-gray-300 hover:text-white hover:bg-gray-900"
@@ -193,8 +223,19 @@ export default function ProjectsPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.05 }}
-                  className="cursor-target bg-gray-900/30 border border-dashed border-stone-800 overflow-hidden hover:border-purple-500 transition"
+                  className="relative cursor-target bg-gray-900/30 border border-dashed border-stone-800 overflow-hidden hover:border-purple-500 transition"
                 >
+                  {/* BADGE STATUS - Pojok kanan atas CARD */}
+                  {project.status && (
+                    <span
+                      className={`absolute top-3 right-3 z-20 px-3 py-1 text-xs font-bold rounded-full shadow-lg ${getStatusBadgeStyle(
+                        project.status,
+                      )}`}
+                    >
+                      {project.status}
+                    </span>
+                  )}
+
                   <div className="relative h-52 w-full">
                     <Image
                       src={project.img}
@@ -265,7 +306,6 @@ export default function ProjectsPage() {
       </Link>
 
       <Contact />
-      {/* Skathes 2: Quotes penutup yang memotivasi dan mengajak bertindak */}
       <Skathes>
         <div className="text-center space-y-2">
           <p className="text-white text-lg md:text-xl font-bold tracking-wide italic">
@@ -277,14 +317,6 @@ export default function ProjectsPage() {
           </p>
         </div>
       </Skathes>
-      {/* <div className="flex items-center justify-center bg-purple-600">
-        <Image
-          src={"/Fizorra.png"}
-          width={600}
-          height={600}
-          alt={"Fizorra"}
-        ></Image>
-      </div> */}
       <Footer />
     </main>
   );
