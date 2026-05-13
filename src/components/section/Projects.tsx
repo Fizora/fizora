@@ -15,9 +15,9 @@ interface Project {
 const projectsData: Project[] = [
   {
     title: "Neza Cafe",
-    category: "Coming Soon",
-    img: "/example2.webp",
-    link: "",
+    category: "Live Now",
+    img: "/neza-cafe.png",
+    link: "https://neza-cafe.vercel.app",
   },
   {
     title: "Aurelian Fashion",
