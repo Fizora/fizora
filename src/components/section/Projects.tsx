@@ -15,7 +15,7 @@ interface Project {
 const projectsData: Project[] = [
   {
     title: "Neza Cafe",
-    category: "Live Now",
+    category: "Demo Live",
     img: "/neza-cafe.png",
     link: "https://neza-cafe.vercel.app",
   },
@@ -27,14 +27,14 @@ const projectsData: Project[] = [
   },
   {
     title: "Orion Forge ",
-    category: "Coming Soon",
-    img: "/example3.webp",
-    link: "",
+    category: "Demo Live",
+    img: "/orion-forge.png",
+    link: "https://orion-forge.vercel.app",
   },
   {
     title: "Stellar Bank",
-    category: "Cooming Soon",
-    img: "/example4.webp",
+    category: "Coming Soon",
+    img: "/orion-forge.png",
     link: "",
   },
 ];
@@ -52,10 +52,11 @@ const Projects = () => {
             className="text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white font-mono">
-              Proyek <span className="text-purple-400">Unggulan</span>
+              Proyek <span className="text-purple-400">Demonstrasi</span>
             </h2>
-            <p className="text-gray-300 mt-2 max-w-xl mx-auto ">
-              Beberapa karya yang telah membantu klien mencapai target bisnis.
+            <p className="text-gray-300 mt-2 max-w-xl mx-auto">
+              Koleksi website modern dengan teknologi terbaru (Next.js &
+              Tailwind) yang siap dikustomisasi untuk bisnis Anda.
             </p>
           </motion.div>
 
@@ -74,8 +75,6 @@ const Projects = () => {
                     src={project.img}
                     alt={`${project.title} - ${project.category} portfolio project`}
                     fill
-                    blurDataURL="blurData"
-                    placeholder="blur"
                     className="object-cover group-hover:scale-105 transition duration-500"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
                     priority={idx < 2}
@@ -103,14 +102,14 @@ const Projects = () => {
           <div className="flex md:flex-row flex-col justify-center items-center gap-2 text-center mt-12">
             <Link
               href="#contact"
-              className="cursor-target border bg-purple-500 border-purple-500 text-white font-bold  px-6 py-2 rounded-md transition flex items-center gap-2"
+              className="cursor-target border bg-purple-500 border-purple-500 text-white font-bold px-6 py-2 rounded-md transition flex items-center gap-2"
             >
-              Pesan Proyek Serupa
+              Konsultasi Proyek Anda
               <FaWhatsapp size={22} />
             </Link>
             <Link
-              href="#contact"
-              className="cursor-target flex items-center border border-white bg-white text-black font-bold  px-6 py-2 rounded-md transition"
+              href="/projects"
+              className="cursor-target flex items-center border border-white bg-white text-black font-bold px-6 py-2 rounded-md transition"
             >
               Lihat Semua Proyek
               <LuArrowUpRight className="ml-2" />

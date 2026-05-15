@@ -14,7 +14,7 @@ import {
   FaEnvelope,
   FaChartBar,
   FaEnvelopeOpenText,
-  FaStar, 
+  FaStar,
   FaBook,
   FaHeadset,
   FaChartLine,
