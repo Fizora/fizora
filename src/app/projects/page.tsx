@@ -1,5 +1,6 @@
 "use client";
 import { useState, useMemo } from "react";
+import { IconType } from "react-icons";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -21,8 +22,8 @@ import Skathes from "@/components/Skathes";
 import Footer from "@/components/Footer";
 import Contact from "@/components/section/Contact";
 
-// Mapping kategori ke ikon (untuk fallback)
-const categoryIconMap: Record<string, React.ElementType> = {
+// Change the map type from React.ElementType to IconType
+const categoryIconMap: Record<string, IconType> = {
   Space: LuRocket,
   News: LuNewspaper,
   Bank: LuLandmark,
@@ -33,7 +34,8 @@ const categoryIconMap: Record<string, React.ElementType> = {
   Fashion: LuShoppingBag,
 };
 
-const getCategoryIcon = (category: string) => {
+// Explicitly annotate the return type as IconType
+const getCategoryIcon = (category: string): IconType => {
   return categoryIconMap[category] || LuRocket;
 };
 
@@ -178,7 +180,6 @@ export default function ProjectsPage() {
     <main className="bg-black text-white min-h-screen pt-19 font-sans">
       <div id="beranda"></div>
       <Navbar />
-
       <Skathes>
         <div className="text-center space-y-2">
           <p className="text-white text-lg md:text-xl font-bold tracking-wide italic">
@@ -290,7 +291,7 @@ export default function ProjectsPage() {
                         />
                       ) : (
                         <IconComponent
-                          size={64}
+                          size={20}
                           className="text-gray-500 group-hover:scale-110 transition-transform duration-300"
                         />
                       )}
