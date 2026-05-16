@@ -34,8 +34,8 @@ const projectsData: Project[] = [
   {
     title: "Stellar Bank",
     category: "Coming Soon",
-    img: "/orion-forge.png",
-    link: "",
+    img: "/",
+    link: "https://stellar-bank.vercel.app",
   },
 ];
 

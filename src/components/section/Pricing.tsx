@@ -178,50 +178,50 @@ const formatCurrency = (value: number) => {
 
 const getFeatureIcon = (feature: string) => {
   const lowerFeature = feature.toLowerCase();
-
+  const grayIcon = <FaCheck className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("tahun") || lowerFeature.includes("online"))
-    return <FaClock className="text-gray-400" />;
+    return <FaClock className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("mobile"))
-    return <FaMobileAlt className="text-gray-400" />;
+    return <FaMobileAlt className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("whatsapp"))
-    return <FaWhatsapp className="text-gray-400" />;
+    return <FaWhatsapp className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("design") || lowerFeature.includes("template"))
-    return <FaPalette className="text-gray-400" />;
+    return <FaPalette className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("revisi") || lowerFeature.includes("pengerjaan"))
-    return <FaPencilAlt className="text-gray-400" />;
+    return <FaPencilAlt className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("delivery"))
-    return <FaTruck className="text-gray-400" />;
+    return <FaTruck className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("seo"))
-    return <FaSearch className="text-gray-400" />;
+    return <FaSearch className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("copywriting"))
-    return <FaLightbulb className="text-gray-400" />;
+    return <FaLightbulb className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("loading") || lowerFeature.includes("speed"))
-    return <FaBolt className="text-gray-400" />;
+    return <FaBolt className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("form") || lowerFeature.includes("contact"))
-    return <FaEnvelope className="text-gray-400" />;
+    return <FaEnvelope className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("integration"))
-    return <FaLink className="text-gray-400" />;
+    return <FaLink className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("analytics"))
-    return <FaChartBar className="text-gray-400" />;
+    return <FaChartBar className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("email") || lowerFeature.includes("automation"))
-    return <FaEnvelopeOpenText className="text-gray-400" />;
+    return <FaEnvelopeOpenText className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("custom"))
-    return <FaStar className="text-gray-400" />;
+    return <FaStar className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("blog") || lowerFeature.includes("cms"))
-    return <FaBook className="text-gray-400" />;
+    return <FaBook className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("support"))
-    return <FaHeadset className="text-gray-400" />;
+    return <FaHeadset className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("monitoring"))
-    return <FaChartLine className="text-gray-400" />;
+    return <FaChartLine className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("management") || lowerFeature.includes("user"))
-    return <FaUsers className="text-gray-400" />;
+    return <FaUsers className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("e-commerce") || lowerFeature.includes("cart"))
-    return <FaShoppingCart className="text-gray-400" />;
+    return <FaShoppingCart className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("maintenance") || lowerFeature.includes("api"))
-    return <FaWrench className="text-gray-400" />;
+    return <FaWrench className="text-gray-400 text-xs shrink-0" />;
   if (lowerFeature.includes("database"))
-    return <FaDatabase className="text-gray-400" />;
-  return <FaCheck className="text-green-400" />;
+    return <FaDatabase className="text-gray-400 text-xs shrink-0" />;
+  return grayIcon;
 };
 
 const Pricing = () => {
@@ -350,14 +350,10 @@ const Pricing = () => {
           ))}
 
           <div className="mt-16 md:text-center text-gray-500 text-sm space-y-2">
-            <ul>
-              <li>
-                ✅ Harga jasa sudah termasuk setup hosting gratis via Hostinger
-              </li>
-              <li>
-                ✅ Biaya hosting berlanjut per bulan (langsung ke Hostinger)
-              </li>
-            </ul>
+            <p>
+              ✅ Harga jasa sudah termasuk setup hosting gratis via Hostinger
+            </p>
+            <p>✅ Biaya hosting berlanjut per bulan (langsung ke Hostinger)</p>
           </div>
         </div>
       </div>
