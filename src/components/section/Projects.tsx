@@ -52,10 +52,10 @@ const Projects = () => {
             className="text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white font-mono">
-              Proyek <span className="text-purple-400">Demonstrasi</span>
+              Proyek <span className="text-gray-400">Demonstrasi</span>
             </h2>
-            <p className="text-gray-300 mt-2 max-w-xl mx-auto">
-              Koleksi website modern dengan teknologi terbaru (Next.js &
+            <p className="text-gray-400 mt-2 max-w-xl mx-auto">
+              Koleksi website modern dengan teknologi terbaru (Next.js &amp;
               Tailwind) yang siap dikustomisasi untuk bisnis Anda.
             </p>
           </motion.div>
@@ -81,7 +81,7 @@ const Projects = () => {
                   />
                 </div>
                 <div className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-transparent flex flex-col justify-end p-6 transition-opacity duration-300 group-hover:opacity-100 opacity-90">
-                  <p className="text-purple-300 text-sm">{project.category}</p>
+                  <p className="text-gray-300 text-sm">{project.category}</p>
                   <h3 className="text-xl font-black text-white font-mono">
                     {project.title}
                   </h3>
@@ -89,7 +89,7 @@ const Projects = () => {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-3 text-sm bg-purple-500 text-white md:opacity-0 group-hover:opacity-100 transition md:w-max md:bg-purple-500 px-4 py-2 rounded-md"
+                    className="mt-3 text-sm bg-gray-600 text-white md:opacity-0 group-hover:opacity-100 transition md:w-max md:bg-gray-600 px-4 py-2 rounded-md hover:bg-gray-500"
                     aria-label={`Lihat website ${project.title}`}
                   >
                     Lihat Website →
@@ -102,14 +102,14 @@ const Projects = () => {
           <div className="flex md:flex-row flex-col justify-center items-center gap-2 text-center mt-12">
             <Link
               href="#contact"
-              className="cursor-target border bg-purple-500 border-purple-500 text-white font-bold px-6 py-2 rounded-md transition flex items-center gap-2"
+              className="cursor-target border bg-gray-700 border-gray-700 text-white font-bold px-6 py-2 rounded-md transition flex items-center gap-2 hover:bg-gray-600"
             >
               Konsultasi Proyek Anda
               <FaWhatsapp size={22} />
             </Link>
             <Link
               href="/projects"
-              className="cursor-target flex items-center border border-white bg-white text-black font-bold px-6 py-2 rounded-md transition"
+              className="cursor-target flex items-center border border-gray-300 bg-white text-black font-bold px-6 py-2 rounded-md transition hover:bg-gray-100"
             >
               Lihat Semua Proyek
               <LuArrowUpRight className="ml-2" />

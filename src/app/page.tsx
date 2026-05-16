@@ -40,7 +40,7 @@ export default function Home() {
               ⚡ Sudah 50+ pemilik bisnis kuliner & coffee shop percaya pada
               kami
             </p>
-            <p className="text-purple-300 text-sm">
+            <p className="text-gray-400 text-sm">
               Pesanan online mereka naik rata-rata 2.5x dalam 1 bulan pertama
             </p>
           </div>
@@ -54,7 +54,7 @@ export default function Home() {
             <p className="text-white text-lg font-bold">
               💬 Jangan percaya kata kami, percaya pada klien kami
             </p>
-            <p className="text-gray-300 text-sm">
+            <p className="text-gray-400 text-sm">
               Scroll ke bawah untuk lihat pengalaman mereka 🚀
             </p>
           </div>
@@ -70,14 +70,14 @@ export default function Home() {
             <p className="text-white text-lg font-bold">
               🎯 Siap tingkatkan penjualan bisnismu?
             </p>
-            <p className="text-purple-300 text-sm">
+            <p className="text-gray-400 text-sm">
               Konsultasi 30 menit GRATIS.{" "}
               <span className="font-bold">Tanpa ribet, tanpa kewajiban.</span>
             </p>
 
             <a
               href="#contact"
-              className="cursor-target cursor-pointer inline-block mt-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-1.5 rounded-md text-sm font-semibold transition"
+              className="cursor-target cursor-pointer inline-block mt-2 bg-gray-700 hover:bg-gray-600 text-white px-4 py-1.5 rounded-md text-sm font-semibold transition"
             >
               Ya, Saya Mau Konsultasi →
             </a>

@@ -51,15 +51,15 @@ const About = () => {
             className="md:text-center mx-auto border-y border-dashed border-stone-800 py-20 p-4"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white font-mono">
-              Tentang <span className="text-purple-400">Fizora</span>
+              Tentang <span className="text-gray-400">Fizora</span>
             </h2>
-            <p className="text-gray-300 mt-4 mx-auto max-w-2xl">
+            <p className="text-gray-400 mt-4 mx-auto max-w-2xl">
               Saya adalah web developer profesional dengan pengalaman 3+ tahun
               membantu brand meningkatkan penjualan melalui website berkualitas.
             </p>
           </motion.div>
 
-          {/* bottom content - menggunakan style inline untuk background pattern */}
+          {/* bottom content */}
           <div
             className="relative w-full py-4 px-5 grid md:grid-cols-3 gap-4 mt-16 border-y border-dashed border-stone-800"
             style={PATTERN_STYLE}
@@ -71,12 +71,12 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
                 viewport={{ once: false }}
-                className="cursor-target border border-dashed border-stone-800 p-10 text-center hover:bg-purple-700 transition group bg-black/40 backdrop-blur-sm focus-within:ring-2 focus-within:ring-purple-500"
+                className="cursor-target border border-dashed border-stone-800 p-10 text-center hover:bg-gray-800 transition group bg-black/40 backdrop-blur-sm focus-within:ring-2 focus-within:ring-gray-500"
                 role="article"
                 aria-label={`Layanan: ${service.title}`}
               >
                 <div
-                  className="text-4xl group-hover:text-white text-purple-400 mb-4 group-hover:scale-110 transition"
+                  className="text-4xl group-hover:text-white text-gray-400 mb-4 group-hover:scale-110 transition"
                   aria-hidden="true"
                 >
                   {service.icon}
@@ -84,7 +84,7 @@ const About = () => {
                 <h3 className="text-xl font-semibold text-white font-mono">
                   {service.title}
                 </h3>
-                <p className="text-gray-300 group-hover:text-white mt-2">
+                <p className="text-gray-400 group-hover:text-gray-200 mt-2">
                   {service.desc}
                 </p>
               </motion.div>
@@ -94,7 +94,7 @@ const About = () => {
           <div className="text-center mt-12">
             <a
               href="#contact"
-              className="cursor-target inline-block bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-md font-semibold transition transform hover:-translate-y-1"
+              className="cursor-target inline-block bg-gray-700 hover:bg-gray-600 text-white px-8 py-3 rounded-md font-semibold transition transform hover:-translate-y-1"
             >
               Konsultasi Gratis →
             </a>

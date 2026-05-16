@@ -176,75 +176,51 @@ const formatCurrency = (value: number) => {
   return new Intl.NumberFormat("id-ID").format(value);
 };
 
-// Map feature text to appropriate icon
 const getFeatureIcon = (feature: string) => {
   const lowerFeature = feature.toLowerCase();
 
-  if (lowerFeature.includes("tahun") || lowerFeature.includes("online")) {
-    return <FaClock className="text-blue-400" />;
-  }
-  if (lowerFeature.includes("mobile")) {
-    return <FaMobileAlt className="text-cyan-400" />;
-  }
-  if (lowerFeature.includes("whatsapp")) {
-    return <FaWhatsapp className="text-green-400" />;
-  }
-  if (lowerFeature.includes("design") || lowerFeature.includes("template")) {
-    return <FaPalette className="text-pink-400" />;
-  }
-  if (lowerFeature.includes("revisi") || lowerFeature.includes("pengerjaan")) {
-    return <FaPencilAlt className="text-yellow-400" />;
-  }
-  if (lowerFeature.includes("delivery")) {
-    return <FaTruck className="text-orange-400" />;
-  }
-  if (lowerFeature.includes("seo")) {
-    return <FaSearch className="text-purple-400" />;
-  }
-  if (lowerFeature.includes("copywriting")) {
-    return <FaLightbulb className="text-amber-400" />;
-  }
-  if (lowerFeature.includes("loading") || lowerFeature.includes("speed")) {
-    return <FaBolt className="text-yellow-300" />;
-  }
-  if (lowerFeature.includes("form") || lowerFeature.includes("contact")) {
-    return <FaEnvelope className="text-red-400" />;
-  }
-  if (lowerFeature.includes("integration")) {
-    return <FaLink className="text-blue-400" />;
-  }
-  if (lowerFeature.includes("analytics")) {
-    return <FaChartBar className="text-green-400" />;
-  }
-  if (lowerFeature.includes("email") || lowerFeature.includes("automation")) {
-    return <FaEnvelopeOpenText className="text-indigo-400" />;
-  }
-  if (lowerFeature.includes("custom")) {
-    return <FaStar className="text-yellow-400" />;
-  }
-  if (lowerFeature.includes("blog") || lowerFeature.includes("cms")) {
-    return <FaBook className="text-blue-400" />;
-  }
-  if (lowerFeature.includes("support")) {
-    return <FaHeadset className="text-cyan-400" />;
-  }
-  if (lowerFeature.includes("monitoring")) {
-    return <FaChartLine className="text-green-400" />;
-  }
-  if (lowerFeature.includes("management") || lowerFeature.includes("user")) {
-    return <FaUsers className="text-purple-400" />;
-  }
-  if (lowerFeature.includes("e-commerce") || lowerFeature.includes("cart")) {
-    return <FaShoppingCart className="text-pink-400" />;
-  }
-  if (lowerFeature.includes("maintenance") || lowerFeature.includes("api")) {
+  if (lowerFeature.includes("tahun") || lowerFeature.includes("online"))
+    return <FaClock className="text-gray-400" />;
+  if (lowerFeature.includes("mobile"))
+    return <FaMobileAlt className="text-gray-400" />;
+  if (lowerFeature.includes("whatsapp"))
+    return <FaWhatsapp className="text-gray-400" />;
+  if (lowerFeature.includes("design") || lowerFeature.includes("template"))
+    return <FaPalette className="text-gray-400" />;
+  if (lowerFeature.includes("revisi") || lowerFeature.includes("pengerjaan"))
+    return <FaPencilAlt className="text-gray-400" />;
+  if (lowerFeature.includes("delivery"))
+    return <FaTruck className="text-gray-400" />;
+  if (lowerFeature.includes("seo"))
+    return <FaSearch className="text-gray-400" />;
+  if (lowerFeature.includes("copywriting"))
+    return <FaLightbulb className="text-gray-400" />;
+  if (lowerFeature.includes("loading") || lowerFeature.includes("speed"))
+    return <FaBolt className="text-gray-400" />;
+  if (lowerFeature.includes("form") || lowerFeature.includes("contact"))
+    return <FaEnvelope className="text-gray-400" />;
+  if (lowerFeature.includes("integration"))
+    return <FaLink className="text-gray-400" />;
+  if (lowerFeature.includes("analytics"))
+    return <FaChartBar className="text-gray-400" />;
+  if (lowerFeature.includes("email") || lowerFeature.includes("automation"))
+    return <FaEnvelopeOpenText className="text-gray-400" />;
+  if (lowerFeature.includes("custom"))
+    return <FaStar className="text-gray-400" />;
+  if (lowerFeature.includes("blog") || lowerFeature.includes("cms"))
+    return <FaBook className="text-gray-400" />;
+  if (lowerFeature.includes("support"))
+    return <FaHeadset className="text-gray-400" />;
+  if (lowerFeature.includes("monitoring"))
+    return <FaChartLine className="text-gray-400" />;
+  if (lowerFeature.includes("management") || lowerFeature.includes("user"))
+    return <FaUsers className="text-gray-400" />;
+  if (lowerFeature.includes("e-commerce") || lowerFeature.includes("cart"))
+    return <FaShoppingCart className="text-gray-400" />;
+  if (lowerFeature.includes("maintenance") || lowerFeature.includes("api"))
     return <FaWrench className="text-gray-400" />;
-  }
-  if (lowerFeature.includes("database")) {
-    return <FaDatabase className="text-cyan-400" />;
-  }
-
-  // Default to check mark
+  if (lowerFeature.includes("database"))
+    return <FaDatabase className="text-gray-400" />;
   return <FaCheck className="text-green-400" />;
 };
 
@@ -253,7 +229,6 @@ const Pricing = () => {
     const hostingAnnual = plan.hostingMonthly * 12;
     const total = plan.servicePrice + hostingAnnual;
     const servicePercentage = ((plan.servicePrice / total) * 100).toFixed(1);
-
     return { hostingAnnual, total, servicePercentage };
   };
 
@@ -261,52 +236,47 @@ const Pricing = () => {
     <section id="pricing" className="border-y border-dashed border-stone-800">
       <div className="mx-4">
         <div className="max-w-6xl mx-auto py-10 md:py-20 px-4 sm:px-6 border-x border-dashed border-stone-800">
-          {/* HEADER */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className=" text-center"
+            className="text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white font-mono">
               Paket Website yang{" "}
-              <span className="text-purple-400">Menghasilkan Customer</span>
+              <span className="text-gray-400">Menghasilkan Customer</span>
             </h2>
-            <p className="text-gray-300 mt-2 font-mono">
+            <p className="text-gray-400 mt-2 font-mono">
               Harga sudah include jasa + hosting Hostinger. Transparan, tidak
               ada biaya tersembunyi.
             </p>
           </motion.div>
 
-          {/* PRICING CARDS - UMKM & BISNIS */}
           {categories.map((category, catIdx) => (
             <div key={catIdx} className="mt-20">
-              {/* Category Header */}
               <div className="text-center mb-10">
-                <h3 className="text-2xl md:text-3xl font-bold text-white inline-block px-6 py-2 bg-purple-600 rounded-md font-mono">
+                <h3 className="text-2xl md:text-3xl font-bold text-white inline-block px-6 py-2 bg-gray-700 rounded-md font-mono">
                   {category.name}
                 </h3>
               </div>
 
-              {/* Category Cards */}
               <div className="grid md:grid-cols-3 gap-8">
                 {category.plans.map((plan, idx) => {
                   const { hostingAnnual, total, servicePercentage } =
                     calculateTotals(plan);
-
                   return (
                     <motion.div
                       key={idx}
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ delay: idx * 0.1 }}
-                      className={` relative p-6 rounded-lg border-2 transition duration-300 hover:scale-105 flex flex-col ${
+                      className={`relative p-6 rounded-lg border-2 transition duration-300 hover:scale-105 flex flex-col ${
                         plan.recommended
-                          ? "border-purple-500 bg-gray-900 shadow-xl shadow-purple-500/20"
+                          ? "border-gray-500 bg-gray-900 shadow-xl shadow-gray-500/20"
                           : "border-stone-800 bg-gray-900/40"
                       }`}
                     >
                       {plan.recommended && (
-                        <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                        <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gray-700 text-white px-3 py-1 rounded-full text-sm font-bold">
                           TERPOPULER
                         </span>
                       )}
@@ -318,63 +288,57 @@ const Pricing = () => {
                         {plan.description}
                       </p>
 
-                      {/* PRICING BREAKDOWN */}
                       <div className="mt-6 space-y-3 pb-6 border-b border-dashed border-stone-700">
-                        {/* Service Price */}
                         <div className="text-center">
-                          <p className="text-4xl font-bold text-purple-400">
+                          <p className="text-4xl font-bold text-gray-300">
                             Rp{formatCurrency(plan.servicePrice)}
                           </p>
-                          <p className="text-xs text-gray-400 mt-1">
+                          <p className="text-xs text-gray-500 mt-1">
                             Harga Jasa (Sekali Bayar)
                           </p>
                         </div>
 
-                        {/* Hosting Details */}
                         <div className="bg-black/50 rounded p-3 text-sm">
-                          <p className="text-gray-300">
+                          <p className="text-gray-400">
                             <span className="font-semibold text-white">
                               Hosting:
                             </span>{" "}
                             Rp{formatCurrency(plan.hostingMonthly)}/bulan
                           </p>
-                          <p className="text-gray-400 text-xs mt-1">
+                          <p className="text-gray-500 text-xs mt-1">
                             = Rp{formatCurrency(hostingAnnual)}/tahun
                           </p>
                         </div>
 
-                        {/* Total Breakdown */}
-                        <div className="bg-purple-900/20 rounded p-3 text-sm">
-                          <p className="text-gray-300 flex justify-between">
+                        <div className="bg-gray-800/20 rounded p-3 text-sm">
+                          <p className="text-gray-400 flex justify-between">
                             <span>Total/Tahun:</span>
                             <span className="font-bold text-white">
                               Rp{formatCurrency(total)}
                             </span>
                           </p>
-                          <p className="text-gray-400 text-xs mt-1">
+                          <p className="text-gray-500 text-xs mt-1">
                             Jasa: {servicePercentage}% • Hosting:{" "}
                             {(100 - parseFloat(servicePercentage)).toFixed(1)}%
                           </p>
                         </div>
                       </div>
 
-                      {/* FEATURES */}
                       <ul className="mt-6 space-y-2 mb-6 flex-1">
                         {plan.features.map((feat, i) => (
                           <li
                             key={i}
-                            className="flex items-center gap-2 text-gray-300 text-sm"
+                            className="flex items-center gap-2 text-gray-400 text-sm"
                           >
-                            <FaCheck className="text-green-400 text-xs shrink-0" />
+                            {getFeatureIcon(feat)}
                             <span>{feat}</span>
                           </li>
                         ))}
                       </ul>
 
-                      {/* CTA BUTTON */}
                       <a
                         href="#contact"
-                        className="cursor-target block w-full py-2.5 rounded-md font-semibold transition text-white uppercase text-sm tracking-wide bg-purple-600 hover:bg-purple-700 text-center"
+                        className="cursor-target block w-full py-2.5 rounded-md font-semibold transition text-white uppercase text-sm tracking-wide bg-gray-700 hover:bg-gray-600 text-center"
                       >
                         {plan.cta}
                       </a>
@@ -385,19 +349,13 @@ const Pricing = () => {
             </div>
           ))}
 
-          {/* INFO TAMBAHAN */}
-          <div className="mt-16 md:text-center text-gray-400 text-sm space-y-2">
+          <div className="mt-16 md:text-center text-gray-500 text-sm space-y-2">
             <ul>
               <li>
-                <p>
-                  ✅ Harga jasa sudah termasuk setup hosting gratis via
-                  Hostinger
-                </p>
+                ✅ Harga jasa sudah termasuk setup hosting gratis via Hostinger
               </li>
               <li>
-                <p>
-                  ✅ Biaya hosting berlanjut per bulan (langsung ke Hostinger)
-                </p>
+                ✅ Biaya hosting berlanjut per bulan (langsung ke Hostinger)
               </li>
             </ul>
           </div>

@@ -1,3 +1,4 @@
+// components/section/Contact.tsx
 "use client";
 import { motion } from "framer-motion";
 import { useState, FormEvent } from "react";
@@ -36,14 +37,15 @@ const Contact = () => {
             className="text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white font-mono">
-              Hubungi <span className="text-purple-400">Kami</span>
+              Hubungi <span className="text-gray-400">Kami</span>
             </h2>
-            <p className="text-gray-300 mt-2">
+            <p className="text-gray-400 mt-2">
               Siap mewujudkan website impian Anda? Konsultasi gratis 30 menit.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-12 mt-16">
+            {/* Form Kiri */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -60,10 +62,9 @@ const Contact = () => {
                     placeholder="Nama Lengkap"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="cursor-target w-full bg-gray-950/60 border border-dashed border-stone-800 p-3 text-white focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition"
+                    className="cursor-target w-full bg-gray-950/60 border border-dashed border-stone-800 p-3 text-white focus:outline-none focus:border-gray-500 focus:ring-2 focus:ring-gray-500/50 transition"
                     required
                     minLength={2}
-                    aria-required="true"
                     aria-label="Nama lengkap Anda"
                   />
                 </div>
@@ -79,9 +80,8 @@ const Contact = () => {
                     onChange={(e) =>
                       setForm({ ...form, email: e.target.value })
                     }
-                    className="cursor-target w-full bg-gray-950/60 border border-dashed border-stone-800 p-3 text-white focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition"
+                    className="cursor-target w-full bg-gray-950/60 border border-dashed border-stone-800 p-3 text-white focus:outline-none focus:border-gray-500 focus:ring-2 focus:ring-gray-500/50 transition"
                     required
-                    aria-required="true"
                     aria-label="Email Anda"
                   />
                 </div>
@@ -97,13 +97,13 @@ const Contact = () => {
                     onChange={(e) =>
                       setForm({ ...form, message: e.target.value })
                     }
-                    className="cursor-target w-full bg-gray-950/60 border border-dashed border-stone-800 p-3 text-white focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition"
+                    className="cursor-target w-full bg-gray-950/60 border border-dashed border-stone-800 p-3 text-white focus:outline-none focus:border-gray-500 focus:ring-2 focus:ring-gray-500/50 transition"
                     aria-label="Pesan atau detail proyek Anda"
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="cursor-target cursor-pointer w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-md transition transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="cursor-target cursor-pointer w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 rounded-md transition transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-gray-500"
                   aria-label="Kirim pesan via WhatsApp"
                 >
                   Kirim via WhatsApp →
@@ -111,6 +111,7 @@ const Contact = () => {
               </form>
             </motion.div>
 
+            {/* Info Kontak Kanan */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -125,7 +126,7 @@ const Contact = () => {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <FaEnvelope className="text-purple-400 text-2xl" />
+                <FaEnvelope className="text-gray-400 text-2xl" />
                 <div>
                   <p className="text-white font-medium">Email</p>
                   <p className="text-gray-400">faizmoch63@gmail.com</p>
@@ -141,7 +142,7 @@ const Contact = () => {
                 </div>
               </div>
               <div className="bg-gray-900/50 p-4 rounded-lg border border-stone-800">
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-gray-400">
                   ✨ Dapatkan diskon 10% untuk order sebelum bulan depan!
                 </p>
               </div>

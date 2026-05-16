@@ -63,9 +63,9 @@ const Faq = () => {
             className="text-center max-w-2xl mx-auto mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white font-mono">
-              Pertanyaan <span className="text-purple-400">Umum</span>
+              Pertanyaan <span className="text-gray-400">Umum</span>
             </h2>
-            <p className="text-gray-300 mt-4">
+            <p className="text-gray-400 mt-4">
               Temukan jawaban untuk pertanyaan yang sering diajukan tentang
               layanan website kami.
             </p>
@@ -79,11 +79,11 @@ const Faq = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05 }}
                 viewport={{ once: false }}
-                className="border border-dashed border-stone-800 bg-black/40 backdrop-blur-sm hover:bg-purple-900/20 transition"
+                className="border border-dashed border-stone-800 bg-black/40 backdrop-blur-sm hover:bg-gray-800/30 transition"
               >
                 <button
                   onClick={() => toggleFAQ(idx)}
-                  className="w-full px-6 py-4 flex items-center justify-between hover:bg-purple-700/10 transition cursor-target"
+                  className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-800/20 transition cursor-target"
                 >
                   <h3 className="text-left text-base md:text-lg font-semibold text-white font-mono">
                     {faq.question}
@@ -91,7 +91,7 @@ const Faq = () => {
                   <motion.div
                     animate={{ rotate: expandedIndex === idx ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="shrink-0 ml-4 text-purple-400"
+                    className="shrink-0 ml-4 text-gray-400"
                   >
                     <FaChevronDown size={20} />
                   </motion.div>
@@ -121,12 +121,12 @@ const Faq = () => {
             viewport={{ once: false }}
             className="text-center mt-12"
           >
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-400 mb-4">
               Masih ada pertanyaan lain? Hubungi kami sekarang!
             </p>
             <a
               href="#contact"
-              className="cursor-target inline-block bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-md font-semibold transition transform hover:-translate-y-1"
+              className="cursor-target inline-block bg-gray-700 hover:bg-gray-600 text-white px-8 py-3 rounded-md font-semibold transition transform hover:-translate-y-1"
             >
               Hubungi Kami →
             </a>
