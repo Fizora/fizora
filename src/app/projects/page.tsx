@@ -65,11 +65,11 @@ const allProjects = [
     id: 3,
     title: "Stellar Bank",
     category: "Bank",
-    status: "Coming Soon",
+    status: "Live",
     description:
       "Landing page perbankan modern dengan efek glassmorphism & layout responsif.",
-    img: "",
-    link: "#",
+    img: "/stellar-bank.png",
+    link: "https://stellar-bank-industries.vercel.app",
   },
   {
     id: 4,
@@ -125,11 +125,11 @@ const allProjects = [
     id: 9,
     title: "Aurelian Fashion",
     category: "Fashion",
-    status: "On Going",
+    status: "Live Demo",
     description:
       "E-commerce fashion dengan filter produk & keranjang belanja sederhana.",
-    img: "",
-    link: "#",
+    img: "/aurelian.png",
+    link: "https://aurelian-fashion.vercel.app",
   },
 ];
 
