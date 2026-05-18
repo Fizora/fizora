@@ -1,29 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import {
-  FaCheck,
-  FaClock,
-  FaMobileAlt,
-  FaWhatsapp,
-  FaPalette,
-  FaPencilAlt,
-  FaTruck,
-  FaSearch,
-  FaLightbulb,
-  FaBolt,
-  FaEnvelope,
-  FaChartBar,
-  FaEnvelopeOpenText,
-  FaStar,
-  FaBook,
-  FaHeadset,
-  FaChartLine,
-  FaDatabase,
-  FaUsers,
-  FaLink,
-  FaWrench,
-  FaShoppingCart,
-} from "react-icons/fa";
+import { FaCheck } from "react-icons/fa"; // hanya FaCheck yang digunakan
 
 interface Plan {
   name: string;
@@ -47,7 +24,7 @@ const categories: Category[] = [
       {
         name: "Basic",
         description: "Untuk just started & toko online sederhana",
-        servicePrice: 400000,
+        servicePrice: 700000,
         hostingMonthly: 12900,
         features: [
           "1 Landing Page",
@@ -65,7 +42,7 @@ const categories: Category[] = [
       {
         name: "Standard",
         description: "Untuk UMKM yang ingin online dengan design bagus",
-        servicePrice: 1200000,
+        servicePrice: 1500000,
         hostingMonthly: 24900,
         features: [
           "1 Landing Page Custom",
@@ -85,7 +62,7 @@ const categories: Category[] = [
       {
         name: "Premium",
         description: "Untuk UMKM yang serius dengan conversion tinggi",
-        servicePrice: 2400000,
+        servicePrice: 3000000,
         hostingMonthly: 38900,
         features: [
           "Landing Page High Conversion",
@@ -110,7 +87,7 @@ const categories: Category[] = [
       {
         name: "Professional",
         description: "Website full untuk bisnis profesional",
-        servicePrice: 4000000,
+        servicePrice: 5000000, // naik dari 4jt
         hostingMonthly: 116900,
         features: [
           "5-10 Halaman Website",
@@ -131,7 +108,7 @@ const categories: Category[] = [
         name: "Enterprise",
         description:
           "Website kompleks dengan fitur advanced untuk bisnis besar",
-        servicePrice: 8000000,
+        servicePrice: 10000000, // naik dari 8jt
         hostingMonthly: 116900,
         features: [
           "10-20 Halaman Website",
@@ -151,7 +128,7 @@ const categories: Category[] = [
       {
         name: "Ultimate",
         description: "Solusi website terlengkap dengan full support",
-        servicePrice: 12000000,
+        servicePrice: 15000000, // naik dari 12jt
         hostingMonthly: 116900,
         features: [
           "20+ Halaman Website",
@@ -176,52 +153,9 @@ const formatCurrency = (value: number) => {
   return new Intl.NumberFormat("id-ID").format(value);
 };
 
+// SEMUA icon menjadi checklist (FaCheck)
 const getFeatureIcon = (feature: string) => {
-  const lowerFeature = feature.toLowerCase();
-  const grayIcon = <FaCheck className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("tahun") || lowerFeature.includes("online"))
-    return <FaClock className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("mobile"))
-    return <FaMobileAlt className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("whatsapp"))
-    return <FaWhatsapp className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("design") || lowerFeature.includes("template"))
-    return <FaPalette className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("revisi") || lowerFeature.includes("pengerjaan"))
-    return <FaPencilAlt className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("delivery"))
-    return <FaTruck className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("seo"))
-    return <FaSearch className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("copywriting"))
-    return <FaLightbulb className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("loading") || lowerFeature.includes("speed"))
-    return <FaBolt className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("form") || lowerFeature.includes("contact"))
-    return <FaEnvelope className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("integration"))
-    return <FaLink className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("analytics"))
-    return <FaChartBar className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("email") || lowerFeature.includes("automation"))
-    return <FaEnvelopeOpenText className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("custom"))
-    return <FaStar className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("blog") || lowerFeature.includes("cms"))
-    return <FaBook className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("support"))
-    return <FaHeadset className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("monitoring"))
-    return <FaChartLine className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("management") || lowerFeature.includes("user"))
-    return <FaUsers className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("e-commerce") || lowerFeature.includes("cart"))
-    return <FaShoppingCart className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("maintenance") || lowerFeature.includes("api"))
-    return <FaWrench className="text-gray-400 text-xs shrink-0" />;
-  if (lowerFeature.includes("database"))
-    return <FaDatabase className="text-gray-400 text-xs shrink-0" />;
-  return grayIcon;
+  return <FaCheck className="text-gray-400 text-xs shrink-0" />;
 };
 
 const Pricing = () => {
@@ -234,6 +168,32 @@ const Pricing = () => {
 
   return (
     <section id="pricing" className="border-y border-dashed border-stone-800">
+      {/* CSS untuk animasi light sliding pada badge */}
+      <style jsx>{`
+        @keyframes slideLight {
+          0% {
+            background-position: -100% 0;
+          }
+          100% {
+            background-position: 200% 0;
+          }
+        }
+        .animated-badge {
+          background: linear-gradient(
+            90deg,
+            #374151,
+            #6b7280,
+            #9ca3af,
+            #6b7280,
+            #374151
+          );
+          background-size: 200% auto;
+          animation: slideLight 2s linear infinite;
+          color: white;
+          font-weight: bold;
+        }
+      `}</style>
+
       <div className="mx-4">
         <div className="max-w-6xl mx-auto py-10 md:py-20 px-4 sm:px-6 border-x border-dashed border-stone-800">
           <motion.div
@@ -276,7 +236,10 @@ const Pricing = () => {
                       }`}
                     >
                       {plan.recommended && (
-                        <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gray-700 text-white px-3 py-1 rounded-full text-sm font-bold">
+                        <span
+                          className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-sm bg-gray-700 font-bold"
+                          style={{ zIndex: 20 }}
+                        >
                           TERPOPULER
                         </span>
                       )}
@@ -320,6 +283,10 @@ const Pricing = () => {
                           <p className="text-gray-500 text-xs mt-1">
                             Jasa: {servicePercentage}% • Hosting:{" "}
                             {(100 - parseFloat(servicePercentage)).toFixed(1)}%
+                          </p>
+                          {/* DISCLAIMER: harga bisa berubah!! */}
+                          <p className="text-red-400 text-xs mt-2 font-semibold">
+                            ⚠️ Harga bisa berubah!
                           </p>
                         </div>
                       </div>

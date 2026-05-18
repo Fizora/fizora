@@ -39,7 +39,7 @@ const Navbar = () => {
       isDropdown: true,
       dropdownItems: [
         { name: "Proyek Unggulan", url: "#projects" },
-        { name: "Semua Proyek", url: "/projects" },
+        { name: "Proyek", url: "/projects" },
       ],
     },
     { name: "FAQ", url: "#faq" },
