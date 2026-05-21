@@ -70,16 +70,18 @@ const Projects = () => {
                 viewport={{ once: false }}
                 className="cursor-target group relative overflow-hidden rounded-xl bg-gray-900"
               >
-                <div className="relative h-64 w-full">
+                {/* Image container – no cropping, full visibility */}
+                <div className="relative w-full pt-[56.25%] bg-gray-800">
                   <Image
                     src={project.img}
                     alt={`${project.title} - ${project.category} portfolio project`}
                     fill
-                    className="object-cover group-hover:scale-105 transition duration-500"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                    className="object-contain" // ← no cropping, whole image visible
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     priority={idx < 2}
                   />
                 </div>
+                {/* Overlay – same as before, but removed zoom */}
                 <div className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-transparent flex flex-col justify-end p-6 transition-opacity duration-300 group-hover:opacity-100 opacity-90">
                   <p className="text-gray-300 text-sm">{project.category}</p>
                   <h3 className="text-xl font-black text-white font-mono">
