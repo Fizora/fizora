@@ -55,11 +55,11 @@ const allProjects = [
     id: 2,
     title: "Nebula News",
     category: "News",
-    status: "On Going",
+    status: "Live",
     description:
       "Portal berita real-time dengan filter kategori & pencarian. Demonstrasi CMS dinamis.",
-    img: "",
-    link: "#",
+    img: "/nebula-news.png",
+    link: "https://nebula-news.vercel.app",
   },
   {
     id: 3,

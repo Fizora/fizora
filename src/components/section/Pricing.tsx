@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { FaCheck } from "react-icons/fa"; // hanya FaCheck yang digunakan
+import { FaCheck } from "react-icons/fa";
 
 interface Plan {
   name: string;
@@ -87,7 +87,7 @@ const categories: Category[] = [
       {
         name: "Professional",
         description: "Website full untuk bisnis profesional",
-        servicePrice: 5000000, // naik dari 4jt
+        servicePrice: 5000000,
         hostingMonthly: 116900,
         features: [
           "5-10 Halaman Website",
@@ -108,7 +108,7 @@ const categories: Category[] = [
         name: "Enterprise",
         description:
           "Website kompleks dengan fitur advanced untuk bisnis besar",
-        servicePrice: 10000000, // naik dari 8jt
+        servicePrice: 10000000,
         hostingMonthly: 116900,
         features: [
           "10-20 Halaman Website",
@@ -128,7 +128,7 @@ const categories: Category[] = [
       {
         name: "Ultimate",
         description: "Solusi website terlengkap dengan full support",
-        servicePrice: 15000000, // naik dari 12jt
+        servicePrice: 15000000,
         hostingMonthly: 116900,
         features: [
           "20+ Halaman Website",
@@ -153,7 +153,6 @@ const formatCurrency = (value: number) => {
   return new Intl.NumberFormat("id-ID").format(value);
 };
 
-// SEMUA icon menjadi checklist (FaCheck)
 const getFeatureIcon = (feature: string) => {
   return <FaCheck className="text-gray-400 text-xs shrink-0" />;
 };
@@ -168,32 +167,6 @@ const Pricing = () => {
 
   return (
     <section id="pricing" className="border-y border-dashed border-stone-800">
-      {/* CSS untuk animasi light sliding pada badge */}
-      <style jsx>{`
-        @keyframes slideLight {
-          0% {
-            background-position: -100% 0;
-          }
-          100% {
-            background-position: 200% 0;
-          }
-        }
-        .animated-badge {
-          background: linear-gradient(
-            90deg,
-            #374151,
-            #6b7280,
-            #9ca3af,
-            #6b7280,
-            #374151
-          );
-          background-size: 200% auto;
-          animation: slideLight 2s linear infinite;
-          color: white;
-          font-weight: bold;
-        }
-      `}</style>
-
       <div className="mx-4">
         <div className="max-w-6xl mx-auto py-10 md:py-20 px-4 sm:px-6 border-x border-dashed border-stone-800">
           <motion.div
@@ -284,7 +257,6 @@ const Pricing = () => {
                             Jasa: {servicePercentage}% • Hosting:{" "}
                             {(100 - parseFloat(servicePercentage)).toFixed(1)}%
                           </p>
-                          {/* DISCLAIMER: harga bisa berubah!! */}
                           <p className="text-red-400 text-xs mt-2 font-semibold">
                             ⚠️ Harga bisa berubah!
                           </p>
