@@ -79,10 +79,10 @@ export default function Home() {
               – no pressure, no hidden fees. Just honest advice and a clear
               roadmap.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
+            <div className="flex flex-col  gap-4 justify-center pt-2">
               <a
                 href="#contact"
-                className="inline-block bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-md font-semibold transition transform hover:-translate-y-1"
+                className="inline-block bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-md font-semibold mt-4"
               >
                 Start your free consultation →
               </a>

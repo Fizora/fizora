@@ -181,9 +181,9 @@ const Pricing = () => {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.1 }}
-                    className={`relative p-6 rounded-lg border-2 transition duration-300 hover:scale-105 flex flex-col ${
+                    className={`relative p-6 rounded-lg border border-dashed transition duration-300 hover:scale-105 flex flex-col ${
                       plan.recommended
-                        ? "border-gray-500 bg-gray-900 shadow-xl shadow-gray-500/20"
+                        ? "border-gray-500 bg-gray-900 shadow-xl shadow-white/30"
                         : "border-stone-800 bg-gray-900/40"
                     }`}
                   >
@@ -294,7 +294,7 @@ const Pricing = () => {
 
                 {/* Paket Business */}
                 <div className="bg-gray-900/40 border border-stone-800 rounded-lg p-5 relative">
-                  <span className="absolute -top-2 left-4 bg-cyan-600 text-white text-xs px-2 py-0.5 rounded-full">
+                  <span className="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-cyan-600 text-white text-xs px-2 py-0.5 rounded-full">
                     POPULAR
                   </span>
                   <h4 className="text-xl font-bold text-white">Business</h4>
@@ -376,16 +376,18 @@ const Pricing = () => {
             </div>
           </motion.div>
 
-          {/* Footer lama dipertahankan */}
-          <div className="mt-16 md:text-center text-gray-500 text-sm space-y-2 border-t border-dashed border-stone-800 pt-8">
-            <p>✅ You own the code. Full rights, no lock‑ins.</p>
+          <div className="text-center mt-16 text-gray-500 text-sm space-y-2 border-t border-dashed border-stone-800 pt-8">
+            <span className="flex items-center justify-center gap-2">
+              <FaCheck></FaCheck> You own the code. Full rights, no lock‑ins.
+            </span>
+            <span className="flex items-center justify-center gap-2">
+              <FaCheck></FaCheck> Free guidance to set up hosting on Vercel /
+              Netlify (or your preferred provider).
+            </span>
             <p>
-              ✅ Free guidance to set up hosting on Vercel / Netlify (or your
-              preferred provider).
-            </p>
-            <p>✅ Free performance audit after 6 months.</p>
-            <p className="text-gray-600">
-              * Hosting costs are separate and billed by your chosen provider.
+              " Hosting costs are separate and billed by your chosen provider. I
+              can assist with setup, but the hosting fee is paid directly to
+              them. "
             </p>
           </div>
         </div>

@@ -53,8 +53,8 @@ const Hero = () => {
             </div>
             <div className="flex gap-8 mt-10 text-gray-500 justify-start md:justify-center">
               <div className="text-left md:text-center">
-                <p className="text-2xl font-bold text-white">5</p>
-                <p className="text-sm text-gray-400">live portfolio projects</p>
+                <p className="text-2xl font-bold text-white">8+</p>
+                <p className="text-sm text-gray-400">Portfolio Projects</p>
               </div>
               <div className="text-left md:text-center">
                 <p className="text-2xl font-bold text-white">24/7</p>

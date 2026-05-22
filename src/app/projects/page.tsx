@@ -31,6 +31,10 @@ const categoryIconMap: Record<string, IconType> = {
   Sports: LuDumbbell,
   Creative: LuCamera,
   Fashion: LuShoppingBag,
+  "Web Apps": LuRocket,
+  "Full-Stack Apps": LuRocket,
+  "Landing Page": LuRocket,
+  "Android App": LuRocket,
 };
 
 const getCategoryIcon = (category: string): IconType => {
@@ -41,112 +45,120 @@ const allProjects = [
   {
     id: 1,
     title: "Orion Forge",
-    category: "Space",
+    category: "Web Apps",
     status: "Live",
     description:
-      "Company profile for a fictional space company. Tech: Next.js, Tailwind, Framer Motion.",
+      "A website showcasing a space company’s profile, featuring a modern user interface and fast loading times.",
     img: "/orion.png",
     link: "https://orion-forge.vercel.app",
   },
   {
     id: 2,
     title: "Nebula News",
-    category: "News",
+    category: "Full-Stack Apps",
     status: "Live",
     description:
-      "Real-time news portal with category filters & search. Dynamic CMS demo.",
+      "A real-time news portal with smooth navigation and a dynamic web application",
     img: "/nebula-news.png",
     link: "https://nebula-news.vercel.app",
   },
   {
     id: 3,
     title: "Stellar Bank",
-    category: "Bank",
+    category: "Full-Stack Apps",
     status: "Live",
     description:
-      "Modern banking landing page with glassmorphism & responsive layout.",
+      "A modern banking web app with a clean user interface and fast load times.",
     img: "/stellar-bank.png",
     link: "https://stellar-bank-industries.vercel.app",
   },
   {
     id: 4,
     title: "GCBI",
-    category: "Bank",
+    category: "Full-Stack Apps",
     status: "Coming Soon",
-    description:
-      "Financial consulting website with complex navigation & smooth animations.",
+    description: "Global Central Bank Industries Company Profile Landing Page",
     img: "",
     link: "#",
   },
   {
     id: 5,
     title: "Central Asian Cars",
-    category: "Otomotif",
+    category: "Web Apps",
     status: "Coming Soon",
     description:
-      "Luxury car showcase platform with interactive gallery & inquiry form.",
+      "Web Landing page for a community and automotive exhibition across Asia",
     img: "",
     link: "#",
   },
   {
     id: 6,
     title: "Neza Cafe",
-    category: "Cafe",
+    category: "Landing Page",
     status: "Live",
     description:
-      "Modern cafe website: digital menu, table reservation, product gallery.",
+      "A modern café website with a sleek, minimalist design that highlights the brand",
     img: "/neza-cafe.png",
     link: "https://neza-cafe.vercel.app",
   },
   {
     id: 7,
     title: "Cosmos Gym",
-    category: "Sports",
+    category: "Full-Stack Apps",
     status: "Coming Soon",
     description:
-      "Gym membership landing page with pricing cards & interactive class schedule.",
+      "A full-stack application for the operational management of a gym",
     img: "",
     link: "#",
   },
   {
     id: 8,
     title: "Prodigy Photography",
-    category: "Creative",
+    category: "Landing Page",
     status: "Coming Soon",
-    description:
-      "Professional photography portfolio: lightbox gallery & online booking system.",
+    description: "Landing Page for a Photographer's Branding and Portfolio",
     img: "",
     link: "#",
   },
   {
     id: 9,
     title: "Aurelian Fashion",
-    category: "Fashion",
-    status: "Live",
+    category: "Web Apps",
+    status: "On Going",
     description:
       "Fashion e-commerce with product filters & simple shopping cart.",
     img: "/aurelian.png",
     link: "https://aurelian-fashion.vercel.app",
   },
+  {
+    id: 10,
+    title: "Qur'an Prima",
+    category: "Android App",
+    status: "Live",
+    description: "A responsive web application for a Qur'an learning platform.",
+    img: "/quran-prima.png",
+    link: "https://play.google.com/store/apps/details?id=id.sch.smkpgri5.quranprima",
+  },
 ];
 
 const categories = ["All", ...new Set(allProjects.map((p) => p.category))];
 
+// Updated badge colors: Live -> green, On Going -> blue, Coming Soon -> gray
 const getStatusBadgeStyle = (status: string) => {
   switch (status.toLowerCase()) {
     case "live":
-      return "bg-gray-700 text-white";
+      return "bg-green-600 text-white";
     case "on going":
-      return "bg-gray-600 text-white";
+      return "bg-blue-600 text-white";
     case "coming soon":
-      return "bg-gray-500 text-white";
+      return "bg-gray-600 text-white";
     default:
       return "bg-gray-800 text-white";
   }
 };
 
 const getDisplayStatus = (status: string) => {
-  if (status.toLowerCase() === "live") return "Live Demo";
+  if (status.toLowerCase() === "live") return "Live";
   if (status.toLowerCase() === "on going") return "In Development";
   return "Coming Soon";
 };
@@ -331,7 +343,7 @@ export default function ProjectsPage() {
 
           <div className="text-center mt-16">
             <Link
-              href="/#contact"
+              href="#contact"
               className="inline-block bg-white text-black px-6 py-3 rounded-md font-semibold transition hover:bg-gray-200 hover:-translate-y-0.5"
             >
               Discuss Your Project →
