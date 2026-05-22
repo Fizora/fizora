@@ -115,7 +115,7 @@ const allProjects = [
     id: 8,
     title: "Prodigy Photography",
     category: "Landing Page",
-    status: "Coming Soon",
+    status: "On Going",
     description: "Landing Page for a Photographer's Branding and Portfolio",
     img: "",
     link: "#",
@@ -135,9 +135,20 @@ const allProjects = [
     title: "Qur'an Prima",
     category: "Android App",
     status: "Live",
-    description: "A responsive web application for a Qur'an learning platform.",
+    description:
+      "A responsive androind application for a Qur'an learning platform.",
     img: "/quran-prima.png",
     link: "https://play.google.com/store/apps/details?id=id.sch.smkpgri5.quranprima",
+  },
+  {
+    id: 11,
+    title: "Lumen",
+    category: "Full-Stack Apps",
+    status: "Coming Soon",
+    description:
+      "A responsive web application for blogging and content creation.",
+    img: "",
+    link: "https://lumen.vercel.app",
   },
 ];
 
