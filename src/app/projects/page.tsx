@@ -124,7 +124,7 @@ const allProjects = [
     id: 9,
     title: "Aurelian Fashion",
     category: "Web Apps",
-    status: "On Going",
+    status: "Live",
     description:
       "Fashion e-commerce with product filters & simple shopping cart.",
     img: "/aurelian.png",
