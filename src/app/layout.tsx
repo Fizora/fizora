@@ -22,23 +22,25 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://fizora.vercel.app"),
   title: {
-    default: "Fizora - Jasa Pembuatan Website Profesional UMKM & Coffee Shop",
+    default:
+      "Fizora - Professional Website Development for Startups & Small Business",
     template: "%s | Fizora",
   },
   description:
-    "Fizora melayani jasa pembuatan landing page & website profesional untuk UMKM, coffee shop, dan bisnis lokal di Indonesia. Desain modern, SEO-friendly, dan cepat.",
+    "Fizora builds fast, responsive company profiles and landing pages for startups, cafes, and local businesses worldwide. Modern design, SEO-friendly, and conversion-focused. Starting at $300.",
   keywords: [
-    "jasa pembuatan website",
-    "landing page coffee shop",
-    "website UMKM",
-    "website kuliner murah",
-    "web developer Indonesia",
-    "jasa seo website",
+    "professional web development",
+    "landing page for coffee shop",
+    "small business website",
+    "startup company profile",
+    "Next.js developer",
+    "freelance web developer",
+    "responsive website design",
+    "SEO friendly website",
   ],
   authors: [{ name: "Fizora", url: "https://fizora.vercel.app" }],
   creator: "Fizora",
   publisher: "Fizora",
-  // Tag untuk verifikasi search console
   verification: {
     google: "iU_eodes0Tp4_tf-fKjWmMnGi82zUEVC8qH6J8Fhn-Q",
     yandex: "yandex-verification-code",
@@ -49,27 +51,27 @@ export const metadata: Metadata = {
     telephone: true,
   },
   openGraph: {
-    title: "Fizora - Jasa Website Profesional UMKM & Coffee Shop",
+    title: "Fizora - Professional Website Developer",
     description:
-      "Ubah pengunjung menjadi pelanggan dengan website modern dari Fizora.",
+      "Turn visitors into customers with a modern, high-performance website from Fizora. Get a free consultation today.",
     url: "https://fizora.vercel.app",
-    siteName: "Fizora Jasa Website",
+    siteName: "Fizora Web Dev",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Preview Layanan Fizora",
+        alt: "Fizora Web Development Services",
       },
     ],
-    locale: "id_ID",
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fizora - Ahli Website Bisnis Lokal",
+    title: "Fizora - Professional Web Developer",
     description:
-      "Jasa pembuatan website profesional untuk UMKM. Murah, cepat, dan berkualitas.",
+      "Fast, responsive websites for startups and small businesses. Starting at $300. Free consultation.",
     images: ["/og-image.jpg"],
     creator: "@fizoraaa",
   },
@@ -105,7 +107,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="id"
+      lang="en"
       data-scroll="smooth"
       className={cn(
         "h-full antialiased bg-black",
@@ -125,20 +127,13 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>
       <body className="min-h-screen flex flex-col overflow-x-hidden">
-        {/* Schema Markup untuk SEO hasil pencarian */}
         <JsonLd />
-
-        {/* Gunakan ClientLayout atau wrap langsung dengan tag semantik */}
         <ClientLayout>
-          <header>
-            {/* Navbar Anda biasanya ada di sini di dalam ClientLayout */}
-          </header>
-
+          <header>{/* Navbar di dalam ClientLayout */}</header>
           <main id="main-content" className="bg-black">
             {children}
           </main>
-
-          <footer>{/* Footer Anda */}</footer>
+          <footer>{/* Footer di dalam ClientLayout */}</footer>
         </ClientLayout>
       </body>
     </html>

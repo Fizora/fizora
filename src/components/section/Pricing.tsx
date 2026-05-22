@@ -1,189 +1,171 @@
 "use client";
+
 import { motion } from "framer-motion";
-import { FaCheck } from "react-icons/fa";
+import { FaCheck, FaServer, FaQuestionCircle } from "react-icons/fa";
 
 interface Plan {
   name: string;
   description: string;
-  servicePrice: number;
-  hostingMonthly: number;
+  priceUsd: number;
   features: string[];
   recommended: boolean;
   cta: string;
 }
 
-interface Category {
-  name: string;
-  plans: Plan[];
-}
-
-const categories: Category[] = [
+const plans: Plan[] = [
   {
-    name: "Paket UMKM",
-    plans: [
-      {
-        name: "Basic",
-        description: "Untuk just started & toko online sederhana",
-        servicePrice: 700000,
-        hostingMonthly: 12900,
-        features: [
-          "1 Landing Page",
-          "Online 1 tahun",
-          "Mobile Friendly",
-          "CTA WhatsApp",
-          "Template Design",
-          "1x Revisi",
-          "Delivery 2-3 Hari",
-          "Basic SEO",
-        ],
-        recommended: false,
-        cta: "Mulai Sekarang",
-      },
-      {
-        name: "Standard",
-        description: "Untuk UMKM yang ingin online dengan design bagus",
-        servicePrice: 1500000,
-        hostingMonthly: 24900,
-        features: [
-          "1 Landing Page Custom",
-          "Online 1 tahun",
-          "SEO Basic",
-          "AI Copywriting",
-          "Fast Loading (Next.js)",
-          "3x Revisi",
-          "Delivery 3-5 Hari",
-          "Form Contact",
-          "WhatsApp Integration",
-          "Mobile First Design",
-        ],
-        recommended: true,
-        cta: "Pilih Paket Ini",
-      },
-      {
-        name: "Premium",
-        description: "Untuk UMKM yang serius dengan conversion tinggi",
-        servicePrice: 3000000,
-        hostingMonthly: 38900,
-        features: [
-          "Landing Page High Conversion",
-          "Online 1 tahun",
-          "Advanced Copywriting",
-          "Struktur Funnel Lengkap",
-          "Speed Optimization",
-          "5x Revisi",
-          "Prioritas Pengerjaan",
-          "Analytics Integration",
-          "Email Automation Setup",
-          "Custom Features",
-        ],
-        recommended: false,
-        cta: "Maksimalkan Bisnis",
-      },
+    name: "Essential",
+    description:
+      "Perfect for cafes, local shops, and service providers starting online.",
+    priceUsd: 300,
+    features: [
+      "1 custom landing page",
+      "Mobile-first, lightning fast (Next.js)",
+      "Lead capture form",
+      "Google Maps integration",
+      "Basic on-page SEO",
+      "1 round of revisions",
+      "3-day delivery",
     ],
+    recommended: false,
+    cta: "Start Essential",
   },
   {
-    name: "Paket Bisnis",
+    name: "Standard",
+    description: "Multi-page website that builds trust and drives conversions.",
+    priceUsd: 600,
+    features: [
+      "Up to 5 pages (Home, About, Services, Contact)",
+      "Custom design tailored to your brand",
+      "Booking / appointment form",
+      "Customer testimonial section",
+      "Advanced SEO (meta, alt, schema)",
+      "Google Analytics setup",
+      "3 rounds of revisions",
+      "5-7 day delivery",
+    ],
+    recommended: true,
+    cta: "Choose Standard",
+  },
+  {
+    name: "Premium",
+    description: "Conversion-focused website for serious growth.",
+    priceUsd: 1200,
+    features: [
+      "Up to 10 pages + blog system",
+      "Product / service catalog with filters",
+      "Email marketing integration (Mailchimp / ConvertKit)",
+      "Custom animations & micro-interactions",
+      "Speed optimization (90+ Lighthouse score)",
+      "Unlimited revisions (14 days)",
+      "Priority support for 3 months",
+      "10-day delivery",
+    ],
+    recommended: false,
+    cta: "Go Premium",
+  },
+];
+
+const categories = [
+  {
+    name: "For Small Business",
+    plans: plans,
+  },
+  {
+    name: "For Growing Brands",
     plans: [
       {
         name: "Professional",
-        description: "Website full untuk bisnis profesional",
-        servicePrice: 5000000,
-        hostingMonthly: 116900,
+        description: "Full-featured website for established businesses.",
+        priceUsd: 2000,
         features: [
-          "5-10 Halaman Website",
-          "Online 1 tahun",
-          "Custom Design Sepenuhnya",
-          "Advanced SEO",
-          "Blog/Content Management",
-          "10x Revisi",
-          "Priority Support 3 bulan",
-          "E-commerce Basics",
-          "Team Collaboration",
-          "Performance Monitoring",
+          "Up to 15 pages",
+          "Fully custom design",
+          "E-commerce basics (up to 50 products)",
+          "User management (staff roles)",
+          "Advanced SEO + schema markup",
+          "Blog with CMS",
+          "10 rounds of revisions",
+          "Priority support for 6 months",
+          "14-day delivery",
         ],
         recommended: false,
-        cta: "Lebih Powerful",
+        cta: "Get Professional",
       },
       {
         name: "Enterprise",
-        description:
-          "Website kompleks dengan fitur advanced untuk bisnis besar",
-        servicePrice: 10000000,
-        hostingMonthly: 116900,
+        description: "Complex solutions for scaling brands and high traffic.",
+        priceUsd: 3500,
         features: [
-          "10-20 Halaman Website",
-          "Online 1 tahun",
-          "Full Custom Development",
-          "Advanced SEO + Schema",
-          "Blog + CMS System",
-          "20x Revisi",
-          "Priority Support 6 bulan",
-          "Full E-commerce",
-          "User Management System",
-          "Advanced Analytics",
+          "Up to 25 pages",
+          "Full custom development",
+          "Complete e-commerce (payments, inventory)",
+          "API integrations (CRM, email, analytics)",
+          "Enterprise SEO strategy",
+          "Advanced CMS (Sanity / Contentful)",
+          "Unlimited revisions",
+          "Dedicated support for 12 months",
+          "21-day delivery",
         ],
         recommended: true,
-        cta: "Pilih Sekarang",
+        cta: "Scale with Enterprise",
       },
       {
         name: "Ultimate",
-        description: "Solusi website terlengkap dengan full support",
-        servicePrice: 15000000,
-        hostingMonthly: 116900,
+        description: "White-glove solution for brands that need everything.",
+        priceUsd: 5000,
         features: [
-          "20+ Halaman Website",
-          "Online 1 tahun",
-          "Complete Custom Solution",
-          "Enterprise SEO",
-          "Advanced CMS System",
-          "Unlimited Revisions",
-          "Dedicated Support 12 bulan",
-          "Full E-commerce + Payment",
-          "API Integrations",
-          "Real-time Maintenance",
+          "Unlimited pages",
+          "Complete custom solution",
+          "Full e-commerce + subscriptions",
+          "Custom dashboard / user portal",
+          "Automation workflows (Zapier / Make)",
+          "Real-time analytics dashboard",
+          "Unlimited revisions",
+          "Dedicated account manager",
+          "30-day delivery",
         ],
         recommended: false,
-        cta: "Solusi Terbaik",
+        cta: "Go Ultimate",
       },
     ],
   },
 ];
 
-const formatCurrency = (value: number) => {
-  return new Intl.NumberFormat("id-ID").format(value);
+const formatUSD = (value: number) => {
+  return new Intl.NumberFormat("en-US").format(value);
 };
 
-const getFeatureIcon = (feature: string) => {
+const getFeatureIcon = () => {
   return <FaCheck className="text-gray-400 text-xs shrink-0" />;
 };
 
 const Pricing = () => {
-  const calculateTotals = (plan: Plan) => {
-    const hostingAnnual = plan.hostingMonthly * 12;
-    const total = plan.servicePrice + hostingAnnual;
-    const servicePercentage = ((plan.servicePrice / total) * 100).toFixed(1);
-    return { hostingAnnual, total, servicePercentage };
-  };
-
   return (
     <section id="pricing" className="border-y border-dashed border-stone-800">
       <div className="mx-4">
         <div className="max-w-6xl mx-auto py-10 md:py-20 px-4 sm:px-6 border-x border-dashed border-stone-800">
+          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-center"
+            className="text-center max-w-3xl mx-auto"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white font-mono">
-              Paket Website yang{" "}
-              <span className="text-gray-400">Menghasilkan Customer</span>
+              Websites That{" "}
+              <span className="text-gray-400">Bring You Customers</span>
             </h2>
-            <p className="text-gray-400 mt-2 font-mono">
-              Harga sudah include jasa + hosting Hostinger. Transparan, tidak
-              ada biaya tersembunyi.
+            <p className="text-gray-400 mt-3 text-base">
+              No fluff. No hidden fees. Just a high‑performing website that
+              works 24/7.
             </p>
+            <div className="mt-6 text-sm text-gray-500 border border-dashed border-stone-700 inline-block px-4 py-2 rounded-full">
+              💡 One extra customer per week ={" "}
+              <strong className="text-white">$2,600+ yearly ROI</strong>
+            </div>
           </motion.div>
 
+          {/* Pricing Cards - Hanya harga jasa, tanpa hosting */}
           {categories.map((category, catIdx) => (
             <div key={catIdx} className="mt-20">
               <div className="text-center mb-10">
@@ -193,106 +175,218 @@ const Pricing = () => {
               </div>
 
               <div className="grid md:grid-cols-3 gap-8">
-                {category.plans.map((plan, idx) => {
-                  const { hostingAnnual, total, servicePercentage } =
-                    calculateTotals(plan);
-                  return (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: idx * 0.1 }}
-                      className={`relative p-6 rounded-lg border-2 transition duration-300 hover:scale-105 flex flex-col ${
-                        plan.recommended
-                          ? "border-gray-500 bg-gray-900 shadow-xl shadow-gray-500/20"
-                          : "border-stone-800 bg-gray-900/40"
-                      }`}
-                    >
-                      {plan.recommended && (
-                        <span
-                          className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-sm bg-gray-700 font-bold"
-                          style={{ zIndex: 20 }}
-                        >
-                          TERPOPULER
-                        </span>
-                      )}
-
-                      <h4 className="text-2xl font-bold text-white font-mono">
-                        {plan.name}
-                      </h4>
-                      <p className="text-gray-400 text-sm mt-2 min-h-10">
-                        {plan.description}
-                      </p>
-
-                      <div className="mt-6 space-y-3 pb-6 border-b border-dashed border-stone-700">
-                        <div className="text-center">
-                          <p className="text-4xl font-bold text-gray-300">
-                            Rp{formatCurrency(plan.servicePrice)}
-                          </p>
-                          <p className="text-xs text-gray-500 mt-1">
-                            Harga Jasa (Sekali Bayar)
-                          </p>
-                        </div>
-
-                        <div className="bg-black/50 rounded p-3 text-sm">
-                          <p className="text-gray-400">
-                            <span className="font-semibold text-white">
-                              Hosting:
-                            </span>{" "}
-                            Rp{formatCurrency(plan.hostingMonthly)}/bulan
-                          </p>
-                          <p className="text-gray-500 text-xs mt-1">
-                            = Rp{formatCurrency(hostingAnnual)}/tahun
-                          </p>
-                        </div>
-
-                        <div className="bg-gray-800/20 rounded p-3 text-sm">
-                          <p className="text-gray-400 flex justify-between">
-                            <span>Total/Tahun:</span>
-                            <span className="font-bold text-white">
-                              Rp{formatCurrency(total)}
-                            </span>
-                          </p>
-                          <p className="text-gray-500 text-xs mt-1">
-                            Jasa: {servicePercentage}% • Hosting:{" "}
-                            {(100 - parseFloat(servicePercentage)).toFixed(1)}%
-                          </p>
-                          <p className="text-red-400 text-xs mt-2 font-semibold">
-                            ⚠️ Harga bisa berubah!
-                          </p>
-                        </div>
-                      </div>
-
-                      <ul className="mt-6 space-y-2 mb-6 flex-1">
-                        {plan.features.map((feat, i) => (
-                          <li
-                            key={i}
-                            className="flex items-center gap-2 text-gray-400 text-sm"
-                          >
-                            {getFeatureIcon(feat)}
-                            <span>{feat}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <a
-                        href="#contact"
-                        className="cursor-target block w-full py-2.5 rounded-md font-semibold transition text-white uppercase text-sm tracking-wide bg-gray-700 hover:bg-gray-600 text-center"
+                {category.plans.map((plan, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    className={`relative p-6 rounded-lg border-2 transition duration-300 hover:scale-105 flex flex-col ${
+                      plan.recommended
+                        ? "border-gray-500 bg-gray-900 shadow-xl shadow-gray-500/20"
+                        : "border-stone-800 bg-gray-900/40"
+                    }`}
+                  >
+                    {plan.recommended && (
+                      <span
+                        className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-sm bg-gray-700 font-bold"
+                        style={{ zIndex: 20 }}
                       >
-                        {plan.cta}
-                      </a>
-                    </motion.div>
-                  );
-                })}
+                        BEST VALUE
+                      </span>
+                    )}
+
+                    <h4 className="text-2xl font-bold text-white font-mono">
+                      {plan.name}
+                    </h4>
+                    <p className="text-gray-400 text-sm mt-2 min-h-10">
+                      {plan.description}
+                    </p>
+
+                    <div className="mt-6 pb-6 border-b border-dashed border-stone-700">
+                      <div className="text-center">
+                        <p className="text-5xl font-bold text-white">
+                          ${formatUSD(plan.priceUsd)}
+                        </p>
+                        <p className="text-xs text-gray-500 mt-1">
+                          one-time development fee
+                        </p>
+                      </div>
+                      <div className="bg-black/50 rounded p-3 text-sm mt-5 text-center">
+                        <p className="text-gray-300">
+                          ✅ Full code ownership • No recurring dev fees
+                        </p>
+                      </div>
+                    </div>
+
+                    <ul className="mt-6 space-y-2 mb-6 flex-1">
+                      {plan.features.map((feat, i) => (
+                        <li
+                          key={i}
+                          className="flex items-center gap-2 text-gray-400 text-sm"
+                        >
+                          {getFeatureIcon()}
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <a
+                      href="#contact"
+                      className="block w-full py-2.5 rounded-md font-semibold transition text-white uppercase text-sm tracking-wide bg-gray-700 hover:bg-gray-600 text-center"
+                    >
+                      {plan.cta}
+                    </a>
+                  </motion.div>
+                ))}
               </div>
             </div>
           ))}
 
-          <div className="mt-16 md:text-center text-gray-500 text-sm space-y-2">
+          {/* Bagian Hosting - Referensi harga dari Hostinger */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="mt-20 border-t border-dashed border-stone-800 pt-12"
+          >
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center gap-2 bg-gray-800/50 px-4 py-2 rounded-full mb-6">
+                <FaServer className="text-gray-400" />
+                <span className="text-gray-300 text-sm font-mono">
+                  HOSTING REFERENCE PRICING (HOSTINGER)
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold text-white">
+                Choose your hosting plan separately
+              </h3>
+              <p className="text-gray-400 mt-2 text-sm">
+                You can buy hosting directly from providers. Here's an example
+                of real market prices (Hostinger, 48‑month term):
+              </p>
+
+              <div className="grid md:grid-cols-3 gap-6 mt-10 text-left">
+                {/* Paket Premium (Hostinger) */}
+                <div className="bg-gray-900/40 border border-stone-800 rounded-lg p-5">
+                  <h4 className="text-xl font-bold text-white">Premium</h4>
+                  <p className="text-gray-400 text-xs mt-1">
+                    For small websites
+                  </p>
+                  <div className="mt-3">
+                    <span className="text-gray-500 line-through text-sm">
+                      $11.99
+                    </span>
+                    <div className="text-3xl font-bold text-white">$2.99</div>
+                    <p className="text-gray-400 text-xs">
+                      per month +3 mo free
+                    </p>
+                    <p className="text-gray-500 text-xs mt-2">
+                      48 months total: $143.52 (regular $575.52)
+                    </p>
+                    <p className="text-gray-500 text-xs">Renews at $10.99/mo</p>
+                  </div>
+                  <ul className="mt-4 space-y-1 text-gray-400 text-xs">
+                    <li>✓ Up to 3 websites</li>
+                    <li>✓ 20 GB SSD storage</li>
+                    <li>✓ Free domain 1 year</li>
+                    <li>✓ Free SSL & backups</li>
+                  </ul>
+                </div>
+
+                {/* Paket Business */}
+                <div className="bg-gray-900/40 border border-stone-800 rounded-lg p-5 relative">
+                  <span className="absolute -top-2 left-4 bg-cyan-600 text-white text-xs px-2 py-0.5 rounded-full">
+                    POPULAR
+                  </span>
+                  <h4 className="text-xl font-bold text-white">Business</h4>
+                  <p className="text-gray-400 text-xs mt-1">
+                    For growing businesses
+                  </p>
+                  <div className="mt-3">
+                    <span className="text-gray-500 line-through text-sm">
+                      $18.99
+                    </span>
+                    <div className="text-3xl font-bold text-white">$3.99</div>
+                    <p className="text-gray-400 text-xs">
+                      per month +3 mo free
+                    </p>
+                    <p className="text-gray-500 text-xs mt-2">
+                      48 months total: $191.52 (regular $911.52)
+                    </p>
+                    <p className="text-gray-500 text-xs">Renews at $16.99/mo</p>
+                  </div>
+                  <ul className="mt-4 space-y-1 text-gray-400 text-xs">
+                    <li>✓ Up to 50 websites</li>
+                    <li>✓ 50 GB NVMe storage</li>
+                    <li>✓ 5 mailboxes per site</li>
+                    <li>✓ Managed Node.js apps</li>
+                  </ul>
+                </div>
+
+                {/* Paket Cloud Startup */}
+                <div className="bg-gray-900/40 border border-stone-800 rounded-lg p-5">
+                  <h4 className="text-xl font-bold text-white">
+                    Cloud Startup
+                  </h4>
+                  <p className="text-gray-400 text-xs mt-1">
+                    High‑traffic & e‑commerce
+                  </p>
+                  <div className="mt-3">
+                    <span className="text-gray-500 line-through text-sm">
+                      $27.99
+                    </span>
+                    <div className="text-3xl font-bold text-white">$7.99</div>
+                    <p className="text-gray-400 text-xs">
+                      per month +3 mo free
+                    </p>
+                    <p className="text-gray-500 text-xs mt-2">
+                      48 months total: $383.52 (regular $1,343.52)
+                    </p>
+                    <p className="text-gray-500 text-xs">Renews at $25.99/mo</p>
+                  </div>
+                  <ul className="mt-4 space-y-1 text-gray-400 text-xs">
+                    <li>✓ Up to 100 websites</li>
+                    <li>✓ 100 GB NVMe storage</li>
+                    <li>✓ Dedicated IP & priority support</li>
+                    <li>✓ 4 GB RAM, 100 PHP workers</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-6 text-center">
+                <p className="text-gray-500 text-xs">
+                  * Prices are for illustration based on Hostinger 48‑month
+                  promo (Nov 2024). You can buy directly or ask me to handle
+                  setup.
+                </p>
+              </div>
+
+              {/* Opsi bantuan setup tetap ada */}
+              <div className="mt-8 bg-gray-800/20 rounded-lg p-4 border border-dashed border-stone-700">
+                <p className="text-gray-300 text-sm flex items-center justify-center gap-2">
+                  <FaQuestionCircle className="text-gray-500" />
+                  Need help choosing or setting up hosting?
+                  <a
+                    href="#contact"
+                    className="text-white underline font-semibold hover:text-gray-300"
+                  >
+                    Let's talk →
+                  </a>
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Footer lama dipertahankan */}
+          <div className="mt-16 md:text-center text-gray-500 text-sm space-y-2 border-t border-dashed border-stone-800 pt-8">
+            <p>✅ You own the code. Full rights, no lock‑ins.</p>
             <p>
-              ✅ Harga jasa sudah termasuk setup hosting gratis via Hostinger
+              ✅ Free guidance to set up hosting on Vercel / Netlify (or your
+              preferred provider).
             </p>
-            <p>✅ Biaya hosting berlanjut per bulan (langsung ke Hostinger)</p>
+            <p>✅ Free performance audit after 6 months.</p>
+            <p className="text-gray-600">
+              * Hosting costs are separate and billed by your chosen provider.
+            </p>
           </div>
         </div>
       </div>

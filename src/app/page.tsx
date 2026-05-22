@@ -35,13 +35,14 @@ export default function Home() {
 
         {/* Skathes 1: Social Proof + Urgensi */}
         <Skathes>
-          <div className="space-y-2">
+          <div className="space-y-2 text-center max-w-xl mx-auto">
             <p className="text-white text-lg font-bold tracking-wide">
-              ⚡ Sudah 50+ pemilik bisnis kuliner & coffee shop percaya pada
-              kami
+              📁 5 live portfolio projects — ready to show you what I can do
             </p>
             <p className="text-gray-400 text-sm">
-              Pesanan online mereka naik rata-rata 2.5x dalam 1 bulan pertama
+              From company profiles to landing pages. Built with Next.js,
+              Tailwind, and a focus on performance. Let me bring the same
+              quality to your brand.
             </p>
           </div>
         </Skathes>
@@ -64,23 +65,38 @@ export default function Home() {
         <Faq />
         <Contact />
 
-        {/* Skathes 3: CTA terakhir + garansi */}
+        {/* Skathes 3: Optimized CTA + Guarantee */}
         <Skathes>
-          <div className="space-y-2">
-            <p className="text-white text-lg font-bold">
-              🎯 Siap tingkatkan penjualan bisnismu?
+          <div className="space-y-3 text-center max-w-2xl mx-auto">
+            <p className="text-white text-2xl md:text-3xl font-bold tracking-tight">
+              Ready to grow your business online?
             </p>
-            <p className="text-gray-400 text-sm">
-              Konsultasi 30 menit GRATIS.{" "}
-              <span className="font-bold">Tanpa ribet, tanpa kewajiban.</span>
+            <p className="text-gray-300 text-base">
+              Get a{" "}
+              <span className="text-white font-semibold">
+                free 30‑min consultation
+              </span>{" "}
+              – no pressure, no hidden fees. Just honest advice and a clear
+              roadmap.
             </p>
-
-            <a
-              href="#contact"
-              className="cursor-target cursor-pointer inline-block mt-2 bg-gray-700 hover:bg-gray-600 text-white px-4 py-1.5 rounded-md text-sm font-semibold transition"
-            >
-              Ya, Saya Mau Konsultasi →
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
+              <a
+                href="#contact"
+                className="inline-block bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-md font-semibold transition transform hover:-translate-y-1"
+              >
+                Start your free consultation →
+              </a>
+              <a
+                href="#pricing"
+                className="inline-block border border-gray-600 text-gray-300 hover:text-white hover:border-gray-400 px-6 py-3 rounded-md font-medium transition"
+              >
+                See pricing first
+              </a>
+            </div>
+            <p className="text-gray-500 text-xs mt-4">
+              ✅ No obligation • 24/7 support • 100% money‑back guarantee if
+              you're not satisfied within 14 days.
+            </p>
           </div>
         </Skathes>
         <Footer />

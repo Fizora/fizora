@@ -13,17 +13,17 @@ const SERVICES: Service[] = [
   {
     icon: <FaCode />,
     title: "Clean Code",
-    desc: "Struktur kode rapi, mudah dikelola, dan SEO friendly.",
+    desc: "Clean code structure, easy maintenance, and SEO friendly.",
   },
   {
     icon: <FaPalette />,
-    title: "Desain Modern",
-    desc: "UI/UX menarik dengan animasi halus & responsif.",
+    title: "Modern Design",
+    desc: "Modern UI/UX, and seamless experience across devices.",
   },
   {
     icon: <FaRocket />,
-    title: "Optimasi Kecepatan",
-    desc: "Load time cepat, skor Lighthouse 90+.",
+    title: "Speed Optimization",
+    desc: "Fast load time, with Lighthouse up to 90+.",
   },
 ];
 
@@ -51,11 +51,12 @@ const About = () => {
             className="md:text-center mx-auto border-y border-dashed border-stone-800 py-20 p-4"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white font-mono">
-              Tentang <span className="text-gray-400">Fizora</span>
+              About <span className="text-gray-400">Fizora</span>
             </h2>
             <p className="text-gray-400 mt-4 mx-auto max-w-2xl">
-              Saya adalah web developer profesional dengan pengalaman 3+ tahun
-              membantu brand meningkatkan penjualan melalui website berkualitas.
+              I am a professional web developer with over 3 years of experience
+              helping brands improve their efficiency and professionalism
+              through high-quality websites.
             </p>
           </motion.div>
 
@@ -96,7 +97,7 @@ const About = () => {
               href="#contact"
               className="cursor-target inline-block bg-gray-700 hover:bg-gray-600 text-white px-8 py-3 rounded-md font-semibold transition transform hover:-translate-y-1"
             >
-              Konsultasi Gratis →
+              Free Consultation →
             </a>
           </div>
         </div>

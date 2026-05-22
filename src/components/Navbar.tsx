@@ -30,36 +30,39 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Main navigation items (English)
   const mainNavItems: NavItem[] = [
-    { name: "Beranda", url: "#home" },
-    { name: "Tentang", url: "#about" },
-    { name: "Harga", url: "#pricing" },
+    { name: "Home", url: "#home" },
+    { name: "About", url: "#about" },
+    { name: "Pricing", url: "#pricing" },
     {
-      name: "Proyek",
+      name: "Projects",
       isDropdown: true,
       dropdownItems: [
-        { name: "Proyek Unggulan", url: "#projects" },
-        { name: "Proyek", url: "/projects" },
+        { name: "Featured Projects", url: "#projects" },
+        { name: "All Projects", url: "/projects" },
       ],
     },
     { name: "FAQ", url: "#faq" },
   ];
 
+  // Right side buttons (CTA)
   const rightButtons: NavItem[] = [
     {
-      name: "Hubungi Kami",
+      name: "Contact",
       url: "#contact",
       style:
         "p-2 cursor-target text-gray-300 hover:text-gray-400 transition duration-200",
     },
     {
-      name: "Semua Proyek Saya ✨",
+      name: "All Projects ✨",
       url: "/projects",
       style:
         "cursor-target bg-gray-700 rounded-md px-4 py-2 text-white hover:bg-gray-600 transition duration-300 ease-in-out transform active:-translate-y-1 font-black font-mono",
     },
   ];
 
+  // Mobile menu items (combine main + right buttons, hide duplicates)
   const mobileMenuItems: NavItem[] =
     pathname === "/projects" || pathname === "/testimony"
       ? [...rightButtons]

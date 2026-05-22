@@ -22,7 +22,6 @@ import Skathes from "@/components/Skathes";
 import Footer from "@/components/Footer";
 import Contact from "@/components/section/Contact";
 
-// Change the map type from React.ElementType to IconType
 const categoryIconMap: Record<string, IconType> = {
   Space: LuRocket,
   News: LuNewspaper,
@@ -34,12 +33,10 @@ const categoryIconMap: Record<string, IconType> = {
   Fashion: LuShoppingBag,
 };
 
-// Explicitly annotate the return type as IconType
 const getCategoryIcon = (category: string): IconType => {
   return categoryIconMap[category] || LuRocket;
 };
 
-// Data proyek dengan gambar hanya untuk yang benar-benar tersedia
 const allProjects = [
   {
     id: 1,
@@ -47,8 +44,8 @@ const allProjects = [
     category: "Space",
     status: "Live",
     description:
-      "Company profile untuk perusahaan antariksa fiktif. Teknologi: Next.js, Tailwind, Framer Motion.",
-    img: "/orion-forge.png",
+      "Company profile for a fictional space company. Tech: Next.js, Tailwind, Framer Motion.",
+    img: "/orion.png",
     link: "https://orion-forge.vercel.app",
   },
   {
@@ -57,7 +54,7 @@ const allProjects = [
     category: "News",
     status: "Live",
     description:
-      "Portal berita real-time dengan filter kategori & pencarian. Demonstrasi CMS dinamis.",
+      "Real-time news portal with category filters & search. Dynamic CMS demo.",
     img: "/nebula-news.png",
     link: "https://nebula-news.vercel.app",
   },
@@ -67,7 +64,7 @@ const allProjects = [
     category: "Bank",
     status: "Live",
     description:
-      "Landing page perbankan modern dengan efek glassmorphism & layout responsif.",
+      "Modern banking landing page with glassmorphism & responsive layout.",
     img: "/stellar-bank.png",
     link: "https://stellar-bank-industries.vercel.app",
   },
@@ -77,7 +74,7 @@ const allProjects = [
     category: "Bank",
     status: "Coming Soon",
     description:
-      "Website perusahaan konsultan keuangan dengan navigasi kompleks & animasi halus.",
+      "Financial consulting website with complex navigation & smooth animations.",
     img: "",
     link: "#",
   },
@@ -87,7 +84,7 @@ const allProjects = [
     category: "Otomotif",
     status: "Coming Soon",
     description:
-      "Platform showcase mobil mewah dengan galeri interaktif & form inquiry.",
+      "Luxury car showcase platform with interactive gallery & inquiry form.",
     img: "",
     link: "#",
   },
@@ -97,7 +94,7 @@ const allProjects = [
     category: "Cafe",
     status: "Live",
     description:
-      "Website kafe modern: menu digital, sistem reservasi meja, galeri produk.",
+      "Modern cafe website: digital menu, table reservation, product gallery.",
     img: "/neza-cafe.png",
     link: "https://neza-cafe.vercel.app",
   },
@@ -107,7 +104,7 @@ const allProjects = [
     category: "Sports",
     status: "Coming Soon",
     description:
-      "Landing page membership gym dengan pricing card & jadwal kelas interaktif.",
+      "Gym membership landing page with pricing cards & interactive class schedule.",
     img: "",
     link: "#",
   },
@@ -117,7 +114,7 @@ const allProjects = [
     category: "Creative",
     status: "Coming Soon",
     description:
-      "Portfolio fotografer profesional: lightbox gallery & sistem booking online.",
+      "Professional photography portfolio: lightbox gallery & online booking system.",
     img: "",
     link: "#",
   },
@@ -127,15 +124,14 @@ const allProjects = [
     category: "Fashion",
     status: "Live",
     description:
-      "E-commerce fashion dengan filter produk & keranjang belanja sederhana.",
+      "Fashion e-commerce with product filters & simple shopping cart.",
     img: "/aurelian.png",
     link: "https://aurelian-fashion.vercel.app",
   },
 ];
 
-const categories = ["Semua", ...new Set(allProjects.map((p) => p.category))];
+const categories = ["All", ...new Set(allProjects.map((p) => p.category))];
 
-// Badge style: netral (gray scale)
 const getStatusBadgeStyle = (status: string) => {
   switch (status.toLowerCase()) {
     case "live":
@@ -157,11 +153,11 @@ const getDisplayStatus = (status: string) => {
 
 export default function ProjectsPage() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("Semua");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filteredProjects = useMemo(() => {
     let result = allProjects;
-    if (selectedCategory !== "Semua") {
+    if (selectedCategory !== "All") {
       result = result.filter((p) => p.category === selectedCategory);
     }
     if (searchTerm.trim() !== "") {
@@ -186,31 +182,27 @@ export default function ProjectsPage() {
             “Real skills, proven by real demos”
           </p>
           <p className="text-gray-400 text-sm">
-            Setiap proyek di bawah adalah bukti konkret kemampuan saya. Siap
-            diadaptasi 100% untuk kebutuhan Anda.
+            Every project below is a concrete proof of my abilities. Ready to be
+            adapted 100% to your needs.
           </p>
         </div>
       </Skathes>
 
       <div className="mx-4 border-y border-dashed border-stone-800">
         <div className="max-w-6xl mx-auto border-x border-dashed border-stone-800 py-10 md:py-16">
-          {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold">
               Demo <span className="text-gray-300">Portfolio</span>
             </h1>
             <p className="text-gray-400 mt-2 max-w-xl mx-auto">
-              Belum ada klien? Tidak masalah. Ini adalah hasil eksplorasi saya
-              dengan Next.js, Tailwind, TypeScript — semua siap
-              diimplementasikan untuk bisnis Anda.
+              These are my exploration projects with Next.js, Tailwind,
+              TypeScript — all ready to be implemented for your business.
             </p>
             <p className="text-gray-500 text-sm mt-2">
-              * Setiap proyek demonstrasi menunjukkan kecepatan, kode bersih,
-              dan performa optimal.
+              * Each demo showcases speed, clean code, and optimal performance.
             </p>
           </div>
 
-          {/* Filter & Search */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-12 border-y border-dashed border-stone-800 px-4 sm:px-6">
             <div className="flex flex-wrap gap-2 justify-center">
               {categories.map((cat) => (
@@ -232,7 +224,7 @@ export default function ProjectsPage() {
               <LuSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
               <input
                 type="text"
-                placeholder="Cari proyek, kategori..."
+                placeholder="Search projects, categories..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full bg-gray-900 border-x border-dashed border-stone-800 py-2 pl-10 pr-10 text-white focus:outline-none focus:border-gray-500"
@@ -248,10 +240,9 @@ export default function ProjectsPage() {
             </div>
           </div>
 
-          {/* Grid Proyek */}
           {filteredProjects.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-gray-500">Tidak ada proyek yang cocok.</p>
+              <p className="text-gray-500">No matching projects found.</p>
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 p-4 border-y border-dashed border-stone-800">
@@ -269,7 +260,6 @@ export default function ProjectsPage() {
                     transition={{ delay: idx * 0.05 }}
                     className="relative bg-gray-900/30 border border-dashed border-stone-800 overflow-hidden hover:border-gray-500 transition group"
                   >
-                    {/* Badge Status */}
                     <span
                       className={`absolute top-3 right-3 z-20 px-3 py-1 text-xs font-bold rounded-full shadow-lg ${getStatusBadgeStyle(
                         project.status,
@@ -278,7 +268,6 @@ export default function ProjectsPage() {
                       {getDisplayStatus(project.status)}
                     </span>
 
-                    {/* Image / Fallback Icon */}
                     <div className="relative h-52 w-full bg-gray-800 flex items-center justify-center">
                       {hasValidImage ? (
                         <Image
@@ -297,7 +286,6 @@ export default function ProjectsPage() {
                       )}
                     </div>
 
-                    {/* Content */}
                     <div className="p-5">
                       <div>
                         <h3 className="text-xl font-semibold text-white">
@@ -317,11 +305,11 @@ export default function ProjectsPage() {
                           rel="noopener noreferrer"
                           className="mt-4 inline-flex items-center gap-1 text-gray-400 hover:text-white text-sm font-medium transition"
                         >
-                          Kunjungi Demo <LuArrowUpRight size={16} />
+                          View Demo <LuArrowUpRight size={16} />
                         </Link>
                       ) : (
                         <span className="mt-4 inline-block text-gray-500 text-sm">
-                          (Tersedia saat rilis)
+                          (Available upon release)
                         </span>
                       )}
                     </div>
@@ -331,34 +319,31 @@ export default function ProjectsPage() {
             </div>
           )}
 
-          {/* Penegasan kredibilitas */}
           {filteredProjects.length > 0 && (
             <div className="text-center mt-8 text-gray-500 text-sm border-t border-dashed border-stone-800 pt-6">
               <p>
-                💡 Semua proyek ini adalah karya demonstrasi. Saya dapat
-                membangun website serupa dengan cepat dan sesuai spesifikasi
-                Anda. Konsultasi gratis — tanpa kewajiban.
+                💡 All these projects are demonstration works. I can build a
+                similar website quickly and tailored to your specifications.
+                Free consultation — no obligation.
               </p>
             </div>
           )}
 
-          {/* CTA */}
           <div className="text-center mt-16">
             <Link
               href="/#contact"
               className="inline-block bg-white text-black px-6 py-3 rounded-md font-semibold transition hover:bg-gray-200 hover:-translate-y-0.5"
             >
-              Konsultasikan Kebutuhan Anda →
+              Discuss Your Project →
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Tombol kembali ke atas */}
       <Link
         href="#beranda"
         className="fixed bottom-6 right-6 bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-full shadow-lg transition hover:scale-110 z-40"
-        aria-label="Kembali ke atas"
+        aria-label="Back to top"
       >
         <svg
           className="w-6 h-6"
@@ -379,10 +364,11 @@ export default function ProjectsPage() {
       <Skathes>
         <div className="text-center space-y-2">
           <p className="text-white text-lg md:text-xl font-bold tracking-wide italic">
-            “Siap wujudkan website impian Anda? Mulai dari konsultasi gratis.”
+            “Ready to bring your dream website to life? Start with a free
+            consultation.”
           </p>
           <p className="text-gray-400 text-sm">
-            Kualitas dan kecepatan — itulah yang saya tawarkan. Tanpa basa-basi.
+            Quality and speed — that's what I deliver. No fluff.
           </p>
         </div>
       </Skathes>

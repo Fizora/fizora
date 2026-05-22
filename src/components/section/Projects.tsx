@@ -28,7 +28,7 @@ const projectsData: Project[] = [
   {
     title: "Orion Forge ",
     category: "Demo Live",
-    img: "/orion-forge.png",
+    img: "/orion.png",
     link: "https://orion-forge.vercel.app",
   },
   {
@@ -94,7 +94,7 @@ const Projects = () => {
                     className="mt-3 text-sm bg-gray-600 text-white md:opacity-0 group-hover:opacity-100 transition md:w-max md:bg-gray-600 px-4 py-2 rounded-md hover:bg-gray-500"
                     aria-label={`Lihat website ${project.title}`}
                   >
-                    Lihat Website →
+                    See Website →
                   </a>
                 </div>
               </motion.div>
@@ -106,14 +106,14 @@ const Projects = () => {
               href="#contact"
               className="cursor-target border bg-gray-700 border-gray-700 text-white font-bold px-6 py-2 rounded-md transition flex items-center gap-2 hover:bg-gray-600"
             >
-              Konsultasi Proyek Anda
+              Contact Me
               <FaWhatsapp size={22} />
             </Link>
             <Link
               href="/projects"
               className="cursor-target flex items-center border border-gray-300 bg-white text-black font-bold px-6 py-2 rounded-md transition hover:bg-gray-100"
             >
-              Lihat Semua Proyek
+              See all Projects
               <LuArrowUpRight className="ml-2" />
             </Link>
           </div>

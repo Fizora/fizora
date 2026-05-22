@@ -10,34 +10,50 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: "Berapa lama proses pembuatan website?",
+    question: "How long does it take to build my website?",
     answer:
-      "Proses pembuatan website tergantung paket yang dipilih. Basic Landing Page selesai dalam 2-3 hari, Standard dalam 3-5 hari, dan Premium bisa lebih lama tergantung kompleksitas. Kami prioritaskan kualitas dan kepuasan klien.",
+      "For a standard landing page or company profile (Essential or Standard plan), expect 3–7 days from start to finish. More complex sites (Premium and above) take 10–14 days. I work efficiently without cutting corners, and you'll receive updates every 48 hours.",
   },
   {
-    question: "Apakah website akan SEO friendly?",
+    question: "Will my website be SEO-friendly and fast?",
     answer:
-      "Ya, semua website yang kami buat menggunakan best practice SEO. Mulai dari struktur HTML yang clean, meta tags yang optimal, fast loading time, hingga mobile responsiveness. Paket Standard dan Premium mendapat optimasi SEO lebih mendalam.",
+      "Absolutely. Every site I build follows Next.js best practices: server-side rendering where needed, optimized images, and proper meta tags. You'll get a Lighthouse score of 90+ on desktop and mobile. Basic on‑page SEO (titles, descriptions, semantic HTML) is included in all plans.",
   },
   {
-    question: "Apa yang termasuk dalam paket hosting?",
+    question: "Do I need to pay for hosting through you?",
     answer:
-      "Kami menyediakan setup hosting gratis untuk semua paket. Termasuk konfigurasi domain, SSL certificate, dan CDN untuk performa maksimal. Support teknis untuk hosting tersedia selama kontrak berlaku.",
+      "No. You can buy hosting directly from Vercel, Netlify, or Hostinger (I'll guide you for free). If you'd rather I handle everything, I offer a one‑time setup fee + the actual hosting cost — no hidden markups. Hosting typically costs $5–20/month depending on traffic.",
   },
   {
-    question: "Bagaimana jika saya mau revisi setelah project selesai?",
+    question: "What happens if I want changes after the site is live?",
     answer:
-      "Setiap paket sudah termasuk revisi tertentu (Basic 1x, Standard 3x, Premium 5x). Revisi di luar paket bisa ditawarkan dengan biaya tambahan yang terjangkau. Kami selalu serius dalam membuat klien puas.",
+      "Each plan includes a set number of revision rounds (Essential: 1, Standard: 3, Premium: unlimited within 14 days). After that, I offer maintenance packages starting at $50/month for minor edits and updates. Or you can hire me on an hourly basis ($25/hour).",
   },
   {
-    question: "Bisakah website diintegrasikan dengan tools lain?",
+    question: "How do I pay? Is it safe?",
     answer:
-      "Sangat bisa! Website dapat diintegrasikan dengan WhatsApp Business, email marketing, analytics tools, payment gateway, dan berbagai platform lainnya sesuai kebutuhan bisnis Anda.",
+      "I accept payments via Wise, PayPal, or bank transfer. A 50% deposit is required to start, and the remaining 50% before final delivery. All transactions are tracked and invoiced. You're protected by our simple written agreement.",
   },
   {
-    question: "Berapa lama garansi dan support websitenya?",
+    question: "Do I own the code and design?",
     answer:
-      "Semua website mendapat garansi dan support teknis minimal selama 3 bulan setelah launch. Untuk paket tahunan, support bisa diperpanjang sesuai kebutuhan. Kami siap bantu jika ada masalah atau update.",
+      "100% yes. After final payment, you receive full ownership of the source code. There are no lock‑ins or monthly licensing fees. You're free to move hosting, hire another developer, or modify the code yourself.",
+  },
+  {
+    question: "What if something breaks after launch?",
+    answer:
+      "I provide 3 months of free bug fixes and technical support for all plans. If the issue is caused by a hosting change or third‑party API update, I'll help you fix it at a minimal cost. For ongoing peace of mind, I offer extended maintenance plans.",
+  },
+  {
+    question:
+      "Can you integrate my site with other tools (e.g., email, payments)?",
+    answer:
+      "Yes. I can connect your website to popular services like Mailchimp, ConvertKit, Stripe, WhatsApp Business, Calendly, and Google Analytics. Let me know which tools you use, and I'll include the integration in your quote.",
+  },
+  {
+    question: "Why should I choose you over a freelancer with more reviews?",
+    answer:
+      "Because I'm transparent, responsive, and hungry to prove myself. I don't have hundreds of fake testimonials — I have a clean portfolio and a straightforward process. You'll talk directly to me (no middlemen), and I'll work until you're satisfied. Plus, my prices are fair for the quality you get.",
   },
 ];
 
@@ -63,11 +79,11 @@ const Faq = () => {
             className="text-center max-w-2xl mx-auto mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white font-mono">
-              Pertanyaan <span className="text-gray-400">Umum</span>
+              <span className="text-gray-400">Got questions?</span> I've got
+              answers.
             </h2>
             <p className="text-gray-400 mt-4">
-              Temukan jawaban untuk pertanyaan yang sering diajukan tentang
-              layanan website kami.
+              Everything you need to know before making a decision.
             </p>
           </motion.div>
 
@@ -122,13 +138,14 @@ const Faq = () => {
             className="text-center mt-12"
           >
             <p className="text-gray-400 mb-4">
-              Masih ada pertanyaan lain? Hubungi kami sekarang!
+              Still have a question? I'm happy to hop on a 15‑min call (no
+              pressure).
             </p>
             <a
               href="#contact"
               className="cursor-target inline-block bg-gray-700 hover:bg-gray-600 text-white px-8 py-3 rounded-md font-semibold transition transform hover:-translate-y-1"
             >
-              Hubungi Kami →
+              Ask me anything →
             </a>
           </motion.div>
         </div>
