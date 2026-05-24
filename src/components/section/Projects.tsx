@@ -52,11 +52,12 @@ const Projects = () => {
             className="text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white font-mono">
-              Proyek <span className="text-gray-400">Demonstrasi</span>
+              Demo <span className="text-gray-400">Project</span>
             </h2>
             <p className="text-gray-400 mt-2 max-w-xl mx-auto">
-              Koleksi website modern dengan teknologi terbaru (Next.js &amp;
-              Tailwind) yang siap dikustomisasi untuk bisnis Anda.
+              A collection of modern websites built with the latest technologies
+              (Next.js & Tailwind) that are ready to be customized for your
+              business.
             </p>
           </motion.div>
 
