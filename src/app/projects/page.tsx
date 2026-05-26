@@ -115,10 +115,10 @@ const allProjects = [
     id: 8,
     title: "Prodigy Photography",
     category: "Landing Page",
-    status: "On Going",
+    status: "Live",
     description: "Landing Page for a Photographer's Branding and Portfolio",
-    img: "",
-    link: "#",
+    img: "/prodigy-photography.png",
+    link: "https://prodigy-photography.vercel.app",
   },
   {
     id: 9,
