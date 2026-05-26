@@ -35,7 +35,7 @@ const Hero = () => {
               I build fast, responsive company profiles and landing pages for
               startups, cafes, and small businesses. No bloated code. No fake
               promises. Just a clean web presence that works 24/7 — starting at
-              $300.
+              $500.
             </p>
             <div className="flex flex-wrap gap-4 mt-8 justify-start md:justify-center">
               <a
