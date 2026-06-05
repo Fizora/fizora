@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import ShinyText from "../react-bits/components/ShinyText";
 
 const Hero = () => {
   return (
@@ -20,10 +21,21 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="inline-flex items-center gap-2 bg-gray-900/80 backdrop-blur-sm border border-gray-700 rounded-full px-4 py-1.5 mb-6 mx-auto md:mx-0 md:inline-flex"
+              className="inline-flex font-bold items-center gap-2 bg-gray-900/80 backdrop-blur-sm border border-gray-700 rounded-full px-4 py-1.5 mb-6 mx-auto md:mx-0 md:inline-flex"
             >
               <span className="text-gray-300 text-sm font-medium">
-                🚀 Launch your brand online
+                <ShinyText
+                  text="✨ Trusted by Startups & Local Businesses"
+                  speed={2}
+                  delay={0}
+                  color="#b5b5b5"
+                  shineColor="#ffffff"
+                  spread={120}
+                  direction="left"
+                  yoyo={false}
+                  pauseOnHover={false}
+                  disabled={false}
+                />
               </span>
             </motion.div>
             <h1 className="text-4xl md:text-6xl font-black text-white mt-6 leading-tight font-mono">

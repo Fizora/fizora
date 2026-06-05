@@ -76,7 +76,7 @@ const allProjects = [
     id: 4,
     title: "GCBI",
     category: "Full-Stack Apps",
-    status: "Coming Soon",
+    status: "On Going",
     description: "Global Central Bank Industries Company Profile Landing Page",
     img: "",
     link: "#",

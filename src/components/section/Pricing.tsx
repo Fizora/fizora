@@ -19,15 +19,15 @@ const plans: Plan[] = [
       "Perfect for small businesses that need a fast and professional online presence.",
     priceUsd: 500,
     features: [
-      "1 custom-coded landing page",
-      "Mobile-first responsive design",
-      "High-performance website (Next.js)",
-      "Contact / lead capture form",
-      "Basic SEO setup",
-      "SSL & deployment assistance",
-      "Performance optimization",
+      "Custom landing page tailored to your business",
+      "Professional and modern design",
+      "Mobile-friendly on all devices",
+      "Fast-loading website experience",
+      "Contact & inquiry form",
+      "Google Maps integration",
+      "SEO-ready foundation",
+      "SSL security setup",
       "1 revision round",
-      "3-5 day delivery",
     ],
     recommended: false,
     cta: "Start Starter",
@@ -36,18 +36,17 @@ const plans: Plan[] = [
     name: "Business",
     description:
       "Professional website designed to build trust and convert visitors into customers.",
-    priceUsd: 1500,
+    priceUsd: 1200,
     features: [
       "Up to 5 custom pages",
-      "Custom UI tailored to your brand",
-      "Conversion-focused structure",
+      "Brand-focused custom design",
+      "Conversion-focused page structure",
+      "Professional copy guidance",
       "Testimonials & trust sections",
-      "Booking / inquiry forms",
-      "Advanced SEO structure",
-      "Google Analytics integration",
-      "Core Web Vitals optimization",
+      "Contact / booking forms",
+      "Advanced SEO setup",
+      "Performance optimization",
       "2 revision rounds",
-      "5-10 day delivery",
     ],
     recommended: true,
     cta: "Choose Business",
@@ -56,18 +55,17 @@ const plans: Plan[] = [
     name: "Premium",
     description:
       "Advanced custom website for businesses serious about online growth.",
-    priceUsd: 3500,
+    priceUsd: 2500,
     features: [
       "Up to 10 custom pages",
-      "More custom pages ($10/page)",
-      "Advanced animations & interactions",
-      "Priority performance optimization",
-      "Custom sections & reusable components",
-      "SEO-focused architecture",
-      "Email marketing integration",
+      "Premium custom design system",
+      "Advanced conversion-focused layouts",
+      "In-depth content research",
+      "Enhanced SEO foundation",
+      "Performance optimization (90+ Lighthouse target)",
+      "Custom interactions & animations",
       "Priority support (30 days)",
       "3 revision rounds",
-      "10-14 day delivery",
     ],
     recommended: false,
     cta: "Go Premium",
@@ -117,8 +115,10 @@ const Pricing = () => {
             className="text-center max-w-3xl mx-auto"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white font-mono">
-              Websites That{" "}
-              <span className="text-gray-400">Bring You Customers</span>
+              High-Performance{" "}
+              <span className="text-gray-400">
+                Websites for Small Businesses
+              </span>
             </h2>
             <p className="text-gray-400 mt-3 text-base">
               No fluff. No hidden fees. Just a high‑performing website that
@@ -148,7 +148,7 @@ const Pricing = () => {
                     transition={{ delay: idx * 0.1 }}
                     className={`relative p-6 rounded-lg border border-dashed transition duration-300 hover:scale-105 flex flex-col ${
                       plan.recommended
-                        ? "border-gray-500 bg-gray-900 shadow-xl shadow-white/20"
+                        ? "border-gray-500 bg-gray-900 shadow-xl shadow-gray-900/70"
                         : "border-stone-800 bg-gray-900/40"
                     }`}
                   >
